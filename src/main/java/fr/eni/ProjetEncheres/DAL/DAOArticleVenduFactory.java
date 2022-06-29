@@ -1,6 +1,8 @@
 package fr.eni.ProjetEncheres.DAL;
 
-import fr.eni.ProjetEncheres.DAO.Impl.ArticleVenduDAOImpl;
+import fr.eni.ProjetEncheres.DAL.JDBC.ArticleVenduDAOImpl;
+
+//import fr.eni.ProjetEncheres.DAO.Impl.ArticleVenduDAOImpl;
 
 public class DAOArticleVenduFactory {
 
