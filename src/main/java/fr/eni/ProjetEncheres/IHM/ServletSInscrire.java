@@ -20,7 +20,7 @@ public class ServletSInscrire extends HttpServlet{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	/**private static final long serialVersionUID = 1L;
 
 
 	public void init() throws ServletException {
@@ -74,5 +74,5 @@ public class ServletSInscrire extends HttpServlet{
 		
 		
 	}
-
+**/
 }

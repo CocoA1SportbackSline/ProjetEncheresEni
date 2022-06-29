@@ -51,20 +51,20 @@ public class ArticleVenduManager {
 		}
 	}
 	
-	public List<ArticleVendu> selectVenteEnCoursByNomByCategorie() throws BLLException{
+	public List<ArticleVendu> selectVenteEnCoursByNomByCategorie(int noUtilisateur) throws BLLException{
 		
 		try {
-			return articleVenduDAO.selectVenteEnCoursByNomByCategorie();
+			return articleVenduDAO.selectVenteEnCoursByNomByCategorie(noUtilisateur);
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			throw new BLLException ("selectVenteEnCoursByNomByCategorie",e);
 		}
 	}
 	
-	public List<ArticleVendu> selectByUtilisateur() throws BLLException{
+	public List<ArticleVendu> selectByUtilisateur(int noUtilisateur) throws BLLException{
 		
 		try {
-			return articleVenduDAO.selectByUtilisateur();
+			return articleVenduDAO.selectByUtilisateur(noUtilisateur);
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			throw new BLLException ("selectByUtilisateur",e);
@@ -81,20 +81,20 @@ public class ArticleVenduManager {
 		}
 	}
 	
-	public List<ArticleVendu> selectByUtilisateurEnCours() throws BLLException{
+	public List<ArticleVendu> selectByUtilisateurEnCours(int noUtilisateur) throws BLLException{
 		
 		try {
-			return articleVenduDAO.selectByUtilisateurEnCours();
+			return articleVenduDAO.selectByUtilisateurEnCours( noUtilisateur);
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			throw new BLLException ("selectByUtilisateurEnCours",e);
 		}
 	}
 	
-	public List<ArticleVendu> selectByUtilisateurNonCommencee() throws BLLException{
+	public List<ArticleVendu> selectByUtilisateurNonCommencee(int noUtilisateur) throws BLLException{
 	
 	        try {
-				return articleVenduDAO.selectByUtilisateurNonCommencee();
+				return articleVenduDAO.selectByUtilisateurNonCommencee(noUtilisateur);
 			} catch (DALException e) {
 				// TODO Auto-generated catch block
 				throw new BLLException ("selectByUtilisateurNonCommencee",e);
@@ -103,10 +103,10 @@ public class ArticleVenduManager {
 	         		
 	}    
 	
-	public 	List<ArticleVendu> selectByUtilisateurTerminee() throws BLLException{
+	public 	List<ArticleVendu> selectByUtilisateurTerminee(int noUtilisateur) throws BLLException{
 		
 		try {
-			return articleVenduDAO.selectByUtilisateurNonCommencee();
+			return articleVenduDAO.selectByUtilisateurNonCommencee(noUtilisateur);
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			throw new BLLException ("selectByUtilisateurTerminee",e);

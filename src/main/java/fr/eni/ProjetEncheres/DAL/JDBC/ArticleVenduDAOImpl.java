@@ -30,7 +30,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
 	private static final String SELECT_BY_CATEGORIE = "SELECT * FROM ARTICLES_VENDUS INNER JOIN CATEGORIES c"
 								+"on ARTICLES_VENDUES.no-categorie = c.no_categorie WHERE no_categorie = ?";
 	// article en cours par nom et catégorie
-	private static final String SELECT_EN_COURS_BY_NOM_BY_CATEGORIE = "SELECT * FORM ARTICLES_VENDUES WHERE (no_categorie = ? && nomArticle = ? && (date_debut_encheres != null) && (date_fin_encheres == null))";
+	private static final String SELECT_EN_COURS_BY_NOM_BY_CATEGORIE = "SELECT * FORM ARTICLES_VENDUES WHERE (no_categorie = ? && nomArticle like ? && (date_debut_encheres != null) && (date_fin_encheres == null))";
 	//toute les ventes en cours et finalisée par un vendeur
 	private static final String SELECT_BY_UTILISATEUR = "SELECT * FROM ARTICLES_VENDUES WHERE ( No_utilisateur= ? && (date_debut_encheres != null) && (date_fin_encheres != null)) values (?)";
 	// toutes les encheres en cours
