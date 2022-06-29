@@ -318,5 +318,4 @@ public List<ArticleVendu> selectByCategorie(Categorie categorie) throws DALExcep
 }
 
 
-
 }

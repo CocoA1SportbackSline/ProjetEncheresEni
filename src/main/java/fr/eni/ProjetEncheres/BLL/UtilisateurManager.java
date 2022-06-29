@@ -223,7 +223,7 @@ public class UtilisateurManager {
 				}	
 			}
 			if (verifPseudo == false) {
-				listError.add("Ce pseudo existe dÃ©jÃ ");
+				listError.add("Ce pseudo existe deja ");
 			}
 			return verifPseudo;	
 		}

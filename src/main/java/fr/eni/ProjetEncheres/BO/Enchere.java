@@ -1,18 +1,19 @@
 package fr.eni.ProjetEncheres.BO;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class Enchere {
 
-	private Integer noEnchere;
-	private Date dateEnchere;
+	private int noEnchere;
+	private LocalDateTime dateEnchere;
 	private Integer montantEnchere;
-	private Integer noArticle;
-	private Integer noUtilisateur;
+	private int noArticle;
+	private int noUtilisateur;
 	
 	
-	public Enchere(Integer noEnchere, Date dateEnchere, Integer montantEnchere, Integer noArticle,
-			Integer noUtilisateur) {
+	public Enchere(int noEnchere, LocalDateTime dateEnchere, int montantEnchere, int noArticle,
+			int noUtilisateur) {
 		super();
 		this.noEnchere = noEnchere;
 		this.dateEnchere = dateEnchere;
@@ -23,7 +24,7 @@ public class Enchere {
 
 	
 
-	public Enchere(Date date, Integer montantEnchere, Integer noArticle, Integer noUtilisateur) {
+	public Enchere(LocalDateTime date, int montantEnchere, int noArticle, int noUtilisateur) {
 		super();
 		this.dateEnchere = date;
 		this.montantEnchere = montantEnchere;
@@ -33,22 +34,22 @@ public class Enchere {
 
 
 
-	public Integer getNoEnchere() {
+	public int getNoEnchere() {
 		return noEnchere;
 	}
 
 
-	public void setNoEnchere(Integer noEnchere) {
+	public void setNoEnchere(int noEnchere) {
 		this.noEnchere = noEnchere;
 	}
 
 
-	public Date getDateEnchere() {
+	public LocalDateTime getDateEnchere() {
 		return dateEnchere;
 	}
 
 
-	public void setDateEnchere(Date dateEnchere) {
+	public void setDateEnchere(LocalDateTime dateEnchere) {
 		this.dateEnchere = dateEnchere;
 	}
 
@@ -58,27 +59,27 @@ public class Enchere {
 	}
 
 
-	public void setMontantEnchere(Integer montantEnchere) {
+	public void setMontantEnchere(int montantEnchere) {
 		this.montantEnchere = montantEnchere;
 	}
 
 
-	public Integer getNoArticle() {
+	public int getNoArticle() {
 		return noArticle;
 	}
 
 
-	public void setNoArticle(Integer noArticle) {
+	public void setNoArticle(int noArticle) {
 		this.noArticle = noArticle;
 	}
 
 
-	public Integer getNoUtilisateur() {
+	public int getNoUtilisateur() {
 		return noUtilisateur;
 	}
 
 
-	public void setNoUtilisateur(Integer noUtilisateur) {
+	public void setNoUtilisateur(int noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
 

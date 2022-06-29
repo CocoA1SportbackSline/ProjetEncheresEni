@@ -12,5 +12,5 @@ public interface EnchereDAO {
 	void update (Enchere e1) throws DALException;
 	List <Enchere> selectAll () throws DALException;
 	Enchere selectByNoEnch (Integer noEnchere) throws DALException;
-	
+	Enchere recupEnchereMax(int id_article) throws DALException;
 }
