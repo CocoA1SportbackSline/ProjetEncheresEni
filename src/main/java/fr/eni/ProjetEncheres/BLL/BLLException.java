@@ -1,6 +1,10 @@
 package fr.eni.ProjetEncheres.BLL;
 
 public class BLLException extends Exception {
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 
 	//Constructeurs
 		public BLLException() {
@@ -16,7 +20,7 @@ public class BLLException extends Exception {
 		}
 		
 		
-		//Méthodes
+		//Mï¿½thodes
 		@Override
 		public String getMessage() {
 		StringBuffer sb = new StringBuffer("Couche DAL - ");
@@ -26,5 +30,8 @@ public class BLLException extends Exception {
 		}
 }
 
+<<<<<<< HEAD
 	
 
+=======
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
