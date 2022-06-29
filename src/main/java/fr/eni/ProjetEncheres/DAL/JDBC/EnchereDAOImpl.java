@@ -57,7 +57,7 @@ public class EnchereDAOImpl implements EnchereDAO{
 			pstmt.executeUpdate();
 				
 		} catch (SQLException e) {
-			throw new DALException("Delete enchère failed - id=" + noEnchere, e);
+			throw new DALException("Delete enchï¿½re failed - id=" + noEnchere, e);
 		} 
 		
 	}
@@ -68,7 +68,7 @@ public class EnchereDAOImpl implements EnchereDAO{
 		try(Connection conn = ConnectionProvider.getConnection();){        
     		PreparedStatement pstmt = conn.prepareStatement(UPDATE);
     		
-    		//pstmt.setDate(1,e1.getDateEnchere());
+    		pstmt.setDate(1,e1.getDateEnchere());
     		pstmt.setInt(2,e1.getMontantEnchere());
 			pstmt.setInt(3,e1.getNoArticle());
 			pstmt.setInt(4,e1.getNoArticle());
@@ -94,8 +94,13 @@ public class EnchereDAOImpl implements EnchereDAO{
 
 			Enchere enchereAjout = null;
 			while (rs.next()) {
-				// utilisation du conscruteur Categorie
-				//enchereAjout = new Enchere(rs.getLocalDate("date_enchere"), rs.getInt("montant_enchere"), rs.getInt("no_article"), rs.getInt("no_utilisateur"));
+<<<<<<< HEAD
+		
+			enchereAjout = new Enchere(rs.getDate("date_enchere"), rs.getInt("montant_enchere"), rs.getInt("no_article"), rs.getInt("no_utilisateur"));
+=======
+				//utilisation du conscruteur Categorie
+				enchereAjout = new Enchere(rs.getDate("date_enchere").toLocalDate(), rs.getInt("montant_enchere"), rs.getInt("no_article"), rs.getInt("no_utilisateur"));
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 				listeEnchere.add(enchereAjout);
 			}
 
@@ -106,7 +111,7 @@ public class EnchereDAOImpl implements EnchereDAO{
 		return listeEnchere;
 	}
 
-	/*@Override
+	@Override
 	public Enchere selectByNoEnch(Integer noEnchere) throws DALException {
 		
 		try( Connection conn = ConnectionProvider.getConnection();){
@@ -118,14 +123,14 @@ public class EnchereDAOImpl implements EnchereDAO{
 			ResultSet rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				return new Enchere (rs.getLocalDate("date_enchere"), rs.getInt("montant_enchere"), rs.getInt("no_article"), rs.getInt("no_utilisateur"));
+				return new Enchere (rs.getDate("date_enchere"), rs.getInt("montant_enchere"), rs.getInt("no_article"), rs.getInt("no_utilisateur"));
 			} else  {
 				throw new DALException("Mauvais ID");
 			}
 		} catch (SQLException e) {
 			throw new DALException("selectByNoEnch failed - id = " + noEnchere, e);
 		} 
-	}*/
+	}
 	
 	
 

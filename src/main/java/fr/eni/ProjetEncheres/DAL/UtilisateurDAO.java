@@ -15,7 +15,7 @@ public interface UtilisateurDAO {
 	
 	public List<Utilisateur> selectAll() throws DALException ;
 	
-	public void insert(Utilisateur u) throws DALException;
+	public void insert(Utilisateur u) throws DALException; 
 
 	public Utilisateur getselectByID(int id)throws DALException;
 

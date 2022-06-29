@@ -1,7 +1,14 @@
 package fr.eni.ProjetEncheres.BLL;
 
 public class BLLException extends Exception {
+<<<<<<< HEAD
 //<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 
 	//Constructeurs
 		public BLLException() {
@@ -26,3 +33,12 @@ public class BLLException extends Exception {
 		return sb.toString() ;
 		}
 }
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+	
+
+=======
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
