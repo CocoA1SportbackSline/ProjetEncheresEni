@@ -10,10 +10,6 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class ConnectionProvider {
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 
 private static DataSource dataSource;
 	
@@ -31,13 +27,10 @@ private static DataSource dataSource;
 	public static Connection getConnection() throws SQLException
 	{
 		return dataSource.getConnection();
-<<<<<<< HEAD
 	}	
-}
 
 
-=======
-	}
+	
 	
 	
 	public static void connectionClosed(Connection con, PreparedStatement stmt) throws DALException {
@@ -53,5 +46,5 @@ private static DataSource dataSource;
 		}
 	}
 }
->>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
+
 

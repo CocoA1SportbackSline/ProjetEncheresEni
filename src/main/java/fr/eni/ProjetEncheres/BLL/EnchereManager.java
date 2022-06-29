@@ -18,7 +18,7 @@ public class EnchereManager {
 	public EnchereManager () {
 		this.enchereDao = DAOFactory.getEnchereDao();
 		this.utilisateurDao = DAOFactory.getUtilisateurDAO();
-		this.articleVenduDao = DAOFactory.getArticleVenduDAO();
+		this.articleVenduDao = DAOFactory.getArticleVenduDao();
 	}
 	
 	public EnchereManager getInstance() {
@@ -52,7 +52,8 @@ public class EnchereManager {
 			}
 	}
 	
-	public void addEnchere (Enchere newEnch) throws BLLException {
+	/*public void addEnchere (Enchere newEnch) throws BLLException {
+		enchereMax =
 		if(newEnch != null && newEnch.getNoEnchere()!= null) {
 		}
 		try {
@@ -61,6 +62,6 @@ public class EnchereManager {
 		} catch (DALException e) {
 			throw new BLLException ("addEnchere failed", e);
 		}
-	}
+	}*/
 	
 }
