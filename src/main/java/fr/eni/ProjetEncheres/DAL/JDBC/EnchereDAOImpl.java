@@ -5,12 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.eni.ProjetEncheres.BO.Categorie;
+
 import fr.eni.ProjetEncheres.BO.Enchere;
-import fr.eni.ProjetEncheres.BO.Retrait;
+
 import fr.eni.ProjetEncheres.DAL.ConnectionProvider;
 import fr.eni.ProjetEncheres.DAL.EnchereDAO;
 
@@ -67,8 +68,8 @@ public class EnchereDAOImpl implements EnchereDAO{
 		
 		try(Connection conn = ConnectionProvider.getConnection();){        
     		PreparedStatement pstmt = conn.prepareStatement(UPDATE);
-    		
-    		pstmt.setDate(1,e1.getDateEnchere());
+    	
+    		pstmt.setTimestamp(1,Timestamp.valueOf(e1.getDateEnchere()));
     		pstmt.setInt(2,e1.getMontantEnchere());
 			pstmt.setInt(3,e1.getNoArticle());
 			pstmt.setInt(4,e1.getNoArticle());
@@ -95,9 +96,22 @@ public class EnchereDAOImpl implements EnchereDAO{
 			Enchere enchereAjout = null;
 			while (rs.next()) {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 			enchereAjout = new Enchere(rs.getDate("date_enchere"), rs.getInt("montant_enchere"), rs.getInt("no_article"), rs.getInt("no_utilisateur"));
 
 			listeEnchere.add(enchereAjout);
+<<<<<<< HEAD
+=======
+=======
+		
+			enchereAjout = new Enchere(rs.getTimestamp("date_enchere").toLocalDateTime(), rs.getInt("montant_enchere"), rs.getInt("no_article"), rs.getInt("no_utilisateur"));
+
+				listeEnchere.add(enchereAjout);
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 			}
 
 		} catch (SQLException e) {
@@ -119,7 +133,7 @@ public class EnchereDAOImpl implements EnchereDAO{
 			ResultSet rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				return new Enchere (rs.getDate("date_enchere"), rs.getInt("montant_enchere"), rs.getInt("no_article"), rs.getInt("no_utilisateur"));
+				return new Enchere (rs.getTimestamp("date_enchere").toLocalDateTime(), rs.getInt("montant_enchere"), rs.getInt("no_article"), rs.getInt("no_utilisateur"));
 			} else  {
 				throw new DALException("Mauvais ID");
 			}
@@ -127,7 +141,39 @@ public class EnchereDAOImpl implements EnchereDAO{
 			throw new DALException("selectByNoEnch failed - id = " + noEnchere, e);
 		} 
 	}
-	
+	@Override
+	public Enchere recupEnchereMax(int id_article) throws DALException {
+		PreparedStatement stmt = null;
+		Connection con = null;
+		Enchere enchere = null;
+
+		try {
+			con = ConnectionProvider.getConnection();
+			
+			String sql = "SELECT TOP 1 * FROM ENCHERES WHERE no_article = ? ORDER BY montant_enchere DESC";
+			
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, id_article);
+			ResultSet rs = stmt.executeQuery();
+			
+			if (rs.next()) {
+				enchere = new Enchere(rs.getInt("no_enchere"), rs.getTimestamp("date_enchere").toLocalDateTime(), 
+						rs.getInt("montant_enchere"), rs.getInt("no_article"), rs.getInt("no_utilisateur"));
+			}
+
+		} catch (SQLException e) {
+			throw new DALException("echec methode recupEnchereMax");
+		} finally {
+			try {
+				ConnectionProvider.connectionClosed(con, stmt);
+			} catch (fr.eni.ProjetEncheres.DAL.DALException e) {
+				
+				e.printStackTrace();
+			}
+		} 
+		return enchere;
+		
+	}
 	
 
 }

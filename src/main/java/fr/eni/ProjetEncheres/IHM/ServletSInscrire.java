@@ -70,9 +70,21 @@ public class ServletSInscrire extends HttpServlet{
 		if(telephone != null || request.getParameter("email").isEmpty()); {
 			request.setAttribute("telephone",telephone);
 		}
-		String 
-		
+		String rue = request.getParameter("rue");
+		if(rue != null || request.getParameter("rue").isEmpty()); {
+			request.setAttribute("srue", rue);
+		}
+		 int codePostal = request.getParameter("codePostal");
+			 if(codePostal.equals  || request.getParameter(codePostal));{
+				 
+			 }
+		 }
 		
 	}
+<<<<<<< HEAD
 **/
 }
+=======
+
+
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
