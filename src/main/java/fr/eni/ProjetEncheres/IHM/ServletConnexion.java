@@ -31,7 +31,7 @@ public class ServletConnexion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.getParameter("Pseudo");
-		request.getParameter("mdp");
+		//request.getParameter("mdp");
 		
 		request.getRequestDispatcher("/WEB-INF/pages/Connexion.jsp").forward(request, response);
 	}
