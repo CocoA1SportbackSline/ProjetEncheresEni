@@ -1,6 +1,7 @@
 package fr.eni.ProjetEncheres.DAL;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javax.naming.Context;
@@ -9,7 +10,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class ConnectionProvider {
-<<<<<<< HEAD
+
 
 private static DataSource dataSource;
 	
@@ -20,7 +21,7 @@ private static DataSource dataSource;
 
 		} catch (NamingException exc ) {
 			exc.printStackTrace();
-			throw new RuntimeException("Connexion à la BD impossible");
+			throw new RuntimeException("Connexion ï¿½ la BD impossible");
 		}		
 	}
 	
@@ -30,27 +31,17 @@ private static DataSource dataSource;
 	}
 	
 	
-}
-=======
-	
-private static DataSource dataSource;
-	
-	static {
+	public static void connectionClosed(Connection con, PreparedStatement stmt) throws DALException {
 		try {
-			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/pool_cnx");
-
-		} catch (NamingException exc ) {
-			exc.printStackTrace();
-			throw new RuntimeException("Connexion Ã  la BD impossible");
-		}		
+			if(stmt != null) {
+				stmt.close();
+			}
+			if(con != null) {
+				con.close();
+			}
+		} catch (SQLException e) {
+			throw new DALException("Erreur fermeture connexion");
+		}
 	}
-	
-	public static Connection getConnection() throws SQLException
-	{
-		return dataSource.getConnection();
-	}
-
-
 }
->>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
+

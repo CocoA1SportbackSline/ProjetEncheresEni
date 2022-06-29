@@ -13,6 +13,7 @@ import fr.eni.ProjetEncheres.DAL.ConnectionProvider;
 import fr.eni.ProjetEncheres.DAL.DALException;
 import fr.eni.ProjetEncheres.DAL.UtilisateurDAO;
 
+
 public class UtilisateurDAOImpl implements UtilisateurDAO {
 
 
@@ -34,7 +35,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			pstmt.setString(2, u.getNom());
 			pstmt.setString(3, u.getPrenom());
 			pstmt.setString(4, u.getEmail());
-			pstmt.setInt(5, u.getTelephone());   
+			pstmt.setString(5, u.getTelephone());   
 			pstmt.setString(6, u.getRue());
 			pstmt.setInt(7, u.getCode_Postal());
 			pstmt.setString(8, u.getVille());
@@ -79,7 +80,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			while(rs.next()) {
 				list.add(new Utilisateur(
 						rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), rs.getString("prenom"), 
-						rs.getString("email"), rs.getInt("telephone"), rs.getString("rue"), rs.getInt("code_postal"), 
+						rs.getString("email"), rs.getString("telephone"), rs.getString("rue"), rs.getInt("code_postal"), 
 						rs.getString("ville"), rs.getString("mot_de_passe"), rs.getInt("credit"), rs.getByte("administrateur")
 						));
 			}
@@ -115,7 +116,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			
 			if(rs.next()) {
 				user = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), rs.getString("prenom"), 
-						rs.getString("email"), rs.getInt("telephone"), rs.getString("rue"), rs.getInt("code_postal"), 
+						rs.getString("email"), rs.getString("telephone"), rs.getString("rue"), rs.getInt("code_postal"), 
 						rs.getString("ville"), rs.getString("mot_de_passe"), rs.getInt("credit"), rs.getByte("administrateur"));
 			}
 			
@@ -129,7 +130,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 	}
 
 	@Override
-	public Utilisateur getselectByID(int id) {
+	public Utilisateur getselectByID(int id) throws DALException {
 		
      	Connection cnx=null;
 		PreparedStatement stmt=null;
@@ -152,7 +153,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 				utilisateur.setNom(rs.getString("nom"));
 				utilisateur.setPrenom(rs.getString("prenom"));
 				utilisateur.setEmail(rs.getString("email"));
-				utilisateur.setTelephone(rs.getInt("telephone"));
+				utilisateur.setTelephone(rs.getString("telephone"));
 				utilisateur.setRue(rs.getString("rue"));
 				utilisateur.setCode_Postal(Integer.parseInt(rs.getString("code_postal")));
 				utilisateur.setVille(rs.getString("ville"));
@@ -185,7 +186,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			stmt.setString(2, u.getNom());
 			stmt.setString(3, u.getPrenom());
 			stmt.setString(4, u.getEmail());
-			stmt.setInt(5, u.getTelephone());
+			stmt.setString(5, u.getTelephone());
 			stmt.setString(6, u.getRue());
 			stmt.setString(7, String.valueOf(u.getCode_Postal()));
 			stmt.setString(8, u.getVille());
