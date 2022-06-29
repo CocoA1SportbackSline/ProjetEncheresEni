@@ -7,17 +7,35 @@ import java.util.List;
 import fr.eni.ProjetEncheres.BO.ArticleVendu;
 import fr.eni.ProjetEncheres.DAL.ArticleVenduDAO;
 import fr.eni.ProjetEncheres.DAL.DALException;
-import fr.eni.ProjetEncheres.DAL.DAOArticleVenduFactory;
+
+import fr.eni.ProjetEncheres.DAL.DAOFactory;
+import fr.eni.ProjetEncheres.DAL.EnchereDAO;
+import fr.eni.ProjetEncheres.DAL.UtilisateurDAO;
 
 public class ArticleVenduManager {
 
-
+	private static ArticleVenduManager articleVenduManager;
 	private ArticleVenduDAO articleVenduDAO;
+	private EnchereDAO enchereDAO;
+	private UtilisateurDAO utilisateurDAO;
+	
+	private static List<String> listError;
 	
 	public ArticleVenduManager() {
-
-		articleVenduDAO = DAOArticleVenduFactory.getArticleVenduDAO();
-		
+		this.articleVenduDAO = DAOFactory.getArticleVenduDao();
+		this.enchereDAO = DAOFactory.getEnchereDao();
+		this.utilisateurDAO = DAOFactory.getUtilisateurDAO();
+	}
+	
+	public static ArticleVenduManager getInstance() {
+		if(articleVenduManager == null) {
+			articleVenduManager = new ArticleVenduManager();
+		}
+		return articleVenduManager;
+	}
+	
+	public List<String> getListError() {
+		return listError;
 	}
 	
 	public void insert(ArticleVendu articleVendu) throws BLLException  {

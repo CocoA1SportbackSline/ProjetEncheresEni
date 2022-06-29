@@ -2,6 +2,10 @@ package fr.eni.ProjetEncheres.DAL;
 
 
 import fr.eni.ProjetEncheres.DAL.JDBC.ArticleVenduDAOImpl;
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 import fr.eni.ProjetEncheres.DAL.JDBC.CategorieDAOImpl;
 import fr.eni.ProjetEncheres.DAL.JDBC.EnchereDAOImpl;
 import fr.eni.ProjetEncheres.DAL.JDBC.RetraitDAOImpl;
@@ -30,11 +34,25 @@ public class DAOFactory {
 		return articleVenduDao;
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 	public static UtilisateurDAO getUtilisateurDAO() {
 		UtilisateurDAO utilisateurDAO = new UtilisateurDAOImpl();
 		return utilisateurDAO;
 	}
 
+
 }
 
+<<<<<<< HEAD
+=======
+
+
+	
+	
+
+
+
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git

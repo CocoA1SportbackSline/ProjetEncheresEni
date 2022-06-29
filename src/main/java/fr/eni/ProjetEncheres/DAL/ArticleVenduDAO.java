@@ -3,6 +3,7 @@ package fr.eni.ProjetEncheres.DAL;
 import java.util.List;
 
 import fr.eni.ProjetEncheres.BO.ArticleVendu;
+import fr.eni.ProjetEncheres.BO.Categorie;
 
 public interface ArticleVenduDAO {
 
@@ -22,6 +23,7 @@ public interface ArticleVenduDAO {
 	
 	List<ArticleVendu> selectByUtilisateurNonCommencee() throws DALException;
 	
-	List<ArticleVendu> selectByUtilisateurTerminee() throws DALException;
+	List<ArticleVendu> selectByUtilisateurTerminee(int noUtilisateur) throws DALException;
 	
+	List<ArticleVendu> selectByCategorie(Categorie categorie) throws DALException;
 }
