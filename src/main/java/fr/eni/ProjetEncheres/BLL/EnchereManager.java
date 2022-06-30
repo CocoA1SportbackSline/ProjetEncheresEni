@@ -9,10 +9,11 @@ import fr.eni.ProjetEncheres.BO.ArticleVendu;
 import fr.eni.ProjetEncheres.BO.Enchere;
 import fr.eni.ProjetEncheres.BO.Utilisateur;
 import fr.eni.ProjetEncheres.DAL.ArticleVenduDAO;
+import fr.eni.ProjetEncheres.DAL.DALException;
 import fr.eni.ProjetEncheres.DAL.DAOFactory;
 import fr.eni.ProjetEncheres.DAL.EnchereDAO;
 import fr.eni.ProjetEncheres.DAL.UtilisateurDAO;
-import fr.eni.ProjetEncheres.DAL.JDBC.DALException;
+
 
 public class EnchereManager {
 

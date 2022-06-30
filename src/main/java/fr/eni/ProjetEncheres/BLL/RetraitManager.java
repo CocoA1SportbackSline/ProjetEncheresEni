@@ -3,9 +3,10 @@ package fr.eni.ProjetEncheres.BLL;
 import java.util.List;
 
 import fr.eni.ProjetEncheres.BO.Retrait;
+import fr.eni.ProjetEncheres.DAL.DALException;
 import fr.eni.ProjetEncheres.DAL.DAOFactory;
 import fr.eni.ProjetEncheres.DAL.RetraitDAO;
-import fr.eni.ProjetEncheres.DAL.JDBC.DALException;
+
 
 public class RetraitManager {
 
