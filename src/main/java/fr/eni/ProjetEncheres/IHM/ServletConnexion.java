@@ -21,7 +21,7 @@ import fr.eni.ProjetEncheres.DAL.DALException;
 @WebServlet("/Connexion")
 public class ServletConnexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+       private UtilisateurManager utilisateurManager;
 	
 
 	/**
@@ -35,35 +35,51 @@ public class ServletConnexion extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String identifiant=null;
-		String mdp=null;
+		String identifiant;
+		String mdp;
+		Utilisateur user;
 		List<String>listError = new ArrayList<>();
+		boolean autoriser;
 		
 		
-		if (identifiant.trim().isEmpty() || mdp.trim().isEmpty() ) {
-			listError.add ("identifiant ou Mot de passe non renseignés"); 
-		}
 		
 		identifiant = request.getParameter("Pseudo");
 		mdp = request.getParameter("mdp");
-		UtilisateurManager utilisateurManager = new UtilisateurManager();
+		
 		//try {
 			
-			//utilisateurManager.connexionUser(identifiant, mdp);
+			try {
+			user = utilisateurManager.connexionUser(identifiant, mdp);
+			if (user!=null) {
+				autoriser = true;
+				response.sendRedirect(request.getContextPath() + "/Accueil");
+			}else {
+				autoriser=false;
+				listError.add("pas compte reconnu, veuillez verifier votre identifiant.");
+				response.sendRedirect(request.getContextPath() + "/Connexion");
+				
+			}
+			} catch ( BLLException e) {
+				// TODO Auto-generated catch block
+				
+				throw new RuntimeException ("");
+			}
 			
-		//}else {
+			if (identifiant.trim().isEmpty() || mdp.trim().isEmpty() ) {
+				listError.add ("identifiant ou Mot de passe non renseignés"); 
+			}
+		
 			
-			listError.add("pas compte sur cet identifiant, veuillez verifier votre identifiant.");
-			getServletContext().getRequestDispatcher("/WEB-INF/pages/Connexion.jsp");
+			
+			
 		//}
 		
 		request.getRequestDispatcher("/WEB-INF/pages/Connexion.jsp").forward(request, response);
-	//} catch (DALException e) {
-		
-	//	throw new BLLException ("");
-	//}
+	
+	
 		}
 }
 
