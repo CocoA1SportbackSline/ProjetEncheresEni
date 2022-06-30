@@ -7,13 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.ProjetEncheres.BLL.UtilisateurManager;
+
 /**
  * Servlet implementation class ServletAfficherProfil
  */
 @WebServlet("/ServletAfficherProfil")
 public class ServletAfficherProfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+   
+	private UtilisateurManager utilisateurMger;
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -27,7 +31,7 @@ public class ServletAfficherProfil extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute(getServletName(), response);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Sinscrire.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/pages/AfficherProfil.jsp").forward(request, response);
 	}
 
 	/**
@@ -43,6 +47,7 @@ public class ServletAfficherProfil extends HttpServlet {
 		String codePostal = request.getParameter("codePostal");
 		String ville = request.getParameter("ville");
 		
+		request.getRequestDispatcher("/WEB-INF/pages/AfficherProfil.jsp").forward(request, response);
 		 
 		
 	}
