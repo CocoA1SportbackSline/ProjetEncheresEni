@@ -9,12 +9,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.ProjetEncheres.BLL.UtilisateurManager;
+import fr.eni.ProjetEncheres.BO.Utilisateur;
 
 
 
 public class ServletSInscrire extends HttpServlet{
+
 
 	private UtilisateurManager utilisateurManager;
 
@@ -68,7 +71,9 @@ public class ServletSInscrire extends HttpServlet{
 		}
 		 String Postal = request.getParameter("codePostal");
 			 if(Postal != null  || request.getParameter(Postal).isEmpty());
+			 
 				 try {
+					 
 					 int codePostal = Integer.parseInt(Postal);
 					 request.setAttribute("codePostalform", codePostal);
 			 }catch(Exception e) {
@@ -83,20 +88,57 @@ public class ServletSInscrire extends HttpServlet{
 				 request.setAttribute("villeform", ville);
 				 
 				 String confirmation = request.getParameter("confirmation");
-				 try {
-				 if(confirmation.equals(mdp) || request.getParameter("confirmation").isEmpty());
 				 
-				 request.setAttribute("confirmation", confirmation);
-				 }catch (Exception e) {
-					 
-				 }
-				 
-				 if(!pseudo.isEmpty() && !nom.isEmpty() && !prenom.isEmpty() && !email.isEmpty() && 
+				  if(!pseudo.isEmpty() && !nom.isEmpty() && !prenom.isEmpty() && !email.isEmpty() && 
 						 !telephone.isEmpty() && rue.isEmpty() && !Postal.isEmpty()){
 					 
 				 }
+				  
+				 Utilisateur u = new Utilisateur();
+				 
+				 u.setPseudo(pseudo);
+				 u.setPrenom(prenom);
+				 try {
+					 Integer.parseInt(telephone.trim());
+					 u.setTelephone(telephone);
+					 
+				 }catch(NumberFormatException e){
+					 	listeErreurs.add("le telephone doit etre que des chiffres");
+					 
+				 }
+				 try {
+					 u.setCodePostal(Integer.parseInt(Postal));
+				 }catch(NumberFormatException e) {
+					 
+				 }
+				 if(mdp.equals(confirmation)) {
+					 u.setMotDePasse(mdp);
+				 }else {
+					 listeErreurs.add("le mot de passe et le mot de confirmation ne sont pas les memes");
+					 
+				 }
+				 u.setNom(nom);
+				 u.setEmail(email);
+				 u.setRue(rue);
+				 u.setVille(ville);
+				 
+				 if(!listeErreurs.isEmpty()) {
+					 request.setAttribute("listedesErreurs", listeErreurs);
+					 this.getServletContext().getRequestDispatcher("WEB-INF/").forward(request, response);
+				 }else {
+					
+					 try {
+						 utilisateurManager.inscriptionUser(u);
+						 u = utilisateurManager.connexionUser(u.getPseudo(),u.getMotDePasse());
+						 HttpSession session = request.getSession();
+						 session.setAttribute("myuser", u);
+					 }catch (Exception e) {
+						 
+					 }
+				 }
+			}
 	
-		 }
+}
 		
-	}
+	
 
