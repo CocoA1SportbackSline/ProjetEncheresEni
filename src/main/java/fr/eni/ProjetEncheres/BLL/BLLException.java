@@ -15,11 +15,6 @@ public class BLLException extends Exception {
 		super(message, exception);
 		}
 		
-		
-<<<<<<< HEAD
-=======
-		//Methodes
->>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 		@Override
 		public String getMessage() {
 		StringBuffer sb = new StringBuffer("Couche DAL - ");

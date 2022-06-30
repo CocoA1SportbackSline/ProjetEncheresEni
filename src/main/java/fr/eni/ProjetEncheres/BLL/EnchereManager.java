@@ -1,6 +1,8 @@
 package fr.eni.ProjetEncheres.BLL;
 
+
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.ProjetEncheres.BO.ArticleVendu;
@@ -36,45 +38,38 @@ public class EnchereManager {
 	public List<String> getListError(){
 		return listError;
 	}
-	
-<<<<<<< HEAD
-	/*public void addEnchere (Enchere newEnch) throws BLLException {
-		enchereMax =
-		if(newEnch != null && newEnch.getNoEnchere()!= null) {
-		}
-=======
-	public void ajoutEnchere(Enchere enchere, Utilisateur utilisateur)throws BLLException{  {
+
+/*	public void ajoutEnchere(Enchere enchere, Utilisateur utilisateur)throws BLLException{  
+		
+        listError = new ArrayList<>();
 		
 		Enchere enchereMax = null;
 		ArticleVendu article = null;
-		float prixMin = 0;
+		int prixMin = 0;
 		Utilisateur dernierEncherisseur = null;
 		
->>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 		try {
 			enchereMax = enchereDao.recupEnchereMax(enchere.getNoArticle());
 		} catch (DALException e1) {
 			e1.printStackTrace();
 		}
-<<<<<<< HEAD
-	}*/
-=======
 		
 		try {
-			article = articleVenduDao.selectByNoArticle(enchere.getNoArticle());
+			article = articleVenduDao.selectByID(enchere.getNoArticle());
 		} catch (DALException e1) {
 			e1.printStackTrace();
 		}
 		
 		if (enchereMax == null) {
-			prixMin = article.getMiseAPrix();
+			prixMin = article.getPrix_initial();
 		} else {
 			prixMin = enchereMax.getMontantEnchere();
 		}
 		
-		if(article.getDateDebutEncheres().isBefore(LocalDateTime.now())) {
-			listError.add("L'enchere est cloturé");
+		if(article.getDate_fin_encheres().isBefore(LocalDateTime.now())) {
+			listError.add("L'enchere est clôturé");
 		}
+		
 		checkEnchere(enchere.getMontantEnchere(), prixMin, listError);
 		checkPoints(enchere.getMontantEnchere(), utilisateur.getCredit(), listError);
 
@@ -97,8 +92,8 @@ public class EnchereManager {
 			throw new BLLException("Echec ajoutEnchere2");
 		}
 		
-	}
-}
+	}*/
+	
 	
 	
 	
@@ -109,7 +104,7 @@ public class EnchereManager {
 		Enchere enchereMax = null;
 		
 		try {
-			enchereMax = enchereDao.recupEnchereMax(av.getNoArticle());
+			enchereMax = enchereDao.recupEnchereMax(av.getNo_article());
 		} catch (DALException e) {
 			e.printStackTrace();
 			throw new BLLException("Erreur method derniereEnchere");
@@ -131,6 +126,6 @@ public class EnchereManager {
 			listError.add("Votre credit est de " + pointsPerso + " points");
 		}	
 	}
->>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
+
 	
 }

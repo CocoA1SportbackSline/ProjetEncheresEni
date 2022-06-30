@@ -7,7 +7,7 @@ public class Enchere {
 
 	private int noEnchere;
 	private LocalDateTime dateEnchere;
-	private Integer montantEnchere;
+	private int montantEnchere;
 	private int noArticle;
 	private int noUtilisateur;
 	

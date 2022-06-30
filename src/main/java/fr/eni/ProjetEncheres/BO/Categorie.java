@@ -1,8 +1,10 @@
 package fr.eni.ProjetEncheres.BO;
 
+
+
 public class Categorie {
 
-	private Integer noCategorie;
+	private int noCategorie;
 	private String libelle;
 
 	
@@ -12,10 +14,19 @@ public class Categorie {
 		this.libelle = libelle;
 	}
 	
-	public Integer getNoCategorie() {
+	
+	
+	public Categorie(String libelle) {
+		super();
+		this.libelle = libelle;
+	}
+
+
+
+	public int getNoCategorie() {
 		return noCategorie;
 	}
-	public void setNoCategorie(Integer noCategorie) {
+	public void setNoCategorie(int noCategorie) {
 		this.noCategorie = noCategorie;
 	}
 	public String getLibelle() {

@@ -15,11 +15,9 @@ import fr.eni.ProjetEncheres.BLL.UtilisateurManager;
 
 
 public class ServletSInscrire extends HttpServlet{
-	
+/*	
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 
@@ -79,7 +77,7 @@ public class ServletSInscrire extends HttpServlet{
 				 
 			 }
 		 }
-		
+		*/
 	}
 
 

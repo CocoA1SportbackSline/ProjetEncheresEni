@@ -4,8 +4,8 @@ import java.util.List;
 
 import fr.eni.ProjetEncheres.BO.Categorie;
 import fr.eni.ProjetEncheres.DAL.CategorieDAO;
+import fr.eni.ProjetEncheres.DAL.DALException;
 import fr.eni.ProjetEncheres.DAL.DAOFactory;
-import fr.eni.ProjetEncheres.DAL.JDBC.DALException;
 
 public class CategorieManager {
 
@@ -42,7 +42,7 @@ public class CategorieManager {
 			message.append("Article null\n");
 		} else {	
 			if (c1.getLibelle() == null || c1.getLibelle().isBlank()) {
-				message.append("Le libellé est obligatoire\n");
+				message.append("Le libellï¿½ est obligatoire\n");
 			} 
 		
 			if(!message.toString().isBlank()) {
@@ -52,7 +52,7 @@ public class CategorieManager {
 	}
 	
 	public void addCategorie (Categorie newCate) throws BLLException {
-		if(newCate != null && newCate.getNoCategorie()!= null) {
+		if(newCate != null && newCate.getNoCategorie()!= 0) {
 		}
 		try {
 			this.validerCategorie(newCate);
@@ -71,7 +71,7 @@ public class CategorieManager {
 	}
 	
 	public void updateCategorie (Categorie c1) throws BLLException {
-		if(c1 != null && c1.getNoCategorie()== null) {
+		if(c1 != null && c1.getNoCategorie()== 0) {
 			throw new BLLException("Article inexistant");
 		}
 		try {

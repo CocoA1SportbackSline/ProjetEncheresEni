@@ -56,15 +56,15 @@ public class RetraitManager {
 	}
 	
 	public void addRetrait (Retrait newRet) throws BLLException {
-		if(newRet != null && newRet.getNoArticle()!= null) {
-		}
-		try {
-			this.validerRetrait(newRet);
-			retraitDao.insert(newRet);
-		} catch (DALException e) {
-			throw new BLLException ("addRetrait failed", e);
-		}
-	}
+        if(newRet != null && newRet.getNoArticle()!= 0) {
+        }
+        try {
+            this.validerRetrait(newRet);
+            retraitDao.insert(newRet);
+        } catch (DALException e) {
+            throw new BLLException ("addRetrait failed", e);
+        }
+    }
 	
 	public void removeRetrait (Integer noArticle) throws BLLException {
 		try {
@@ -75,7 +75,7 @@ public class RetraitManager {
 	}
 	
 	public void updateRetrait (Retrait r1) throws BLLException {
-		if(r1 != null && r1.getNoArticle()== null) {
+		if(r1 != null && r1.getNoArticle()== 0) {
 			throw new BLLException("Retrait inexistant");
 		}
 		try {

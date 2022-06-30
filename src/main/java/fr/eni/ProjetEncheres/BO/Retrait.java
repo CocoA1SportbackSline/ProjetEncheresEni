@@ -2,13 +2,13 @@ package fr.eni.ProjetEncheres.BO;
 
 public class Retrait {
 
-	private Integer noArticle;
+	private int noArticle;
 	private String rue;
 	private String codePostal;
 	private String ville;
 	
 	
-	public Retrait(Integer noArticle, String rue, String codePostal, String ville) {
+	public Retrait(int noArticle, String rue, String codePostal, String ville) {
 		super();
 		this.noArticle = noArticle;
 		this.rue = rue;
@@ -25,12 +25,12 @@ public class Retrait {
 	}
 
 
-	public Integer getNoArticle() {
+	public int getNoArticle() {
 		return noArticle;
 	}
 
 
-	public void setNoArticle(Integer noArticle) {
+	public void setNoArticle(int noArticle) {
 		this.noArticle = noArticle;
 	}
 

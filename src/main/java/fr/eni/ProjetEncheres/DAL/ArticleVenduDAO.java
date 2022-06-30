@@ -7,23 +7,28 @@ import fr.eni.ProjetEncheres.BO.Categorie;
 
 public interface ArticleVenduDAO {
 
-	void insert(ArticleVendu articleVendu) throws DALException;
+	public  void insert(ArticleVendu a) throws DALException;
 	
-	List<ArticleVendu> selectAll() throws DALException;
+	public List<ArticleVendu> selectAll() throws DALException ;
 	
-	ArticleVendu selectByNoArticle (int noArticle)throws DALException;
+	public void update(ArticleVendu a) throws DALException;
 	
-	List<ArticleVendu> selectVenteEnCoursByNomByCategorie() throws DALException;
+	public void delete(int id) throws DALException;
 	
-	List<ArticleVendu> selectByUtilisateur() throws DALException;
+	public ArticleVendu selectByID(int id) throws DALException;
 	
-	List<ArticleVendu> selectEnchereEnCours() throws DALException;
+	public List<ArticleVendu> selectByNoCategorie(int idCategorie) throws DALException;
 	
-	List<ArticleVendu> selectByUtilisateurEnCours() throws DALException;
+	public List<ArticleVendu> selectByKeyWordAndNoCategorie(String keyWord, int idCategorie) throws DALException;
 	
-	List<ArticleVendu> selectByUtilisateurNonCommencee() throws DALException;
+	public List<ArticleVendu> selectByKeyWord(String keyWord) throws DALException;
 	
-	List<ArticleVendu> selectByUtilisateurTerminee(int noUtilisateur) throws DALException;
+	public List<ArticleVendu> selectAllBeforeDate(int idUtilisateur) throws DALException;
 	
-	List<ArticleVendu> selectByCategorie(Categorie categorie) throws DALException;
+	public List<ArticleVendu> selectAllBetweenDate(int idUtilisateur) throws DALException;
+	
+	public List<ArticleVendu> selectAllSoldOut(int idUtilisateur) throws DALException;
+	
+	public List<ArticleVendu> selectAllSoldOut() throws DALException;
+	
 }
