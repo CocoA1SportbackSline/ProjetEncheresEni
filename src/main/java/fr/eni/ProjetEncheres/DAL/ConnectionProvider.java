@@ -14,6 +14,7 @@ public class ConnectionProvider {
 
 
 
+
 private static DataSource dataSource;
 	
 	static {
@@ -23,16 +24,16 @@ private static DataSource dataSource;
 
 		} catch (NamingException exc ) {
 			exc.printStackTrace();
-			throw new RuntimeException("Connexion la BD impossible");
+			throw new RuntimeException("Connexion � la BD impossible");
 		}		
 	}
 	
 	public static Connection getConnection() throws SQLException
 	{
 		return dataSource.getConnection();
-
-	}	
-public static void connectionClosed(Connection con, PreparedStatement stmt) throws DALException {
+	}
+	
+	public static void connectionClosed(Connection con, PreparedStatement stmt) throws DALException {
 		try {
 			if(stmt != null) {
 				stmt.close();
@@ -45,3 +46,4 @@ public static void connectionClosed(Connection con, PreparedStatement stmt) thro
 		}
 	}
 }
+

@@ -241,12 +241,16 @@ public class EnchereDAOImpl implements EnchereDAO{
 			Enchere enchereAjout = null;
 			while (rs.next()) {
 
+			enchereAjout = new Enchere(rs.getDate("date_enchere"), rs.getInt("montant_enchere"), rs.getInt("no_article"), rs.getInt("no_utilisateur"));
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 
 		
 			enchereAjout = new Enchere(rs.getTimestamp("date_enchere").toLocalDateTime(), rs.getInt("montant_enchere"), rs.getInt("no_article"), rs.getInt("no_utilisateur"));
 
 				listeEnchere.add(enchereAjout);
 
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 			}
 
 		} catch (SQLException e) {

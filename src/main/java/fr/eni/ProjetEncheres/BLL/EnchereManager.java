@@ -25,6 +25,7 @@ public class EnchereManager {
 	public EnchereManager () {
 		this.enchereDao = DAOFactory.getEnchereDao();
 		this.utilisateurDao = DAOFactory.getUtilisateurDAO();
+
 		this.articleVenduDao = DAOFactory.getArticleVenduDao();
 	}
 	

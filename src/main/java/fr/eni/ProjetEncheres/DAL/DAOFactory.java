@@ -3,6 +3,7 @@ package fr.eni.ProjetEncheres.DAL;
 
 import fr.eni.ProjetEncheres.DAL.JDBC.ArticleVenduDAOImpl;
 
+
 import fr.eni.ProjetEncheres.DAL.JDBC.CategorieDAOImpl;
 import fr.eni.ProjetEncheres.DAL.JDBC.EnchereDAOImpl;
 import fr.eni.ProjetEncheres.DAL.JDBC.RetraitDAOImpl;
@@ -33,6 +34,7 @@ public class DAOFactory {
 	}
 	
 
+
 	public static UtilisateurDAO getUtilisateurDAO() {
 		UtilisateurDAO utilisateurDAO = new UtilisateurDAOImpl();
 		return utilisateurDAO;
@@ -45,6 +47,5 @@ public class DAOFactory {
 
 	
 	
-
 
 

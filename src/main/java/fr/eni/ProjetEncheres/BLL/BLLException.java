@@ -2,6 +2,7 @@ package fr.eni.ProjetEncheres.BLL;
 
 public class BLLException extends Exception {
 
+
 	//Constructeurs
 		public BLLException() {
 		super();
