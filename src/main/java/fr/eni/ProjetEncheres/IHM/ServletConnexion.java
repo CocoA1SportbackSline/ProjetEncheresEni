@@ -42,7 +42,7 @@ public class ServletConnexion extends HttpServlet {
 		String mdp;
 		Utilisateur user;
 		List<String>listError = new ArrayList<>();
-		boolean autoriser;
+		String autoriser;
 		
 		
 		
@@ -52,12 +52,13 @@ public class ServletConnexion extends HttpServlet {
 		//try {
 			
 			try {
-			user = utilisateurManager.connexionUser(identifiant, mdp);
+			user = utilisateurManager.connexionUser(identifiant.trim(), mdp);
 			if (user!=null) {
-				autoriser = true;
+				autoriser = "Connecté(e)";
 				response.sendRedirect(request.getContextPath() + "/Accueil");
+				request.getSession().setAttribute("seconnecter",autoriser);
 			}else {
-				autoriser=false;
+				autoriser= "se connecter";
 				listError.add("pas compte reconnu, veuillez verifier votre identifiant.");
 				response.sendRedirect(request.getContextPath() + "/Connexion");
 				
@@ -72,7 +73,10 @@ public class ServletConnexion extends HttpServlet {
 				listError.add ("identifiant ou Mot de passe non renseignés"); 
 			}
 		
-			
+			if (listError != null) {
+				for (int i=0;i<listError.size();i++)
+				request.setAttribute("erreur", listError.get(i));
+			}
 			
 			
 		//}
