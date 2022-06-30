@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,14 +43,15 @@
 		<input type="text" name="ville" id="ville">
 	</div>
 	
-		<c:forEach var="utilisateur" items="${utilisateurss}">
+		<c:forEach var="utilisateur" items="${utilisateurs}">
 			<tr>
 				<td>${utilisateur.pseudo}</td>
 				<td>${utilisateur.nom}</td>
 				<td>${utilisateur.prenom}</td>
 				<td>${utilisateur.email}</td>
-				<td>${utilisateur.pseudo}</td>
-				<td>${utilisateur.pseudo}</td>
+				<td>${utilisateur.telephone}</td>
+				<td>${utilisateur.codePostal}</td>
+				<td>${utilisateur.ville}</td>
 				<td><a href="<%=request.getContextPath()%>/catalogue?action=supprimer&idPizza=${pizza.id}">Supprimer</a> - 
 				<a href="<%=request.getContextPath()%>/catalogue?action=modifier&idPizza=${pizza.id}">Modifier</a></td>				    
 			</tr>
