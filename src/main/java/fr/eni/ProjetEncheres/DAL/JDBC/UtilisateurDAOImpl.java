@@ -50,7 +50,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			ResultSet rs = pstmt.getGeneratedKeys();
 
 			if(rs.next()) {
-				u.setNoUtilsateur(rs.getInt(1));
+				u.setNoUtilisateur(rs.getInt(1));
 			}      
 		}
 		catch(SQLException e){
@@ -148,7 +148,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			
 				utilisateur = new Utilisateur();
 				
-				utilisateur.setNoUtilsateur(id);
+				utilisateur.setNoUtilisateur(id);
 				utilisateur.setPseudo(rs.getString("pseudo"));
 				utilisateur.setNom(rs.getString("nom"));
 				utilisateur.setPrenom(rs.getString("prenom"));
@@ -193,7 +193,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			stmt.setString(9, u.getMotDePasse());
 			stmt.setInt(10, u.getCredit());
 
-			stmt.setInt(11, u.getNoUtilsateur());
+			stmt.setInt(11, u.getNoUtilisateur());
 
 			stmt.executeUpdate();
 

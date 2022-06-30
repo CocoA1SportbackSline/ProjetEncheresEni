@@ -15,8 +15,8 @@ import fr.eni.ProjetEncheres.BLL.UtilisateurManager;
 
 
 public class ServletSInscrire extends HttpServlet{
-/*	
 
+	private UtilisateurManager utilisateurManager;
 
 	private static final long serialVersionUID = 1L;
 
@@ -26,13 +26,8 @@ public class ServletSInscrire extends HttpServlet{
     	super.init();
     }
 
-    public ServletSinscrire() {
-        super();
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	request.setCharacterEncoding("UTF-8");
-		request.setAttribute("title", getPageName(request, response)); 
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/sinscrire.jsp");
 		dispatcher.forward(request, response);
@@ -40,43 +35,68 @@ public class ServletSInscrire extends HttpServlet{
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		request.setAttribute("title", getPageName(request, response)); 
 		
+
 		List<String> listeErreurs = new ArrayList<>();
 		
 		String pseudo = request.getParameter("pseudo");
 		if (pseudo!=null || !request.getParameter(pseudo).isEmpty()) {
-			request.setAttribute("spseudo", pseudo);
+			request.setAttribute("pseudoform", pseudo);
 		}
 		
 		String nom = request.getParameter("nom");
 		if(nom != null || !request.getParameter("nom").isEmpty());{
-			request.setAttribute("snom", nom);
+			request.setAttribute("nomform", nom);
 		}
 		
 		String prenom = request.getParameter("prenom");
 		if(prenom != null || !request.getParameter("prenom").isEmpty());{
-			request.setAttribute("sprenom", prenom);
+			request.setAttribute("prenomform", prenom);
 		}
 		
 		String email = request.getParameter("email");
 		if(email != null || !request.getParameter("email").isEmpty());{
-			request.setAttribute("semail", email);
+			request.setAttribute("emailform", email);
 		}
 		String telephone = request.getParameter("telephone");
 		if(telephone != null || request.getParameter("email").isEmpty()); {
-			request.setAttribute("telephone",telephone);
+			request.setAttribute("telephoneform",telephone);
 		}
 		String rue = request.getParameter("rue");
 		if(rue != null || request.getParameter("rue").isEmpty()); {
-			request.setAttribute("srue", rue);
+			request.setAttribute("rueform", rue);
 		}
-		 int codePostal = request.getParameter("codePostal");
-			 if(codePostal.equals  || request.getParameter(codePostal));{
+		 String Postal = request.getParameter("codePostal");
+			 if(Postal != null  || request.getParameter(Postal).isEmpty());
+				 try {
+					 int codePostal = Integer.parseInt(Postal);
+					 request.setAttribute("codePostalform", codePostal);
+			 }catch(Exception e) {
 				 
 			 }
+				 String mdp = request.getParameter("mdp");
+				 if(mdp !=null || request.getParameter(mdp).isEmpty());
+				 request.setAttribute("mdpform", mdp);
+				 
+				 String ville = request.getParameter("ville");
+				 if(ville !=null || request.getParameter("ville").isEmpty());
+				 request.setAttribute("villeform", ville);
+				 
+				 String confirmation = request.getParameter("confirmation");
+				 try {
+				 if(confirmation.equals(mdp) || request.getParameter("confirmation").isEmpty());
+				 
+				 request.setAttribute("confirmation", confirmation);
+				 }catch (Exception e) {
+					 
+				 }
+				 
+				 if(!pseudo.isEmpty() && !nom.isEmpty() && !prenom.isEmpty() && !email.isEmpty() && 
+						 !telephone.isEmpty() && rue.isEmpty() && !Postal.isEmpty()){
+					 
+				 }
+	
 		 }
-		*/
+		
 	}
 
