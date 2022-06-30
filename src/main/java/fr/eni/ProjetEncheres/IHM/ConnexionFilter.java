@@ -1,3 +1,5 @@
+
+
 package fr.eni.ProjetEncheres.IHM;
 
 import java.io.IOException;

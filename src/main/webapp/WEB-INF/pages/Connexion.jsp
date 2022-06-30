@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,7 @@
 </head>
 <body>
 
+<form action="Connexion" method="post">
 
     <header>
         <div class="container-fluid">
@@ -26,13 +28,13 @@
     <div class="col-3 col-md-3 col-sm-10  mx-auto text-center">
         <div class="mb-3">
             <label for="Pseudo" class="form-label">Pseudo</label>
-            <input type="form-control" class="form-control" id="Pseudo" required >
+            <input type="form-control" class="form-control" id="Pseudo" name="Pseudo" required >
             
         </div>
 
         <div class="mb-3">
             <label for="mdp" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="mdp" required >
+            <input type="password" class="form-control" id="mdp" name="mdp" required >
             
         </div>
     
@@ -52,12 +54,12 @@
 
     <a href="moProfil.html">Pas encore de compte, cliquez ici</a>
 </div>
-</div>
+</div class="error">
 
 		listError="${listError}"
 <div>
 
 </div>
-
+</form>
 </body>
 </html>

@@ -1,3 +1,6 @@
+
+
+
 package fr.eni.ProjetEncheres.IHM;
 
 import java.io.IOException;
@@ -14,19 +17,30 @@ import fr.eni.ProjetEncheres.BLL.BLLException;
 import fr.eni.ProjetEncheres.BLL.UtilisateurManager;
 import fr.eni.ProjetEncheres.BO.Utilisateur;
 import fr.eni.ProjetEncheres.DAL.DALException;
+import fr.eni.ProjetEncheres.DAL.DAOFactory;
+
 
 /**
  * Servlet implementation class ServletConnexion
- */
+ **/
 @WebServlet("/Connexion")
 public class ServletConnexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
        private UtilisateurManager utilisateurManager;
 	
 
+       
+       @Override
+   	public void init() throws ServletException {
+   		utilisateurManager = UtilisateurManager.getInstance();
+   		//Couplage faible !!!!
+   	}
+       
+       
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	 **/
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.getRequestDispatcher("/WEB-INF/pages/Connexion.jsp").forward(request, response);
@@ -34,25 +48,30 @@ public class ServletConnexion extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	 **/
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String identifiant;
 		String mdp;
-		Utilisateur user;
+		Utilisateur user =new Utilisateur();
 		List<String>listError = new ArrayList<>();
 		String autoriser;
 		
 		
 		
-		identifiant = request.getParameter("Pseudo");
-		mdp = request.getParameter("mdp");
 		
 		//try {
 			
 			try {
-			user = utilisateurManager.connexionUser(identifiant.trim(), mdp);
+			//test
+			//	System.out.println(identifiant+" " + mdp);
+				//fin test
+				
+			user = utilisateurManager.connexionUser(request.getParameter("Pseudo"),request.getParameter("mdp"));
+			 //test
+			//System.out.println(user);
+			//fin test
 			if (user!=null) {
 				autoriser = "Connecté(e)";
 				response.sendRedirect(request.getContextPath() + "/Accueil");
@@ -69,7 +88,7 @@ public class ServletConnexion extends HttpServlet {
 				throw new RuntimeException ("");
 			}
 			
-			if (identifiant.trim().isEmpty() || mdp.trim().isEmpty() ) {
+			if (request.getParameter("Pseudo").trim().isEmpty() || request.getParameter("mdp").trim().isEmpty() ) {
 				listError.add ("identifiant ou Mot de passe non renseignés"); 
 			}
 		
@@ -85,5 +104,5 @@ public class ServletConnexion extends HttpServlet {
 	
 	
 		}
-}
+} 
 
