@@ -15,8 +15,8 @@ import fr.eni.ProjetEncheres.BLL.UtilisateurManager;
 
 
 public class ServletSInscrire extends HttpServlet{
-}
-/*	private UtilisateurManager utilisateurManager;
+
+	private UtilisateurManager utilisateurManager;
 
 	private static final long serialVersionUID = 1L;
 
@@ -26,11 +26,7 @@ public class ServletSInscrire extends HttpServlet{
     	super.init();
     }
 
-    public ServletSinscrire() {
-        super();
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/sinscrire.jsp");
@@ -86,6 +82,14 @@ public class ServletSInscrire extends HttpServlet{
 				 if(ville !=null || request.getParameter("ville").isEmpty());
 				 request.setAttribute("villeform", ville);
 				 
+				 String confirmation = request.getParameter("confirmation");
+				 try {
+				 if(confirmation.equals(mdp) || request.getParameter("confirmation").isEmpty());
+				 
+				 request.setAttribute("confirmation", confirmation);
+				 }catch (Exception e) {
+					 
+				 }
 				 
 				 if(!pseudo.isEmpty() && !nom.isEmpty() && !prenom.isEmpty() && !email.isEmpty() && 
 						 !telephone.isEmpty() && rue.isEmpty() && !Postal.isEmpty()){
@@ -94,5 +98,5 @@ public class ServletSInscrire extends HttpServlet{
 	
 		 }
 		
-	}*/
+	}
 
