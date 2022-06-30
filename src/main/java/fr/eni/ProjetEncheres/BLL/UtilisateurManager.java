@@ -13,7 +13,7 @@ public class UtilisateurManager {
 	private UtilisateurDAO utilisateurdao;
 	private static List<String> listError;
 	
-	private UtilisateurManager() {
+	public UtilisateurManager() {
 		this.utilisateurdao = DAOFactory.getUtilisateurDAO();
 		
 	}

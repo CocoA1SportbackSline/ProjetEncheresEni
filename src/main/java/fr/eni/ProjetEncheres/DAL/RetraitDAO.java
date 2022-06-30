@@ -3,7 +3,6 @@ package fr.eni.ProjetEncheres.DAL;
 import java.util.List;
 
 import fr.eni.ProjetEncheres.BO.Retrait;
-import fr.eni.ProjetEncheres.DAL.JDBC.DALException;
 
 public interface RetraitDAO {
 
