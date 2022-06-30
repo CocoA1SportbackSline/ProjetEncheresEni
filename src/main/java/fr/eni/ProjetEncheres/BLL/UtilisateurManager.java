@@ -9,9 +9,11 @@ import fr.eni.ProjetEncheres.DAL.DAOFactory;
 import fr.eni.ProjetEncheres.DAL.UtilisateurDAO;
 
 public class UtilisateurManager {
-	private static UtilisateurManager utilisateurManager;
+	//private  UtilisateurManager utilisateurManager;
 	private UtilisateurDAO utilisateurdao;
 	private static List<String> listError;
+	private static UtilisateurManager instance;
+	
 	
 	public UtilisateurManager() {
 		this.utilisateurdao = DAOFactory.getUtilisateurDAO();
@@ -19,10 +21,10 @@ public class UtilisateurManager {
 	}
 	
 	public static UtilisateurManager getInstance() {
-		if(utilisateurManager == null) {
-			utilisateurManager =new UtilisateurManager();
+		if(instance == null) {
+			instance =new UtilisateurManager();
 		}
-		return utilisateurManager;
+		return instance;
 	}
 	
 	public List<String> getListError(){
