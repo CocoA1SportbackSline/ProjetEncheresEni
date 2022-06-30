@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.eni.ProjetEncheres.BO.Categorie;
+
 import fr.eni.ProjetEncheres.BO.Retrait;
 import fr.eni.ProjetEncheres.DAL.ConnectionProvider;
 import fr.eni.ProjetEncheres.DAL.DALException;
