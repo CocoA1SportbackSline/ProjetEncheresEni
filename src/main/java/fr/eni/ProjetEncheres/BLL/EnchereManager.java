@@ -9,10 +9,11 @@ import fr.eni.ProjetEncheres.BO.ArticleVendu;
 import fr.eni.ProjetEncheres.BO.Enchere;
 import fr.eni.ProjetEncheres.BO.Utilisateur;
 import fr.eni.ProjetEncheres.DAL.ArticleVenduDAO;
+import fr.eni.ProjetEncheres.DAL.DALException;
 import fr.eni.ProjetEncheres.DAL.DAOFactory;
 import fr.eni.ProjetEncheres.DAL.EnchereDAO;
 import fr.eni.ProjetEncheres.DAL.UtilisateurDAO;
-import fr.eni.ProjetEncheres.DAL.JDBC.DALException;
+
 
 public class EnchereManager {
 
@@ -40,7 +41,7 @@ public class EnchereManager {
 		return listError;
 	}
 
-/*	public void ajoutEnchere(Enchere enchere, Utilisateur utilisateur)throws BLLException{  
+	public void ajoutEnchere(Enchere enchere, Utilisateur utilisateur)throws BLLException{  
 		
         listError = new ArrayList<>();
 		
@@ -93,13 +94,7 @@ public class EnchereManager {
 			throw new BLLException("Echec ajoutEnchere2");
 		}
 		
-	}*/
-	
-	
-	
-	
-	
-	
+	}
 	
 	public Enchere derniereEnchere(ArticleVendu av) throws BLLException {
 		Enchere enchereMax = null;
@@ -114,7 +109,6 @@ public class EnchereManager {
 		return enchereMax;
 	}
 	
-	
 	public void checkEnchere(float enchere, float tarifActuel, List<String> listError){
 		if(enchere < tarifActuel) {
 			listError.add("Pour encherir, vous devez proposer un prix suprieure a l enchere actuelle");
@@ -127,6 +121,4 @@ public class EnchereManager {
 			listError.add("Votre credit est de " + pointsPerso + " points");
 		}	
 	}
-
-	
 }

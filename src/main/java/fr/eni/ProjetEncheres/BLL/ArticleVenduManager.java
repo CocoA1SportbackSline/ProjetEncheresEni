@@ -116,7 +116,7 @@ public class ArticleVenduManager {
 		}
 		
 		if(article==null) {
-			listError.add("Aucun article trouvÃ©");
+			listError.add("Aucun article trouvé");
 		}
 		
 		return article;
@@ -141,5 +141,6 @@ public class ArticleVenduManager {
 
 		return list;
 	}
+	
 	
 }
