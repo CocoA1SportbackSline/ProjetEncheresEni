@@ -4,7 +4,6 @@ import java.util.List;
 
 import fr.eni.ProjetEncheres.BO.Enchere;
 
-
 public interface EnchereDAO {
 
 	void insert (Enchere e1) throws DALException;

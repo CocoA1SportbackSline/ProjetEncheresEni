@@ -4,7 +4,6 @@ import java.util.List;
 
 import fr.eni.ProjetEncheres.BO.Retrait;
 
-
 public interface RetraitDAO {
 
 	void insert (Retrait r1) throws DALException;
