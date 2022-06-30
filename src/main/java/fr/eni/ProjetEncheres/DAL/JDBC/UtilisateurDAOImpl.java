@@ -37,7 +37,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			pstmt.setString(4, u.getEmail());
 			pstmt.setString(5, u.getTelephone());   
 			pstmt.setString(6, u.getRue());
-			pstmt.setInt(7, u.getCode_Postal());
+			pstmt.setInt(7, u.getCodePostal());
 			pstmt.setString(8, u.getVille());
 			pstmt.setString(9, u.getMotDePasse());
 			pstmt.setInt(10, 100);
@@ -155,7 +155,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 				utilisateur.setEmail(rs.getString("email"));
 				utilisateur.setTelephone(rs.getString("telephone"));
 				utilisateur.setRue(rs.getString("rue"));
-				utilisateur.setCode_Postal(Integer.parseInt(rs.getString("code_postal")));
+				utilisateur.setCodePostal(Integer.parseInt(rs.getString("code_postal")));
 				utilisateur.setVille(rs.getString("ville"));
 				utilisateur.setMotDePasse(rs.getString("mot_de_passe"));
 				utilisateur.setCredit(rs.getInt("credit"));
@@ -188,7 +188,7 @@ public class UtilisateurDAOImpl implements UtilisateurDAO {
 			stmt.setString(4, u.getEmail());
 			stmt.setString(5, u.getTelephone());
 			stmt.setString(6, u.getRue());
-			stmt.setString(7, String.valueOf(u.getCode_Postal()));
+			stmt.setString(7, String.valueOf(u.getCodePostal()));
 			stmt.setString(8, u.getVille());
 			stmt.setString(9, u.getMotDePasse());
 			stmt.setInt(10, u.getCredit());
