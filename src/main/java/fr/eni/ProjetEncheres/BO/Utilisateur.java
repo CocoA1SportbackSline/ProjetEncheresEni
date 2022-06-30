@@ -10,14 +10,14 @@ public class Utilisateur {
 	private String email;
 	private String telephone;
 	private String rue;
-	private int code_Postal;
+	private int codePostal;
 	private String ville;
 	private String motDePasse;
 	private int credit;
 	private byte administrateur;
 	
 	public Utilisateur(int noUtilsateur, String pseudo, String nom, String prenom, String email, String telephone,
-			String rue, int code_Postal, String ville, String motDePasse, int credit, byte administrateur) {
+			String rue, int codePostal, String ville, String motDePasse, int credit, byte administrateur) {
 		super();
 		this.noUtilsateur = noUtilsateur;
 		this.pseudo = pseudo;
@@ -26,7 +26,7 @@ public class Utilisateur {
 		this.email = email;
 		this.telephone = telephone;
 		this.rue = rue;
-		this.code_Postal = code_Postal;
+		this.codePostal = codePostal;
 		this.ville = ville;
 		this.motDePasse = motDePasse;
 		this.credit = credit;
@@ -37,7 +37,7 @@ public class Utilisateur {
 	
 	
 	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue,
-			int code_Postal, String ville, String motDePasse, int credit, byte administrateur) {
+			int codePostal, String ville, String motDePasse, int credit, byte administrateur) {
 		super();
 		this.pseudo = pseudo;
 		this.nom = nom;
@@ -45,7 +45,7 @@ public class Utilisateur {
 		this.email = email;
 		this.telephone = telephone;
 		this.rue = rue;
-		this.code_Postal = code_Postal;
+		this.codePostal = codePostal;
 		this.ville = ville;
 		this.motDePasse = motDePasse;
 		this.credit = credit;
@@ -117,12 +117,12 @@ public class Utilisateur {
 		this.administrateur = administrateur;
 	}
 	
-	public int getCode_Postal() {
-		return code_Postal;
+	public int getCodePostal() {
+		return codePostal;
 	}
 
-	public void setCode_Postal(int code_Postal) {
-		this.code_Postal = code_Postal;
+	public void setCodePostal(int code_Postal) {
+		this.codePostal = code_Postal;
 	}
 
 	public String getVille() {
@@ -136,8 +136,8 @@ public class Utilisateur {
 	@Override
 	public String toString() {
 		return "Utilisateur [noUtilsateur=" + noUtilsateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
-				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", code_Postal="
-				+ code_Postal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
+				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
+				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
 				+ ", administrateur=" + administrateur + "]";
 	}
 }

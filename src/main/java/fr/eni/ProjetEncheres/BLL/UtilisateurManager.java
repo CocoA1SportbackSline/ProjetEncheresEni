@@ -105,7 +105,7 @@ public class UtilisateurManager {
 		checkEmail(u.getEmail(), listError);
 		checkTelephone(u.getTelephone(), listError);
 		checkRue(u.getRue(), listError);
-		checkCodePostal(String.valueOf(u.getCode_Postal()), listError);
+		checkCodePostal(String.valueOf(u.getCodePostal()), listError);
 		checkVille(u.getVille(), listError);
 		checkPassword(u.getMotDePasse(), listError);
 		
