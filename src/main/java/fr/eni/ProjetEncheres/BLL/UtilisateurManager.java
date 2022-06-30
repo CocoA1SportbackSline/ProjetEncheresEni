@@ -126,7 +126,7 @@ public class UtilisateurManager {
 	public void deleteUser(Utilisateur u) throws BLLException {
 		
 		try {
-			utilisateurdao.delete(u.getNoUtilsateur());
+			utilisateurdao.delete(u.getNoUtilisateur());
 		} catch (DALException e) {
 			throw new BLLException("Echec updateUser");
 		}
@@ -246,7 +246,7 @@ public class UtilisateurManager {
 				}	
 			}
 			if (verifEmail == false) {
-				listError.add("Cet email est dejaÂ  utilisÃ©");
+				listError.add("Cet email est deja  utilisée");
 			}
 			return verifEmail;	
 		}
