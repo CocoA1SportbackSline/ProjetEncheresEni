@@ -3,7 +3,7 @@ package fr.eni.ProjetEncheres.DAL;
 import java.util.List;
 
 import fr.eni.ProjetEncheres.BO.ArticleVendu;
-import fr.eni.ProjetEncheres.BO.Categorie;
+
 
 public interface ArticleVenduDAO {
 
