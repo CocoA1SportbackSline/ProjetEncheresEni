@@ -76,7 +76,7 @@ public class UtilisateurManager {
 		checkEmail(pseudo, listError);
 		checkPassword(motDePasse, listError);
 		
-		if(!listError.isEmpty()) {
+		if((listError !=null) &&(!listError.isEmpty())) {
 			throw new BLLException("echec connexionuser : verifier mot de passe et pseudo");
 		}
 		
@@ -140,7 +140,7 @@ public class UtilisateurManager {
 		if(pseudo.length()>30) {
 			listError.add("le pseudo est trop grand");
 		}
-		if(!pseudo.matches("[a-AZ-Z0-9]*")) {
+		if(!pseudo.matches("[a-zA-Z0-9]*")) {
 			listError.add("le pseudo doit composer uniquement de lettre et de chiffre");
 		}
 	}
@@ -155,7 +155,7 @@ public class UtilisateurManager {
 		if(Password.length()>30) {
 			listError.add("mot de passe est trop grand");
 		}
-		if(!Password.matches("[a-AZ-Z0-9]*")) {
+		if(!Password.matches("[a-zA-Z0-9]*")) {
 			listError.add("mot de ne peut correspondre qu'a des lettres et des chiffres");
 		}
 	}
@@ -248,7 +248,7 @@ public class UtilisateurManager {
 				}	
 			}
 			if (verifEmail == false) {
-				listError.add("Cet email est deja  utilisée");
+				listError.add("Cet email est dejaï¿½ utilisï¿½e");
 			}
 			return verifEmail;	
 		}

@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.ProjetEncheres.BLL.BLLException;
 import fr.eni.ProjetEncheres.BLL.UtilisateurManager;
@@ -38,71 +39,59 @@ public class ServletConnexion extends HttpServlet {
    	}
        
        
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 **/
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Utilisateur user = (Utilisateur) request.getSession().getAttribute("myUser");
+        if(user != null && !user.getPseudo().isEmpty()) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil").forward(request, response);
+        }
+        this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Connexion.jsp").forward(request, response);
+    }
 		
-		request.getRequestDispatcher("/WEB-INF/pages/Connexion.jsp").forward(request, response);
-	}
+	
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 **/
+	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String identifiant;
-		String mdp;
-		Utilisateur user =new Utilisateur();
-		List<String>listError = new ArrayList<>();
-		String autoriser;
+		List<String> listError = new ArrayList<>();
+        Utilisateur user = null;
+        String pseudo =null;
+        String motDepasse = null;
+        String passwordError = null;
+        String pseudoError = null;
+        if(request.getParameter("pseudoform")!=null &&!request.getParameter("pseudoform").isEmpty() && request.getParameter("passwordform")!=null && !request.getParameter("passwordform").isEmpty()) {
+            pseudo = request.getParameter("pseudoform");
+            motDepasse = request.getParameter("passwordform");
+        } else {
+            if(!request.getParameter("pseudoform").isEmpty()) {
+                pseudo = request.getParameter("pseudoform");
+                request.setAttribute("pseudoform", pseudo);
+                passwordError = "Renseigner un mot de passe";
+            } else if(!request.getParameter("passwordform").isEmpty()) {
+                pseudoError = "Renseigner un pseudo";
+            }
+            request.setAttribute("passwordError", passwordError);
+            request.setAttribute("pseudoError", pseudoError);
+            this.getServletContext().getRequestDispatcher("WEB-INF/pages/Accueil").forward(request, response);
+        }
+        try {
+            user = utilisateurManager.connexionUser(pseudo, motDepasse);
+        } catch (BLLException e) {
+            request.setAttribute("pseudo", pseudo);
+            listError = utilisateurManager.getListError();
+            listError.add("Impossible de se connecter");
+            request.setAttribute("listError", listError);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Connexion.jsp").forward(request, response);
+        }
+                HttpSession session = request.getSession();
+        session.setAttribute("myUser", user);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil").forward(request, response);
+    }
 		
 		
 		
 		
-		//try {
-			
-			try {
-			//test
-			//	System.out.println(identifiant+" " + mdp);
-				//fin test
-				
-			user = utilisateurManager.connexionUser(request.getParameter("Pseudo"),request.getParameter("mdp"));
-			 //test
-			//System.out.println(user);
-			//fin test
-			if (user!=null) {
-				autoriser = "Connecté(e)";
-				response.sendRedirect(request.getContextPath() + "/Accueil");
-				request.getSession().setAttribute("seconnecter",autoriser);
-			}else {
-				autoriser= "se connecter";
-				listError.add("pas compte reconnu, veuillez verifier votre identifiant.");
-				response.sendRedirect(request.getContextPath() + "/Connexion");
-				
-			}
-			} catch ( BLLException e) {
-				// TODO Auto-generated catch block
-				
-				throw new RuntimeException ("");
-			}
-			
-			if (request.getParameter("Pseudo").trim().isEmpty() || request.getParameter("mdp").trim().isEmpty() ) {
-				listError.add ("identifiant ou Mot de passe non renseignés"); 
-			}
 		
-			if (listError != null) {
-				for (int i=0;i<listError.size();i++)
-				request.setAttribute("erreur", listError.get(i));
-			}
-			
-			
-		//}
-		
-		request.getRequestDispatcher("/WEB-INF/pages/Connexion.jsp").forward(request, response);
-	
-	
-		}
 } 
 

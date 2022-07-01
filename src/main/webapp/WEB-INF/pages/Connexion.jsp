@@ -27,14 +27,14 @@
 <div class="l">
     <div class="col-3 col-md-3 col-sm-10  mx-auto text-center">
         <div class="mb-3">
-            <label for="Pseudo" class="form-label">Pseudo</label>
-            <input type="form-control" class="form-control" id="Pseudo" name="Pseudo" required >
+            <label for="pseudoform" class="form-label">Pseudo</label>
+            <input type="form-control" class="form-control" id="passwordform" name="pseudoform" required >
             
         </div>
 
         <div class="mb-3">
-            <label for="mdp" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="mdp" name="mdp" required >
+            <label for="passwordform" class="form-label">Mot de passe</label>
+            <input type="password" class="form-control" id="passwordform" name="passwordform" required >
             
         </div>
     
