@@ -41,14 +41,14 @@ public class ServletAfficherProfil extends HttpServlet {
 			int noUtilisateur = Integer.parseInt(request.getParameter("noUtilisateur"));
 		// rentrer dans try
 			try {
-			// définition classe utilisateur correspond à la méthode postUser qui prend en paramètre un int
-			// méthode présente dans la classe utilisateurManager
+			// dï¿½finition classe utilisateur correspond ï¿½ la mï¿½thode postUser qui prend en paramï¿½tre un int
+			// mï¿½thode prï¿½sente dans la classe utilisateurManager
 				Utilisateur utilisateur = utilisateurMger.postUser(noUtilisateur);
-			// on modifie le paramètre utilisateur	
+			// on modifie le paramï¿½tre utilisateur	
 				request.setAttribute("utilisateur", utilisateur);
 			// initialisation de la session	
 				Utilisateur user = (Utilisateur) request.getSession().getAttribute("user");
-			// si le pseudo qui est récupéré correspond au pseudo de l'utilisateur
+			// si le pseudo qui est rï¿½cupï¿½rï¿½ correspond au pseudo de l'utilisateur
 				if (user.getPseudo().equals(utilisateur.getPseudo())) {
 					// renvoie la vue de l'autre profil
 					this.getServletContext().getRequestDispatcher("/WEB-INF/pages/AutreProfil.jsp").forward(request,
