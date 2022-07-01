@@ -141,6 +141,61 @@ public class ArticleVenduManager {
 
 		return list;
 	}
+/*	public List<ArticleVendu> selectByArticleAndCategorie(String keyWords, int idCategorie) throws BLLException {
+		listError = new ArrayList<>();
+		List<ArticleVendu> list = new ArrayList<>();
+		List<ArticleVendu> listTemp = new ArrayList<>();
+		
+		List<String> listKeyWord = returnListString(keyWords);
+		
+		for (String keyWord : listKeyWord) {
+			try {
+				listTemp = articleVenduDAO.selectByKeyWordAndNoCategorie(keyWord, idCategorie);
+			} catch (DALException e) {
+				e.printStackTrace();
+				throw new BLLException("echec method selectByArticleAndCategorie");
+			}
+			for (ArticleVendu article : listTemp) {
+				list.add(article);
+			}
+		}
+		
+		if(list.isEmpty()) {
+			listError.add("Aucun élément trouvé pour cette recherche");
+		}
 	
+		return validerVente(list);
+	}
+	
+*/
+	
+	/**
+	 *  Recherche par mots clé : mot1 ou mot2 ... (dans nom_article ou description)
+	 */
+	/*public List<ArticleVendu> selectByArticle(String keyWords) throws BLLException {
+		listError = new ArrayList<>();
+		List<ArticleVendu> list = new ArrayList<>();
+		List<ArticleVendu> listTemp = new ArrayList<>();
+		
+		List<String> listKeyWord = returnListString(keyWords);
+		
+		for (String keyWord : listKeyWord) {
+			try {
+				listTemp = articleVenduDAO.selectByKeyWord(keyWord);
+			} catch (DALException e) {
+				throw new BLLException("echec method selectByArticle");
+			}
+			for (ArticleVendu article : listTemp) {
+				list.add(article);
+			}
+		}
+		
+		if(list.isEmpty()) {
+			listError.add("Aucun élément trouvé pour cette recherche");
+		}
+	
+		return validerVente(list);
+	}
+	*/
 	
 }

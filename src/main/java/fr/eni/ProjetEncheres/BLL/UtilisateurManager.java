@@ -232,7 +232,7 @@ public class UtilisateurManager {
 		
 		// verif que l email soit unique a partir de la list utilisateur 
 		// si unique alors email = ok sinon taper nouveau email
-		public boolean checkEmailUnique(String email, List<String> listError) throws BLLException{
+			public boolean checkEmailUnique(String email, List<String> listError) throws BLLException{
 			boolean verifEmail = true;
 			List<Utilisateur> listeUtilisateur = new ArrayList<>();
 			try {

@@ -1,6 +1,3 @@
-
-
-
 package fr.eni.ProjetEncheres.IHM;
 
 import java.io.IOException;
@@ -47,14 +44,11 @@ public class ServletConnexion extends HttpServlet {
         }
         this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Connexion.jsp").forward(request, response);
     }
-		
-	
 
-	
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<String> listError = new ArrayList<>();
+
         Utilisateur user = null;
         String pseudo =null;
         String motDepasse = null;
@@ -87,10 +81,5 @@ public class ServletConnexion extends HttpServlet {
         session.setAttribute("myUser", user);
         this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil.jsp").forward(request, response);
     }
-		
-		
-		
-		
-		
-} 
 
+}

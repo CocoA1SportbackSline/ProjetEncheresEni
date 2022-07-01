@@ -26,11 +26,10 @@ public class EnchereManager {
 	public EnchereManager () {
 		this.enchereDao = DAOFactory.getEnchereDao();
 		this.utilisateurDao = DAOFactory.getUtilisateurDAO();
-
 		this.articleVenduDao = DAOFactory.getArticleVenduDao();
 	}
 	
-	public EnchereManager getInstance() {
+	public static EnchereManager getInstance() {
 		if (instance == null) {
 			instance = new EnchereManager();
 		}
