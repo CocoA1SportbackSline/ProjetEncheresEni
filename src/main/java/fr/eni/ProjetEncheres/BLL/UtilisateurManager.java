@@ -248,7 +248,8 @@ public class UtilisateurManager {
 				}	
 			}
 			if (verifEmail == false) {
-				listError.add("Cet email est deja� utilis�e");
+				listError.add("Cet email est deja utilisé");
+
 			}
 			return verifEmail;	
 		}
