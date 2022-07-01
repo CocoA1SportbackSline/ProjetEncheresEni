@@ -1,6 +1,7 @@
 package fr.eni.ProjetEncheres.IHM;
 
 import java.io.IOException;
+import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,7 +91,7 @@ public class ServletSInscrire extends HttpServlet{
 				 String confirmation = request.getParameter("confirmation");
 				 
 				  if(!pseudo.isEmpty() && !nom.isEmpty() && !prenom.isEmpty() && !email.isEmpty() && 
-						 !telephone.isEmpty() && rue.isEmpty() && !Postal.isEmpty()){
+						 !telephone.isEmpty() && rue.isEmpty() && !Postal.isEmpty() && !ville.isEmpty() ){
 					 
 				 }
 				  
@@ -133,12 +134,23 @@ public class ServletSInscrire extends HttpServlet{
 						 HttpSession session = request.getSession();
 						 session.setAttribute("myuser", u);
 					 }catch (Exception e) {
+						 listeErreurs = utilisateurManager.getListError();
+							request.setAttribute("listeDesErreurs", listeErreurs);
+							this.getServletContext().getRequestDispatcher("/WEB-INF/sinscrire.jsp").forward(request, response);
 						 
 					 }
+					 
+					 this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 				 }
+				/*} else {
+					listeErreurs.add("Tous les champs doivent être remplis");
+					request.setAttribute("listeDesErreurs", listeErreurs);
+					this.getServletContext().getRequestDispatcher("/WEB-INF/sinscrire.jsp").forward(request, response);
+				 }*/
 			}
-	
+			
 }
+		
 		
 	
 
