@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+header{
+    background-color: rgb(8, 8, 185);
+    
+}
+
+h1{
+    text-align: center;
+    margin: 2%;
+}
+
+.rechercher{
+
+    margin-top: 3%;
+}
+
+.card{
+
+    margin-top: 3%;
+}
+

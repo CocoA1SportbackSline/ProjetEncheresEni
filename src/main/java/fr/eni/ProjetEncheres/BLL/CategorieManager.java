@@ -1,5 +1,6 @@
 package fr.eni.ProjetEncheres.BLL;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.ProjetEncheres.BO.Categorie;
@@ -23,6 +24,34 @@ public class CategorieManager {
 			instance = new CategorieManager();
 		}
 		return instance;
+	}
+	
+	
+	
+	public List<Categorie> selectall () throws BLLException{
+		   List<Categorie> list = new ArrayList<Categorie>();
+				
+			try {
+				list = categorieDao.selectAll();
+					
+				} catch (DALException e) {
+					e.printStackTrace();
+				}
+			return list;
+		}
+	
+	public Categorie selectNoCategorie(int id) throws BLLException {
+	    Categorie categorie= null;
+	
+	    try {
+	    	categorie = categorieDao.selectByNo(id);
+		
+		} catch (DALException e) {
+	
+			throw new BLLException("echec method selectByCategorie");
+		}
+		
+	    return categorie;
 	}
 	
 	public List<Categorie> getCategorie ()throws BLLException{
@@ -81,5 +110,4 @@ public class CategorieManager {
 			throw new BLLException("updateCategorie failed", e);
 		}
 	}
-	
 }

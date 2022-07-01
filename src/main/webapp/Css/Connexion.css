@@ -19,6 +19,8 @@ header{
 }
 
 
-.error{
-	text-align: center;
+p{
+	margin-left: 25%;
+	
+	background-color: red ;
 }
