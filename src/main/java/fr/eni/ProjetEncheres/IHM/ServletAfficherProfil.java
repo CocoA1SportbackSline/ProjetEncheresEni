@@ -36,7 +36,7 @@ public class ServletAfficherProfil extends HttpServlet {
 		// affiche la page
 		request.setAttribute(getServletName(), response);
 		// si l'id de la jsp n'est pas vide
-		if (!request.getParameter("id").isEmpty()) {
+		if ((request.getParameter("id")!=null && !request.getParameter("id").isEmpty())) {
 		// alors on fait la conversion du type dde noUtilisateur entre la BO et la BDD
 			int noUtilisateur = Integer.parseInt(request.getParameter("noUtilisateur"));
 		// rentrer dans try
@@ -51,7 +51,7 @@ public class ServletAfficherProfil extends HttpServlet {
 			// si le pseudo qui est r�cup�r� correspond au pseudo de l'utilisateur
 				if (user.getPseudo().equals(utilisateur.getPseudo())) {
 					// renvoie la vue de l'autre profil
-					this.getServletContext().getRequestDispatcher("/WEB-INF/pages/AutreProfil.jsp").forward(request,
+					this.getServletContext().getRequestDispatcher("/WEB-INF/pages/AfficherProfil.jsp").forward(request,
 							response);
 				}
 			} catch (BLLException e) {

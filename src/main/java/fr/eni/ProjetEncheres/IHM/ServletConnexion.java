@@ -39,90 +39,58 @@ public class ServletConnexion extends HttpServlet {
    	}
        
        
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 **/
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	Utilisateur user = (Utilisateur) request.getSession().getAttribute("myUser");
-		
-		if(user != null && !user.getPseudo().isEmpty()) {
-			this.getServletContext().getRequestDispatcher("/Accueil").forward(request, response);
-		}
+		Utilisateur user = (Utilisateur) request.getSession().getAttribute("myUser");
+        if(user != null && !user.getPseudo().isEmpty()) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil").forward(request, response);
+        }
+        this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Connexion.jsp").forward(request, response);
+    }
 
-		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
-	}
 		
 		
 		
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 **/
+
+	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<String> listError = new ArrayList<>();
-		Utilisateur user = null;
-		String pseudo =null;
-		String motDepasse = null;
-		String passwordError = null;
-		String pseudoError = null;
-		
-		if(!request.getParameter("pseudoform").isEmpty() && !request.getParameter("passwordform").isEmpty()) {
-			
-			pseudo = request.getParameter("pseudoform");
-			
-			motDepasse = request.getParameter("passwordform");
-			
-		} else {
-			
-			if(!request.getParameter("pseudoform").isEmpty()) {
-				
-				pseudo = request.getParameter("pseudoform");
-				
-				request.setAttribute("pseudoform", pseudo);
-				
-				passwordError = "Renseigner un mot de passe";
-				
-			} else if(!request.getParameter("passwordform").isEmpty()) {
-				
-				pseudoError = "Renseigner un pseudo";
-			}
-			request.setAttribute("passwordError", passwordError);
-			
-			request.setAttribute("pseudoError", pseudoError);
-			
-		    this.getServletContext().getRequestDispatcher("WEB-INF/pages/accueil").forward(request, response);
-		}
-		try {
-			
-			user = utilisateurManager.connexionUser(pseudo, motDepasse);
-			
-		} catch (BLLException e) {
-			
-			request.setAttribute("pseudo", pseudo);
-			
-			listError = utilisateurManager.getListError();
-			
-			listError.add("Impossible de se connecter");
-			
-			request.setAttribute("listError", listError);
-			
-			this.getServletContext().getRequestDispatcher("/WEB-INF/connexion.jsp").forward(request, response);
-		}
-				HttpSession session = request.getSession();
-		
-		session.setAttribute("myUser", user);
-		
-		this.getServletContext().getRequestDispatcher("/Accueil").forward(request, response);
-	}	
-	
+
+        Utilisateur user = null;
+        String pseudo =null;
+        String motDepasse = null;
+        String passwordError = null;
+        String pseudoError = null;
+        if(request.getParameter("pseudoform")!=null &&!request.getParameter("pseudoform").isEmpty() && request.getParameter("passwordform")!=null && !request.getParameter("passwordform").isEmpty()) {
+            pseudo = request.getParameter("pseudoform");
+            motDepasse = request.getParameter("passwordform");
+        } else {
+            if(!request.getParameter("pseudoform").isEmpty()) {
+                pseudo = request.getParameter("pseudoform");
+                request.setAttribute("pseudoform", pseudo);
+                passwordError = "Renseigner un mot de passe";
+            } else if(!request.getParameter("passwordform").isEmpty()) {
+                pseudoError = "Renseigner un pseudo";
+            }
+            request.setAttribute("passwordError", passwordError);
+            request.setAttribute("pseudoError", pseudoError);
+            this.getServletContext().getRequestDispatcher("WEB-INF/pages/Accueil").forward(request, response);
+        }
+        try {
+            user = utilisateurManager.connexionUser(pseudo, motDepasse);
+        } catch (BLLException e) {
+            request.setAttribute("pseudo", pseudo);
+            listError = utilisateurManager.getListError();
+            listError.add("Impossible de se connecter");
+            request.setAttribute("listError", listError);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Connexion.jsp").forward(request, response);
+        }
+                HttpSession session = request.getSession();
+        session.setAttribute("myUser", user);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil").forward(request, response);
+    }
+
 }
-		
-	
-	
-	
-
-
