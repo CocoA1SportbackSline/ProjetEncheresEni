@@ -54,10 +54,10 @@
 
     <a href="moProfil.html">Pas encore de compte, cliquez ici</a>
 </div>
-</div class="error">
 
-		listError="${listError}"
-<div>
+
+		 <p style="color:red">${listError}</p>
+
 
 </div>
 </form>

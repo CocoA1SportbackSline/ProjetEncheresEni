@@ -43,7 +43,7 @@ public class ServletConnexion extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Utilisateur user = (Utilisateur) request.getSession().getAttribute("myUser");
         if(user != null && !user.getPseudo().isEmpty()) {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil.jsp").forward(request, response);
         }
         this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Connexion.jsp").forward(request, response);
     }
@@ -73,20 +73,19 @@ public class ServletConnexion extends HttpServlet {
             }
             request.setAttribute("passwordError", passwordError);
             request.setAttribute("pseudoError", pseudoError);
-            this.getServletContext().getRequestDispatcher("WEB-INF/pages/Accueil").forward(request, response);
+            this.getServletContext().getRequestDispatcher("WEB-INF/pages/Accueil.jsp").forward(request, response);
         }
         try {
             user = utilisateurManager.connexionUser(pseudo, motDepasse);
         } catch (BLLException e) {
             request.setAttribute("pseudo", pseudo);
             listError = utilisateurManager.getListError();
-            listError.add("Impossible de se connecter");
-            request.setAttribute("listError", listError);
+            request.setAttribute("listError", "Pseudo ou Mot de passe non reconnu. Veuillez Reessayer");
             this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Connexion.jsp").forward(request, response);
         }
                 HttpSession session = request.getSession();
         session.setAttribute("myUser", user);
-        this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil.jsp").forward(request, response);
     }
 		
 		
