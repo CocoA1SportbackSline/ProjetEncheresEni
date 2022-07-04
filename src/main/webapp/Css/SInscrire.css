@@ -1,0 +1,15 @@
+@charset "UTF-8";
+header{
+    
+    background-image: linear-gradient(-60deg, rgb(40, 136, 245),white,rgb(40, 136, 245));
+    
+}
+.heaterImg{
+    margin-top: 12%;
+}
+
+
+h1{
+    text-align: center;
+    margin: 2%;
+}
