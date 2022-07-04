@@ -14,7 +14,7 @@ import fr.eni.ProjetEncheres.BO.Utilisateur;
 /**
  * Servlet implementation class ServletAfficherProfil
  */
-@WebServlet("/ServletAfficherProfil")
+@WebServlet("/AfficherProfil")
 public class ServletAfficherProfil extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -48,7 +48,7 @@ public class ServletAfficherProfil extends HttpServlet {
 				request.setAttribute("utilisateur", utilisateur);
 			// initialisation de la session	
 				Utilisateur user = (Utilisateur) request.getSession().getAttribute("user");
-			// si le pseudo qui est r�cup�r� correspond au pseudo de l'utilisateur
+			// si le pseudo qui est récupéré correspond au pseudo de l'utilisateur
 				if (user.getPseudo().equals(utilisateur.getPseudo())) {
 					// renvoie la vue de l'autre profil
 					this.getServletContext().getRequestDispatcher("/WEB-INF/pages/AfficherProfil.jsp").forward(request,
@@ -58,7 +58,7 @@ public class ServletAfficherProfil extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} // sinon renvoie la vue de mon profil
-			this.getServletContext().getRequestDispatcher("/WEB-INF/pages/MonUtilisateur.jsp").forward(request,
+			this.getServletContext().getRequestDispatcher("/WEB-INF/pages/AfficherProfil.jsp").forward(request,
 					response);
 
 		} else {

@@ -29,7 +29,7 @@ public class RetraitDAOImpl implements RetraitDAO {
 			PreparedStatement pstmt = conn.prepareStatement(INSERT,PreparedStatement.RETURN_GENERATED_KEYS);
 			
 			pstmt.setString(1,r1.getRue());
-			pstmt.setString(2,r1.getCodePostal());
+			pstmt.setInt(2,r1.getCodePostal());
 			pstmt.setString(3,r1.getVille());
 			pstmt.executeUpdate();
    
@@ -65,7 +65,7 @@ public class RetraitDAOImpl implements RetraitDAO {
     		PreparedStatement pstmt = conn.prepareStatement(UPDATE);
     		
     		pstmt.setString(1,r1.getRue());
-    		pstmt.setString(2,r1.getCodePostal());
+    		pstmt.setInt(2,r1.getCodePostal());
     		pstmt.setString(3,r1.getVille());
     		
     		pstmt.executeUpdate();
@@ -91,7 +91,7 @@ public class RetraitDAOImpl implements RetraitDAO {
 			Retrait retraitAjout = null;
 			while (rs.next()) {
 				// utilisation du conscruteur Categorie
-				retraitAjout = new Retrait(rs.getString("rue"), rs.getString("code_postal"), rs.getString("ville"));
+				retraitAjout = new Retrait(rs.getString("rue"), rs.getInt("code_postal"), rs.getString("ville"));
 				listeRetrait.add(retraitAjout);
 			}
 
@@ -113,7 +113,7 @@ public class RetraitDAOImpl implements RetraitDAO {
 			ResultSet rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				return new Retrait (rs.getInt("no_article"), rs.getString("rue"), rs.getString("code_postal"), rs.getString("ville"));
+				return new Retrait (rs.getInt("no_article"), rs.getString("rue"), rs.getInt("code_postal"), rs.getString("ville"));
 			} else  {
 				throw new DALException("Mauvais ID");
 			}

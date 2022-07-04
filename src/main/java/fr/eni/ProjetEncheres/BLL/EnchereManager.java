@@ -67,7 +67,7 @@ public class EnchereManager {
 			prixMin = enchereMax.getMontantEnchere();
 		}
 		
-		if(article.getDate_fin_encheres().isBefore(LocalDateTime.now())) {
+		if(article.getDateFinEncheres().isBefore(LocalDateTime.now())) {
 			listError.add("L'enchere est clôturé");
 		}
 		
@@ -99,7 +99,7 @@ public class EnchereManager {
 		Enchere enchereMax = null;
 		
 		try {
-			enchereMax = enchereDao.recupEnchereMax(av.getNo_article());
+			enchereMax = enchereDao.recupEnchereMax(av.getNoArticle());
 		} catch (DALException e) {
 			e.printStackTrace();
 			throw new BLLException("Erreur method derniereEnchere");

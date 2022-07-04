@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,76 +12,93 @@
     <link rel="stylesheet" href="Css/Accueil.css" />
 </head>
 <body>
-    <header>
-
-        <div class="container-fluid">
-            <div class="col 4 mx-auto text-center">
-           
-             <img src="Img/eni.png" alt="eni" id="imgEni" class="mx-auto">
-            
-
-            </div>
-        </div>
-    </header>
 
 
-    <h1>Liste des ench�res</h1>
-
-    <form action="">
-        <div class="col-12">
+<main id="bg">
+        <div class="container pt-4" id="form">
             <div class="row">
-                <div class="col-0 col-sm-0 col-md-0 col-lg-3 col-xl-3 "></div>
-                    <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3  ">
-                        <div class="mb-3">
-                             <label for="Filtres" class="form-label">Filtres</label>
-                             <input type="form-control" class="form-control" id="Filtres" >
+                <div class="col-md-1"></div>
+                <div class="col-md-10 p-4">
+                    <h1>Liste des Enchères</h1>
+                    <form action="Accueil" method="post">
+                        <div class="row mt-5">
+                            <p>Filtres :</p>
                         </div>
-
-                        <div>
-                            <label for="Categorie">Cat�gorie :</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Toutes</option>
-                                <option value="1">Informatique</option>
-                                <option value="2">Ameublement</option>
-                                <option value="3">V�tement</option>
-                                <option value="4">Sport&Loisirs</option>
-                              </select>
-
-
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-6 inner-addon left-addon mb-4">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                    <input class="form-control" type="text" name="skeyword" placeholder="Le nom de l'article contient">
+                                </div>
+                                <div class=" mb-3">
+                                    <label>Catégorie : </label>
+                                    <select class="selectpicker" name="scategorie">
+                                        <option value="0">Toutes</option>
+                                        <c:forEach var="cat" items="${listeCategorie}">
+                                            <option value="${cat.noCategorie}">${cat.libelle}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                                <c:if test="${!empty sessionScope.myUser}">
+                                    <div class="col-6 mt-3">
+                                        <p>Achats</p>
+                                        <div class="ms-3">
+                                            <input class="form-check-input" type="radio" name="sachatsVentes" value="enchereouverte" id="checkAchat1">
+                                            <label for="checkAchat1">Enchères ouvertes</label> <br>
+                                            <input class="form-check-input" type="radio" name="sachatsVentes" value="mesenchere" id="checkAchat2">
+                                            <label for="checkAchat2">Mes enchères</label> <br>
+                                            <input class="form-check-input" type="radio" name="sachatsVentes" value="mesencheresremportees" id="checkAchat3">
+                                            <label for="checkAchat3">Mes enchères remportées</label> <br>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mt-3">
+                                        <p>Mes Ventes</p>
+                                        <div class="ms-3">
+                                            <input class="form-check-input borderCheckBox" type="radio" name="sachatsVentes" value="mesventeencours" id="checkVente1">
+                                            <label for="checkVente1">Mes ventes en cours</label> <br>
+                                            <input class="form-check-input borderCheckBox" type="radio" name="sachatsVentes" value="ventenondebutees" id="checkVente2">
+                                            <label for="checkVente2">Ventes non débutées</label> <br>
+                                            <input class="form-check-input borderCheckBox" type="radio" name="sachatsVentes" value="ventesterminees" id="checkVente3">
+                                            <label for="checkVente3">Ventes terminées</label> <br>
+                                        </div>
+                                    </div>
+                                </c:if>
+                            </div>
                         </div>
-                    </div>
-                    <div class="rechercher">
-                    <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3 ">
-                        <div class="mb-3">
-                           
-                          <button type="submit">Rechercher</button>
+                        <div class="mt-5">
+                            <button class="btn btn-success me-2" type="submit">Rechercher</button>
                         </div>
+                    </form>
                     </div>
-                    </div>
-                   
-                </div>
-                     
                 </div>
             </div>
-
-            
-        </div>
-        <div class="card">
-        <div class="col-12">
-            <div class="row">
-                
-                    <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3  ">
-                         <div class="card" style="width: 18rem;">
-                             <img src="Img/maison.jpg" class="card-img-top" alt="...">
-                         <div class="card-body">
-                          <h5 class="card-title">A SAISIR</h5>
-                          <p class="card-text">Maison 180m2 6 Pi�ces 2SDB sur 2000m2 de terrain</p>
-                          <a href="" class="btn btn-primary">Encherir</a>
+            <div class="displayFlexRow mt-3">
+                <c:if test="${!empty listeArticle}">
+                    <div class="row" style="justify-content: center">
+                        <c:forEach var="art" items="${listeArticle}">
+                            <form class="m-3 box-vente" action="${empty sessionScope.myUser ? '' : './DetailEnchere' }" method="post">
+                                <button class="btn btn-outline-success btn-vente" style="border: none" type="submit" name="sno_article" value="${ art.article.no_article}">
+                                    <div class="row m-3">
+                                        <div class="col-md-6">
+                                            <img width="300" height="300" src="
+                                            <c:url value="public/imageArticle/${empty art.article.image ? 'image-not-found.png' : art.article.image}">
+                                            </c:url>" alt="image de l'article" class="img-thumbnail">
+                                        </div>
+                                        <div class="col-md-6" style="font-size:20px">
+                                            <p style="font-weight: bold;text-decoration: underline">
+                                            ${art.article.nom_article}</p>
+                                            <p>Prix : ${empty art.meilleurEnchere ? art.article.prix_initial : art.meilleurEnchere.montant_enchere} points</p>
+                                            <p>Fin de l'enchère :  ${art.date_fin}</p>
+                                            <p>Vendeur : ${art.user.pseudo}</p>
+                                        </div>
+                                    </div>
+                                </button>
+                            </form>
+                        </c:forEach>
                     </div>
-                
+                </c:if>
             </div>
-        </div>
-        </div>
-    </form>
+        </main>
+	
 </body>
 </html>
