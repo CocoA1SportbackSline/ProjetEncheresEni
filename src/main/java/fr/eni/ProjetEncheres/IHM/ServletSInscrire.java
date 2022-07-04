@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +17,7 @@ import fr.eni.ProjetEncheres.BLL.UtilisateurManager;
 import fr.eni.ProjetEncheres.BO.Utilisateur;
 
 
-
+@WebServlet("/SInscrire")
 public class ServletSInscrire extends HttpServlet{
 
 
@@ -33,7 +34,7 @@ public class ServletSInscrire extends HttpServlet{
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/sinscrire.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/pages/SInscrire.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -43,19 +44,19 @@ public class ServletSInscrire extends HttpServlet{
 		List<String> listeErreurs = new ArrayList<>();
 		
 		String pseudo = request.getParameter("pseudo");
-		if (pseudo!=null || !request.getParameter(pseudo).isEmpty()) {
+		if (pseudo!=null && !request.getParameter(pseudo).isEmpty()) {
 			request.setAttribute("spseudo", pseudo);
 		}
 		String prenom = request.getParameter("prenom");
-		if (prenom!=null || !request.getParameter(prenom).isEmpty()) {
+		if (prenom!=null && !request.getParameter(prenom).isEmpty()) {
 			request.setAttribute("prenomForm", prenom);
 		}
 		String telephone = request.getParameter("telephone");
-		if (telephone!=null || !request.getParameter(telephone).isEmpty()) {
+		if (telephone!=null && !request.getParameter(telephone).isEmpty()) {
 			request.setAttribute("telephoneForm", telephone);
 		}
 		String postal = request.getParameter("postal");
-		if (postal!=null || !request.getParameter(postal).isEmpty()) {
+		if (postal!=null && !request.getParameter(postal).isEmpty()) {
 			try {
 				int code_postal = Integer.parseInt(postal);
 				request.setAttribute("postalForm", code_postal);
@@ -64,26 +65,26 @@ public class ServletSInscrire extends HttpServlet{
 		}
 		String mdp = request.getParameter("mdp");
 		String nom = request.getParameter("nom");
-		if (nom!=null || !request.getParameter(nom).isEmpty()) {
+		if (nom!=null && !request.getParameter(nom).isEmpty()) {
 			request.setAttribute("nomForm", nom);
 		}
 		String email = request.getParameter("email");
-		if (email!=null || !request.getParameter(email).isEmpty()) {
+		if (email!=null && !request.getParameter(email).isEmpty()) {
 			request.setAttribute("emailForm", email);
 		}
 		String rue = request.getParameter("rue");
-		if (rue!=null || !request.getParameter(rue).isEmpty()) {
+		if (rue!=null && !request.getParameter(rue).isEmpty()) {
 			request.setAttribute("rueForm", rue);
 		}
 		String ville = request.getParameter("ville");
-		if (ville!=null || !request.getParameter(ville).isEmpty()) {
+		if (ville!=null && !request.getParameter(ville).isEmpty()) {
 			request.setAttribute("villeForm", ville);
 		}
 		String confirmation = request.getParameter("confirmation");
 		
 		
-		if(!pseudo.isEmpty() && !prenom.isEmpty() && !telephone.isEmpty() && !postal.isEmpty() && 
-				!mdp.isEmpty() && !nom.isEmpty() && !email.isEmpty() && !rue.isEmpty() && !ville.isEmpty() && !confirmation.isEmpty()) {
+		if((pseudo!=null &&!pseudo.isEmpty()) && (prenom!=null &&!prenom.isEmpty()) && (telephone!=null &&!telephone.isEmpty()) && (postal!=null &&!postal.isEmpty()) && 
+				(mdp!=null &&!mdp.isEmpty()) && (nom!=null &&!nom.isEmpty()) && (email!=null &&!email.isEmpty()) && (rue!=null &&!rue.isEmpty()) && (ville!=null &&!ville.isEmpty()) && (confirmation!=null &&!confirmation.isEmpty())) {
 		
 			Utilisateur u = new Utilisateur();
 
@@ -109,28 +110,33 @@ public class ServletSInscrire extends HttpServlet{
 			u.setEmail(email);
 			u.setRue(rue);
 			u.setVille(ville);
-			
+			//test
+			System.out.println(u);
+			//fin test
 			if (!listeErreurs.isEmpty()) {
 				request.setAttribute("listeDesErreurs", listeErreurs);
-				this.getServletContext().getRequestDispatcher("/WEB-INF/sinscrire.jsp").forward(request, response);
+				this.getServletContext().getRequestDispatcher("/WEB-INF/pages/SInscrire.jsp").forward(request, response);
 		} else {
 				try {
 					utilisateurManager.inscriptionUser(u);
+					// test
+					System.out.println(u);
+					//fin test
 					u = utilisateurManager.connexionUser(u.getPseudo(), u.getMotDePasse());
 					HttpSession session = request.getSession();
 					session.setAttribute("myUser", u);
 				} catch (Exception e) {
 					listeErreurs = utilisateurManager.getListError();
 					request.setAttribute("listeDesErreurs", listeErreurs);
-					this.getServletContext().getRequestDispatcher("/WEB-INF/sinscrire.jsp").forward(request, response);
+					this.getServletContext().getRequestDispatcher("/WEB-INF/pages/SInscrire.jsp").forward(request, response);
 				}
-				this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
+				this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil.jsp").forward(request, response);
 
 			}
 		} else {
 			listeErreurs.add("Tous les champs doivent être remplis");
 			request.setAttribute("listeDesErreurs", listeErreurs);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/sinscrire.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/pages/SInscrire.jsp").forward(request, response);
 
 		
 		}
