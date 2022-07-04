@@ -34,14 +34,14 @@
         <div class="col-0 col-sm-2 col-md-2 col-lg-3 col-xl-3 "></div>
             <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3  ">
                 <div class="mb-3">
-                     <label for="Pseudo" class="form-label">Pseudo</label>
-                     <input type="form-control" class="form-control" id="Pseudo" name="speudo" required >
+                     <label for="spseudo" class="form-label">Pseudo</label>
+                     <input type="form-control" class="form-control" id="spseudo" name="spseudo" required >
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3 ">
                 <div class="mb-3">
-                   <label for="nom" class="form-label">Nom</label>
-                  <input type="form-control" class="form-control" id="nom" name="nomForm" required>
+                   <label for="nomForm" class="form-label">Nom</label>
+                  <input type="form-control" class="form-control" id="nomForm" name="nomForm" required>
                 </div>
             </div>
         </div>
@@ -49,15 +49,15 @@
         <div class="col-0 col-sm-0 col-md-0 col-lg-3 col-xl-3 "></div>
             <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3  ">
                 <div class="mb-3">
-                     <label for="Prenom" class="form-label">Prenom</label>
-                    <input type="form-control" class="form-control" id="Prenom" name="prenomForm" required>
+                     <label for="PrenomForm" class="form-label">Prenom</label>
+                    <input type="form-control" class="form-control" id="PrenomForm" name="prenomForm" required>
                 </div>    
             </div>
         
         <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3 ">
             <div class="mb-3">
-                <label for="inputEmail" class="form-label">Adresse email</label>
-                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" name="emailForm" required>
+                <label for="emailForm" class="form-label">Adresse email</label>
+                <input type="email" class="form-control" id="emailForm" aria-describedby="emailHelp" name="emailForm" required>
             </div>
         </div>
     </div>
@@ -66,15 +66,15 @@
         
         <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3  ">
             <div class="mb-3">
-                <label for="telephone" class="form-label">Téléphone</label>
-                <input type="form-control" class="form-control" id="telephone" name="telephoneForm" required >
+                <label for="telephoneForm" class="form-label">Téléphone</label>
+                <input type="form-control" class="form-control" id="telephoneForm" name="telephoneForm" required >
                 
             </div>
         </div>
         <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3  ">
             <div class="mb-3">
-                <label for="rue" class="form-label">Rue</label>
-                <input type="form-control" class="form-control" id="rue" name="rueForm" required>
+                <label for="rueForm" class="form-label">Rue</label>
+                <input type="form-control" class="form-control" id="rueForm" name="rueForm" required>
             </div>
         </div>
     </div>
@@ -83,15 +83,15 @@
         <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3  ">
         
             <div class="mb-3">
-                <label for="codePostal" class="form-label">Code postal</label>
-                <input type="form-control" class="form-control" id="codePostal" name="postalForm" required >
+                <label for="postalForm" class="form-label">Code postal</label>
+                <input type="form-control" class="form-control" id="postalForm" name="postalForm" required >
                 
             </div>
         </div>
         <div class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3  ">
             <div class="mb-3">
-                <label for="ville" class="form-label">Ville</label>
-                <input type="form-control" class="form-control" id="ville" name="villeForm" required>
+                <label for="villeForm" class="form-label">Ville</label>
+                <input type="form-control" class="form-control" id="villeForm" name="villeForm" required>
             </div>
         </div>
     </div>
@@ -117,7 +117,7 @@
         <div class="col-6 col-sm-6 col-md-5 col-lg-4 col-xl-3  ">
             <div class="mb-3">
                 
-                <button type="submit" class="btn btn-primary">Valider</button>
+                <button type="submit"  value="SIscrire" name="SInscrire" class="btn btn-primary">Valider</button>
             </div>
         </div>
         <div class="col-6 col-sm-6 col-md-5 col-lg-4 col-xl-3  ">

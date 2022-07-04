@@ -46,6 +46,9 @@ public class ServletSInscrire extends HttpServlet{
 		String pseudo = request.getParameter("pseudo");
 		if (pseudo!=null || !request.getParameter(pseudo).isEmpty()) {
 			request.setAttribute("spseudo", pseudo);
+			//debut test
+			System.out.println(pseudo);
+			//fin test
 		}
 		String prenom = request.getParameter("prenom");
 		if (prenom!=null || !request.getParameter(prenom).isEmpty()) {
@@ -107,11 +110,15 @@ public class ServletSInscrire extends HttpServlet{
 				listeErreurs.add("Le mot de passe et la confirmation doivent être identiques");
 			}	
 			u.setNom(nom);
+			//test
+			System.out.println(nom);
+			//fintest
 			u.setEmail(email);
 			u.setRue(rue);
 			u.setVille(ville);
 			//test
 			System.out.println(u);
+			System.out.println("test");
 			//fin test
 			if (!listeErreurs.isEmpty()) {
 				request.setAttribute("listeDesErreurs", listeErreurs);
