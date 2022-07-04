@@ -1,6 +1,5 @@
 package fr.eni.ProjetEncheres.IHM;
 
-import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,7 +11,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import fr.eni.ProjetEncheres.BLL.ArticleVenduManager;
 import fr.eni.ProjetEncheres.BLL.BLLException;
@@ -23,14 +21,7 @@ import fr.eni.ProjetEncheres.BO.Categorie;
 import fr.eni.ProjetEncheres.BO.Retrait;
 import fr.eni.ProjetEncheres.BO.Utilisateur;
 
-public class VendreunArticle extends HttpServlet{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	public class ServletVendreUnArticle extends HttpServlet{
+public class ServletVendreUnArticle extends HttpServlet{
 		
 		
 		/**
@@ -85,10 +76,10 @@ public class VendreunArticle extends HttpServlet{
 				
 				request.setAttribute("categories", listCategorie);
 				
-				this.getServletContext().getRequestDispatcher("/WEB-INF/vendreUnArticle.jsp").forward(request, response);
+				this.getServletContext().getRequestDispatcher("/WEB-INF/pages/VendreUnArticle.jsp").forward(request, response);
 			}
 				
-			this.getServletContext().getRequestDispatcher("/Accueil").forward(request, response);	
+			this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil").forward(request, response);	
 		}
 
 		/**
@@ -111,7 +102,7 @@ public class VendreunArticle extends HttpServlet{
 			getParameterAndSetAttribute(request, response, listError);
 				
 			// TODO If listError not empty --> dispatch à la jsp
-
+/*
 				// --> Telecharger photo dans dossier imageArticle
 				// construit le chemin du répertoire pour enregistrer le fichier téléchargé
 				String uploadFilePath = request.getServletContext().getRealPath("") + "public" + File.separator + UPLOAD_DIR;
@@ -189,7 +180,7 @@ public class VendreunArticle extends HttpServlet{
 				listError.addAll(articleVenduManager.getListError());
 				
 				if(listError.isEmpty()) {
-					this.getServletContext().getRequestDispatcher("/Accueil").forward(request, response);
+					this.getServletContext().getRequestDispatcher("WEB-INF/pages/Accueil").forward(request, response);
 				}
 				
 			}
@@ -197,7 +188,7 @@ public class VendreunArticle extends HttpServlet{
 			
 			request.setAttribute("listError", listError);
 				
-			this.getServletContext().getRequestDispatcher("/WEB-INF/vendreUnArticle.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/pages/VendreUnArticle.jsp").forward(request, response);
 		}
 		
 		/**
@@ -322,4 +313,4 @@ public class VendreunArticle extends HttpServlet{
 			return date;
 		}
 	}
-}
+
