@@ -58,7 +58,7 @@ public class ServletAccueil extends HttpServlet {
 			
 			String sachatsVentes = null;
 			
-			//Recuperer les parametres de recherche avancÃ© 
+			//Recuperer les parametres de recherche avancée 
 			if(request.getParameter("sachatsVentes") != null && !request.getParameter("sachatsVentes").isEmpty()) {
 				sachatsVentes = request.getParameter("sachatsVentes");
 			}
