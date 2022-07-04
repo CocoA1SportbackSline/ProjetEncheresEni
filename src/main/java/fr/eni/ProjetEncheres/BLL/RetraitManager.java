@@ -1,5 +1,6 @@
 package fr.eni.ProjetEncheres.BLL;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.ProjetEncheres.BO.Retrait;
@@ -35,37 +36,9 @@ public class RetraitManager {
 		return listeRetrait;
 	}
 	
-	public void validerRetrait (Retrait r1) throws BLLException {
-		
-		StringBuilder message = new StringBuilder();
-		if (r1 == null) {
-			message.append("Article null\n");
-		} else {	
-			if (r1.getRue() == null || r1.getRue().isBlank()) {
-				message.append("La rue est obligatoire\n");
-			} 
-			if (r1.getCodePostal() == null || r1.getCodePostal().isBlank()) {
-				message.append("Le code postal est obligatoire\n");
-			}
-			if (r1.getVille() == null || r1.getVille().isBlank()) {
-				message.append("La ville est obligatoire\n");
-			}
-			if(!message.toString().isBlank()) {
-				throw new BLLException(message.toString());
-			}
-		}
-	}
 	
-	public void addRetrait (Retrait newRet) throws BLLException {
-        if(newRet != null && newRet.getNoArticle()!= 0) {
-        }
-        try {
-            this.validerRetrait(newRet);
-            retraitDao.insert(newRet);
-        } catch (DALException e) {
-            throw new BLLException ("addRetrait failed", e);
-        }
-    }
+	
+	
 	
 	public void removeRetrait (Integer noArticle) throws BLLException {
 		try {
@@ -75,16 +48,43 @@ public class RetraitManager {
 		}
 	}
 	
-	public void updateRetrait (Retrait r1) throws BLLException {
-		if(r1 != null && r1.getNoArticle()== 0) {
-			throw new BLLException("Retrait inexistant");
-		}
+
+
+	public void insertRetrait(Retrait t) throws BLLException{
+		boolean verifRetraitExist = false;
+		List<Retrait> listeRetrait = new ArrayList<>();
+
+
+		//Recuperer la liste complete des retrait
+
 		try {
-			this.validerRetrait(r1);
-			retraitDao.update(r1);
-		} catch (DALException e) {
-			throw new BLLException("updateRetrait failed", e);
+			listeRetrait = retraitDao.selectAll();
+		} catch (DALException e1) {
+			throw new BLLException("Echec method insertRetrait() a l'appel du DAO selectaLL");
+
 		}
-	}
+
+		//tester tous le contenue de la liste pour vérifier si les retrait existe
+		for (Retrait retrait : listeRetrait) {
+			if(t.getVille().equals(retrait.getVille()) && t.getCodePostal() == retrait.getCodePostal() && t.getRue().equals(retrait.getRue())) {
+				//Vérifier si les parametre de t (test le retrait passé en parametre de la methode) sont egaux aux parametre de retrait ( retrait est un element retrait de la liste complete des retrait)
+				//si le retrait existe recuperer le retrait dans une variable
+				t.setNoArticle(retrait.getNoArticle());
+				verifRetraitExist = true;
+				break;
+			}
+		
+		}
+
+		if (!verifRetraitExist) {
+			try {
+				retraitDao.insert(t);
+			} catch (DALException e) {
+				throw new BLLException("Echec method insertRetrait()");
+			}
+		}
+
+
+	}	
 	
 }

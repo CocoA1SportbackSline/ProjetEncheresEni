@@ -36,17 +36,17 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
 			
 			stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			
-			stmt.setInt(1, a.getNo_article());
+			stmt.setInt(1, a.getNoArticle());
 			stmt.setString(2, a.getDescription());
-			stmt.setTimestamp(3, Timestamp.valueOf(a.getDate_debut_encheres()));
-			stmt.setTimestamp(4, Timestamp.valueOf(a.getDate_debut_encheres())); 
+			stmt.setTimestamp(3, Timestamp.valueOf(a.getDateDebutEncheres()));
+			stmt.setTimestamp(4, Timestamp.valueOf(a.getDateDebutEncheres())); 
 			if(a.getImage()==null) {
 				stmt.setNull(6, Types.VARCHAR);
 			} else {
 				stmt.setString(6, a.getImage());
 			}
-			stmt.setInt(7, a.getNo_utilisateur());
-			stmt.setInt(8, a.getNo_categorie());
+			stmt.setInt(7, a.getNoUtilisateur());
+			stmt.setInt(8, a.getNoCategorie());
 		
 			
 			stmt.executeUpdate();
@@ -54,7 +54,7 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
 			 ResultSet rs = stmt.getGeneratedKeys();
 		      
 		      if(rs.next()) {
-		    	  a.setNo_article(rs.getInt(1));
+		    	  a.setNoArticle(rs.getInt(1));
 		      }  
 			
 		} catch (SQLException e) {
@@ -118,18 +118,18 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
 			
 			stmt = con.prepareStatement(sql);
 			
-			stmt.setString(1, a.getNom_article());
+			stmt.setInt(1, a.getNoArticle());
 			stmt.setString(2, a.getDescription());
-			stmt.setTimestamp(3, Timestamp.valueOf(a.getDate_debut_encheres())); 
-			stmt.setTimestamp(4, Timestamp.valueOf(a.getDate_fin_encheres())); 
+			stmt.setTimestamp(3, Timestamp.valueOf(a.getDateDebutEncheres())); 
+			stmt.setTimestamp(4, Timestamp.valueOf(a.getDateFinEncheres())); 
 			stmt.setInt(5, a.getPrix_initial());
 			stmt.setInt(6, a.getPrix_vente());
 			stmt.setString(7, a.getImage());
-			stmt.setInt(8, a.getNo_utilisateur());
-			stmt.setInt(9, a.getNo_categorie());
+			stmt.setInt(8, a.getNoUtilisateur());
+			stmt.setInt(9, a.getNoCategorie());
 			
 			
-			stmt.setInt(11, a.getNo_article());
+			stmt.setInt(11, a.getNoArticle());
 			
 			stmt.executeUpdate();
 			

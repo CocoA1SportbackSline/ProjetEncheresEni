@@ -76,7 +76,7 @@ public class ArticleVenduManager {
 		}
 		
 		if(list.isEmpty()) {
-			listError.add("Aucun article trouvÃ©");
+			listError.add("Aucun article trouvée");
 		}
 		
 		return list;
@@ -94,7 +94,7 @@ public class ArticleVenduManager {
 		}
 		
 		if(list.isEmpty()) {
-			listError.add("Aucun article trouvÃ©");
+			listError.add("Aucun article trouvée");
 		}
 		
 		return list;
@@ -141,7 +141,7 @@ public class ArticleVenduManager {
 
 		return list;
 	}
-/*	public List<ArticleVendu> selectByArticleAndCategorie(String keyWords, int idCategorie) throws BLLException {
+	public List<ArticleVendu> selectByArticleAndCategorie(String keyWords, int idCategorie) throws BLLException {
 		listError = new ArrayList<>();
 		List<ArticleVendu> list = new ArrayList<>();
 		List<ArticleVendu> listTemp = new ArrayList<>();
@@ -167,12 +167,12 @@ public class ArticleVenduManager {
 		return validerVente(list);
 	}
 	
-*/
+
 	
 	/**
 	 *  Recherche par mots clé : mot1 ou mot2 ... (dans nom_article ou description)
 	 */
-	/*public List<ArticleVendu> selectByArticle(String keyWords) throws BLLException {
+	public List<ArticleVendu> selectByArticle(String keyWords) throws BLLException {
 		listError = new ArrayList<>();
 		List<ArticleVendu> list = new ArrayList<>();
 		List<ArticleVendu> listTemp = new ArrayList<>();
@@ -196,6 +196,154 @@ public class ArticleVenduManager {
 	
 		return validerVente(list);
 	}
-	*/
+	public List<ArticleVendu> selectAllArticle() throws BLLException {
+		listError = new ArrayList<>();
+		List<ArticleVendu> list = new ArrayList<>();
+		
+		try {
+			list = articleVenduDAO.selectAll();
+		} catch (DALException e) {
+			throw new BLLException("echec method selectAllArticle");
+		}
+		
+		if(list.isEmpty()) {
+			listError.add("Aucun article trouvé");
+		}
+		
+		return validerVente(list);
+	}
+	
+	protected List<ArticleVendu> validerVente(List<ArticleVendu> listAValider) {
+		List<ArticleVendu> listValider = new ArrayList<>();
+			
+		for (ArticleVendu a : listAValider) {
+			if(a.getDateFinEncheres().isBefore(LocalDateTime.now())) {
+				Enchere enchere = null;
+				try {
+					enchere = enchereDAO.recupEnchereMax(a.getNoArticle());
+				} catch (DALException e) {
+					e.printStackTrace();
+				}
+				if(enchere != null) {
+					a.setPrix_vente(enchere.getMontantEnchere());
+					try {
+						Utilisateur vendeur = utilisateurDAO.getselectByID(a.getNoUtilisateur());
+						vendeur.setCredit(vendeur.getCredit() + enchere.getMontantEnchere());
+						utilisateurDAO.update(vendeur);
+					} catch (DALException e) {
+						e.printStackTrace();
+					}
+				} else {
+					a.setPrix_vente(0);
+				}
+				try {
+					articleVenduDAO.update(a);
+				} catch (DALException e) {
+					e.printStackTrace();
+				}
+			} else {
+				listValider.add(a);
+			}
+		}
+		
+		return listValider;
+	}
+	
+	
+	public List<ArticleVendu> selectByCategorie(int idCategorie) throws BLLException {
+		listError = new ArrayList<>();
+		List<ArticleVendu> list = new ArrayList<ArticleVendu>();
+		
+		try {
+			list = articleVenduDAO.selectByNoCategorie(idCategorie);
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("echec method selectByCategorie");
+		}
+		
+		if(list.isEmpty()) {
+			listError.add("Aucun élément trouvé pour cette recherche");
+		}
+		
+		return validerVente(list);
+	}
+	
+	public List<ArticleVendu> selectAllArticleVenteEnCours(int idUtilisateur) throws BLLException {
+		listError = new ArrayList<>();
+		List<ArticleVendu> list = new ArrayList<>();
+		
+		try {
+			list = articleVenduDAO.selectAllBetweenDate(idUtilisateur);
+		} catch (DALException e) {
+			throw new BLLException("echec method selectAllArticleVenteEnCours");
+		}
+		
+		if(list.isEmpty()) {
+			listError.add("Aucun article trouvé");
+		}
+		
+		return list;
+	}
+	
+	public List<ArticleVendu> selectAllArticleAvecMesEncheres(int idUtilisateur) throws BLLException {
+		listError = new ArrayList<>();
+		List<ArticleVendu> list = new ArrayList<>();
+		List<ArticleVendu> listComplete = new ArrayList<>();
+		
+		try {
+			listComplete = articleVenduDAO.selectAll();
+		} catch (DALException e) {
+			throw new BLLException("echec method selectAllArticleAvecMesEncheres");
+		}
+		
+		for (ArticleVendu av : listComplete) {
+			try {
+				Enchere enchere = null;
+				enchere = enchereDAO.recupEnchereMax(av.getNoArticle());
+				if(enchere != null && enchere.getNoUtilisateur() == idUtilisateur) {
+					list.add(av);
+				}
+			} catch (DALException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(list.isEmpty()) {
+			listError.add("Aucun article trouvé");
+		}
+		
+		return list;
+	}
+	
+
+	public List<ArticleVendu> selectAllArticleEnchereRemporte(int idUtilisateur) throws BLLException {
+		listError = new ArrayList<>();
+		List<ArticleVendu> list = new ArrayList<>();
+		List<ArticleVendu> listComplete = new ArrayList<>();
+		
+		try {
+			listComplete = articleVenduDAO.selectAllSoldOut();
+		} catch (DALException e) {
+			throw new BLLException("echec method selectAllArticleAvecMesEncheres");
+		}
+		
+		for (ArticleVendu av : listComplete) {
+			try {
+				Enchere enchere = null;
+				enchere = enchereDAO.recupEnchereMax(av.getNoArticle());
+				if(enchere != null && enchere.getNoUtilisateur() == idUtilisateur) {
+					list.add(av);
+				}
+			} catch (DALException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(list.isEmpty()) {
+			listError.add("Aucun article trouvé");
+		}
+		
+		return list;
+	}
 	
 }

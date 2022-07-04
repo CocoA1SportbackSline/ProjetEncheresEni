@@ -48,7 +48,7 @@ public class ServletAfficherProfil extends HttpServlet {
 				request.setAttribute("utilisateur", utilisateur);
 			// initialisation de la session	
 				Utilisateur user = (Utilisateur) request.getSession().getAttribute("user");
-			// si le pseudo qui est r�cup�r� correspond au pseudo de l'utilisateur
+			// si le pseudo qui est récupéré correspond au pseudo de l'utilisateur
 				if (user.getPseudo().equals(utilisateur.getPseudo())) {
 					// renvoie la vue de l'autre profil
 					this.getServletContext().getRequestDispatcher("/WEB-INF/pages/AfficherProfil.jsp").forward(request,
