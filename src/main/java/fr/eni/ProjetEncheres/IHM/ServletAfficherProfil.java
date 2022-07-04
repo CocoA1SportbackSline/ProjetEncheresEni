@@ -14,7 +14,7 @@ import fr.eni.ProjetEncheres.BO.Utilisateur;
 /**
  * Servlet implementation class ServletAfficherProfil
  */
-@WebServlet("/ServletAfficherProfil")
+@WebServlet("/AfficherProfil")
 public class ServletAfficherProfil extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -58,7 +58,7 @@ public class ServletAfficherProfil extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} // sinon renvoie la vue de mon profil
-			this.getServletContext().getRequestDispatcher("/WEB-INF/pages/MonUtilisateur.jsp").forward(request,
+			this.getServletContext().getRequestDispatcher("/WEB-INF/pages/AfficherProfil.jsp").forward(request,
 					response);
 
 		} else {

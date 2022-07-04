@@ -14,48 +14,50 @@
 <body>
  <main>
         <div>
-        <c:forEach var="utilisateur" items="${utilisateur}">
+        <form action="AfficherProfil" method="get">  
+        <c:forEach var="id" items="${noUtilisateur}">
             <c:if test="${pseudo.equals(utilisateur.getPseudo())}">
                 <table>
                 <tr>
                     <td>Pseudo :</td>
-                    <td>${utilisateur.getPseudo()}</td>
+                    <td>${noUtilisateur.getPseudo()}</td>
                 </tr>
                 <tr>
                     <td>Nom :</td>
-                    <td>${utilisateur.getNom()}</td>
+                    <td>${noUtilisateur.getNom()}</td>
                 </tr>
                 <tr>
                     <td>Prénom :</td>
-                    <td>${utilisateur.getPrenom()}</td>
+                    <td>${noUtilisateur.getPrenom()}</td>
                 </tr>
                 <tr>
                     <td>Email :</td>
-                    <td>${utilisateur.getEmail()}</td>
+                    <td>${noUtilisateur.getEmail()}</td>
                 </tr>
                 <tr>
                     <td>Téléphone :</td>
-                    <td>${utilisateur.getTelephone()}</td>
+                    <td>${noUtilisateur.getTelephone()}</td>
                 </tr>
                 <tr>
                     <td>Rue :</td>
-                    <td>${utilisateur.getRue()}</td>
+                    <td>${noUtilisateur.getRue()}</td>
                 </tr>
                 <tr>
                     <td>Code postal :</td>
-                    <td>${utilisateur.getCodePostale()}</td>
+                    <td>${noUtilisateur.getCodePostale()}</td>
                 </tr>
                 <tr>
                     <td>Ville :</td>
-                    <td>${utilisateur.getVille()}</td>
+                    <td>${noUtilisateur.getVille()}</td>
                 </tr>
             </table>
             </c:if>
         </c:forEach>
+          </form>
         </div>
         <div>
-            <c:if test="${pseudo.equals(username)}">
-                <form action="ModifProfilServlet" method="get">                 <!-- TODO lien vers la page de modif profil -->
+            <c:if test="${pseudo.equals(pseudo)}">
+                <form action="AfficherProfil" method="get">                 <!-- TODO lien vers la page de modif profil -->
                     <button>Modifier</button>                 <!-- TODO affichage button (c:if user=userEnCours) -->
                 </form>
             </c:if>
