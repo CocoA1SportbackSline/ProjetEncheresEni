@@ -62,7 +62,7 @@ public class EnchereManager {
 		}
 		
 		if (enchereMax == null) {
-			prixMin = article.getPrix_initial();
+			prixMin = article.getPrixInitial();
 		} else {
 			prixMin = enchereMax.getMontantEnchere();
 		}

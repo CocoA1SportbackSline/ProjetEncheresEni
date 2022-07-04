@@ -122,8 +122,8 @@ public class ArticleVenduDAOImpl implements ArticleVenduDAO{
 			stmt.setString(2, a.getDescription());
 			stmt.setTimestamp(3, Timestamp.valueOf(a.getDateDebutEncheres())); 
 			stmt.setTimestamp(4, Timestamp.valueOf(a.getDateFinEncheres())); 
-			stmt.setInt(5, a.getPrix_initial());
-			stmt.setInt(6, a.getPrix_vente());
+			stmt.setInt(5, a.getPrixInitial());
+			stmt.setInt(6, a.getPrixVente());
 			stmt.setString(7, a.getImage());
 			stmt.setInt(8, a.getNoUtilisateur());
 			stmt.setInt(9, a.getNoCategorie());

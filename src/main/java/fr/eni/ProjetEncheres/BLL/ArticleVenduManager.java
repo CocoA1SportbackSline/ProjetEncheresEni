@@ -225,7 +225,7 @@ public class ArticleVenduManager {
 					e.printStackTrace();
 				}
 				if(enchere != null) {
-					a.setPrix_vente(enchere.getMontantEnchere());
+					a.setPrixVente(enchere.getMontantEnchere());
 					try {
 						Utilisateur vendeur = utilisateurDAO.getselectByID(a.getNoUtilisateur());
 						vendeur.setCredit(vendeur.getCredit() + enchere.getMontantEnchere());
@@ -234,7 +234,7 @@ public class ArticleVenduManager {
 						e.printStackTrace();
 					}
 				} else {
-					a.setPrix_vente(0);
+					a.setPrixVente(0);
 				}
 				try {
 					articleVenduDAO.update(a);

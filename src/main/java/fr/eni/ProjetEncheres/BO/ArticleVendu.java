@@ -30,7 +30,7 @@ public class ArticleVendu {
 	 */
 	public ArticleVendu(String nomArticle, String description, LocalDateTime dateDebutEncheres,
 			LocalDateTime dateFinEncheres, int prixInitial, String image, int noUtilisateur, int noCategorie,
-			int no_retrait) {
+			int noRetrait) {
 		this.nomArticle = nomArticle;
 		this.description = description;
 		this.dateDebutEncheres = dateDebutEncheres;
@@ -48,7 +48,7 @@ public class ArticleVendu {
 	 */
 	public ArticleVendu(String nomArticle, String description, LocalDateTime dateDebutEncheres,
 			LocalDateTime dateFinEncheres, int prixInitial, int noUtilisateur, int noCategorie,
-			int no_retrait) {
+			int noRetrait) {
 		this.nomArticle = nomArticle;
 		this.description = description;
 		this.dateDebutEncheres = dateDebutEncheres;
@@ -65,7 +65,7 @@ public class ArticleVendu {
 	 */
 	public ArticleVendu(int noArticle, String nomArticle, String description, LocalDateTime dateDebutEncheres,
 			LocalDateTime dateFinEncheres, int prixInitial, int prixVente, String image, int noUtilisateur, int noCategorie,
-			int no_retrait) {
+			int noRetrait) {
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -107,7 +107,7 @@ public class ArticleVendu {
 		return dateDebutEncheres;
 	}
 
-	public void setDate_debut_encheres(LocalDateTime dateDebutEncheres) {
+	public void setDateDebutEncheres(LocalDateTime dateDebutEncheres) {
 		this.dateDebutEncheres = dateDebutEncheres;
 	}
 
@@ -115,23 +115,23 @@ public class ArticleVendu {
 		return dateFinEncheres;
 	}
 
-	public void setDate_fin_encheres(LocalDateTime dateFinEncheres) {
+	public void setDateFinEncheres(LocalDateTime dateFinEncheres) {
 		this.dateFinEncheres = dateFinEncheres;
 	}
 
-	public int getPrix_initial() {
+	public int getPrixInitial() {
 		return prixInitial;
 	}
 
-	public void setPrix_initial(int prix_initial) {
-		this.prixInitial = prix_initial;
+	public void setPrixInitial(int prixInitial) {
+		this.prixInitial = prixInitial;
 	}
 
-	public int getPrix_vente() {
+	public int getPrixVente() {
 		return prixVente;
 	}
 
-	public void setPrix_vente(int prixVente) {
+	public void setPrixVente(int prixVente) {
 		this.prixVente = prixVente;
 	}
 
@@ -139,7 +139,7 @@ public class ArticleVendu {
 		return noUtilisateur;
 	}
 
-	public void setNo_utilisateur(int noUtilisateur) {
+	public void setNoUtilisateur(int noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
 
@@ -147,7 +147,7 @@ public class ArticleVendu {
 		return noCategorie;
 	}
 
-	public void setNo_categorie(int noCategorie) {
+	public void setNoCategorie(int noCategorie) {
 		this.noCategorie = noCategorie;
 	}
 
@@ -162,10 +162,10 @@ public class ArticleVendu {
 
 	@Override
 	public String toString() {
-		return "ArticleVendu [no_article=" + noArticle + ", nom_article=" + nomArticle + ", description="
-				+ description + ", date_debut_encheres=" + dateDebutEncheres + ", date_fin_encheres="
-				+ dateFinEncheres + ", prix_initial=" + prixInitial + ", prix_vente=" + prixVente
-				+ ", no_utilisateur=" + noUtilisateur + ", no_categorie=" + noCategorie + 
+		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description="
+				+ description + ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres="
+				+ dateFinEncheres + ", prixInitial=" + prixInitial + ", prixVente=" + prixVente
+				+ ", noUtilisateur=" + noUtilisateur + ", noCategorie=" + noCategorie + 
 				"]";
 	}
 	

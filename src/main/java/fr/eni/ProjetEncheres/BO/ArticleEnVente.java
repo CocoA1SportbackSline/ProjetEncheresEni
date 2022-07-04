@@ -4,29 +4,29 @@ public class ArticleEnVente {
 	
 
 	private ArticleVendu article;
-	private Enchere meilleurEnchere;
+	private Enchere meilleureEnchere;
 	private Utilisateur user;
 	private String dateFin;
-	private Utilisateur userEncher;
+	private Utilisateur userEnchere;
 	
 	public ArticleEnVente() {
 	}
 	
-	public ArticleEnVente(ArticleVendu article, Enchere meilleurEnchere, Utilisateur user, String date_fin) {
+	public ArticleEnVente(ArticleVendu article, Enchere meilleureEnchere, Utilisateur user, String dateFin) {
 		super();
 		this.article = article;
-		this.meilleurEnchere = meilleurEnchere;
+		this.meilleureEnchere = meilleureEnchere;
 		this.user = user;
-		this.dateFin = date_fin;
+		this.dateFin = dateFin;
 	}
 
-	public ArticleEnVente(ArticleVendu article, Enchere meilleurEnchere, Utilisateur user, String date_fin, Utilisateur userEnchere) {
+	public ArticleEnVente(ArticleVendu article, Enchere meilleureEnchere, Utilisateur user, String dateFin, Utilisateur userEnchere) {
 		super();
 		this.article = article;
-		this.meilleurEnchere = meilleurEnchere;
+		this.meilleureEnchere = meilleureEnchere;
 		this.user = user;
-		this.dateFin = date_fin;
-		this.userEncher = userEnchere;
+		this.dateFin = dateFin;
+		this.userEnchere = userEnchere;
 	}
 
 	
@@ -47,36 +47,36 @@ public class ArticleEnVente {
 		this.article = article;
 	}
 
-	public Enchere getMeilleurEnchere() {
-		return meilleurEnchere;
+	public Enchere getMeilleureEnchere() {
+		return meilleureEnchere;
 	}
 
-	public void setMeilleurEnchere(Enchere meilleurEnchere) {
-		this.meilleurEnchere = meilleurEnchere;
+	public void setMeilleureEnchere(Enchere meilleureEnchere) {
+		this.meilleureEnchere = meilleureEnchere;
 	}
 
-	public String getDate_fin() {
+	public String getDateFin() {
 		return dateFin;
 	}
 
-	public void setDate_fin(String date_fin) {
-		this.dateFin = date_fin;
+	public void setDateFin(String dateFin) {
+		this.dateFin = dateFin;
 	}
 
-	public Utilisateur getUserEncher() {
-		return userEncher;
+	public Utilisateur getUserEnchere() {
+		return userEnchere;
 	}
 
-	public void setUserEncher(Utilisateur userEncher) {
-		this.userEncher = userEncher;
+	public void setUserEnchere(Utilisateur userEnchere) {
+		this.userEnchere = userEnchere;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "ArticleEnVente [article=" + article + ", meilleurEnchere=" + meilleurEnchere + ", user=" + user
-				+ ", date_fin=" + dateFin + "]";
+		return "ArticleEnVente [article=" + article + ", meilleureEnchere=" + meilleureEnchere + ", user=" + user
+				+ ", dateFin=" + dateFin + "]";
 	}
 
 
