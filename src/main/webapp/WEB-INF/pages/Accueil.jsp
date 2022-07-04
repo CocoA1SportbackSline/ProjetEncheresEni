@@ -20,7 +20,7 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-10 p-4">
                     <h1>Liste des Enchères</h1>
-                    <form action="./Accueil" method="post">
+                    <form action="Accueil" method="post">
                         <div class="row mt-5">
                             <p>Filtres :</p>
                         </div>
