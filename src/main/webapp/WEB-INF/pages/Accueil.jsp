@@ -35,7 +35,7 @@
                                     <select class="selectpicker" name="scategorie">
                                         <option value="0">Toutes</option>
                                         <c:forEach var="cat" items="${listeCategorie}">
-                                            <option value="${cat.no_categorie}">${cat.libelle}</option>
+                                            <option value="${cat.noCategorie}">${cat.libelle}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
