@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class ServletDeconnexion
  */
-@WebServlet("/ServletDeconnexion")
+@WebServlet("/Deconnexion")
 public class ServletDeconnexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,16 +27,14 @@ public class ServletDeconnexion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	         
-        // récupère la session en cours
+	      // rï¿½cupï¿½re la session en cours
         HttpSession session=request.getSession();  
-        // TODO mettre un href vers servlet deconnexion sur le lien clickable "déconnexion" page listEncheresConnecté
-        // TODO mettre un href vers servlet deconnexion sur le lien clickable "déconnexion" page listeEncheresMsVentes
-       
+               
         // supprime la session
         session.invalidate();  
         // redirige vers la page de connexion
-        response.sendRedirect("/WEB-INF/pages/Connexion.jsp")  ;
+        response.sendRedirect("/ProjetEncheresEni/Accueil");   
+        
 	}
 
 	/**

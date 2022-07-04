@@ -1,6 +1,5 @@
 package fr.eni.ProjetEncheres.IHM;
 
-import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -9,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import fr.eni.ProjetEncheres.BLL.ArticleVenduManager;
 import fr.eni.ProjetEncheres.BLL.BLLException;
@@ -23,12 +22,8 @@ import fr.eni.ProjetEncheres.BO.Categorie;
 import fr.eni.ProjetEncheres.BO.Retrait;
 import fr.eni.ProjetEncheres.BO.Utilisateur;
 
-public class VendreunArticle extends HttpServlet{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@WebServlet("/VendreUnArticle")
 	
 	public class ServletVendreUnArticle extends HttpServlet{
 		
@@ -85,10 +80,10 @@ public class VendreunArticle extends HttpServlet{
 				
 				request.setAttribute("categories", listCategorie);
 				
-				this.getServletContext().getRequestDispatcher("/WEB-INF/vendreUnArticle.jsp").forward(request, response);
+				this.getServletContext().getRequestDispatcher("/WEB-INF/pages/VendreUnArticle.jsp").forward(request, response);
 			}
 				
-			this.getServletContext().getRequestDispatcher("/Accueil").forward(request, response);	
+			this.getServletContext().getRequestDispatcher("/Accueil.jsp").forward(request, response);	
 		}
 
 		/**
@@ -109,7 +104,7 @@ public class VendreunArticle extends HttpServlet{
 			request.setAttribute("categories", listCategorie);
 			
 			getParameterAndSetAttribute(request, response, listError);
-				
+				/**
 			// TODO If listError not empty --> dispatch à la jsp
 
 				// --> Telecharger photo dans dossier imageArticle
@@ -189,7 +184,7 @@ public class VendreunArticle extends HttpServlet{
 				listError.addAll(articleVenduManager.getListError());
 				
 				if(listError.isEmpty()) {
-					this.getServletContext().getRequestDispatcher("/Accueil").forward(request, response);
+					this.getServletContext().getRequestDispatcher("/Accueil.jsp").forward(request, response);
 				}
 				
 			}
@@ -197,7 +192,7 @@ public class VendreunArticle extends HttpServlet{
 			
 			request.setAttribute("listError", listError);
 				
-			this.getServletContext().getRequestDispatcher("/WEB-INF/vendreUnArticle.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/pages/VendreUnArticle.jsp").forward(request, response);
 		}
 		
 		/**
@@ -322,4 +317,4 @@ public class VendreunArticle extends HttpServlet{
 			return date;
 		}
 	}
-}
+

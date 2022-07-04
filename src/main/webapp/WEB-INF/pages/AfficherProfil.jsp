@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="Sidentifier.css" />
 </head>
 <body>
+<h1>test afficher profil</h1>
  <main>
         <div>
         <form action="AfficherProfil" method="get">  

@@ -63,7 +63,9 @@ public class ServletAfficherProfil extends HttpServlet {
 
 		} else {
 			request.getRequestDispatcher("/WEB-INF/pages/Accueil.jsp").forward(request, response);
-
+			//test
+			System.out.println("test1");
+			//fin test
 		}
 	}
 

@@ -13,16 +13,36 @@
 
 <form action="Connexion" method="post">
 
-    <header>
-        <div class="container-fluid">
-            <div class="col 4 mx-auto text-center">
-           
-             <img src="Img/eni.png" alt="eni" id="imgEni" class="mx-auto">
-            
-
+    <header class="container-fluid">
+    <div class="row" id="menu">
+        <div class="col-md-1">
+    	</div>
+        <div class="col-md-3">
+            <a href="./Accueil">
+                <img alt="" src="Img/logo2 (3).png">
+            </a>
+        </div>
+        <div class="col-md-8 pe-5">
+            <div class="row m-3 text-white">
+                <div class="col-md-3 pseudo">
+                    <p>Bienvenue ${ myUser.pseudo } !</p>
+                </div> 
+                <div class="col-md-3 btn-mobile">
+                <p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./VendreUnArticle">Vendre un article</a>' }</p>
+                </div>
+                <div class="col-md-3 btn-mobile">
+                    <p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./AfficherProfil">Mon profil</a>' }</p>
+                </div>
+                <div class="col-md-3 btn-mobile">
+   					<p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./Connexion">Se Connecter</a>' } </p>								  
+                </div>
+                <div class="col-md-3 btn-mobile">
+                	<p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./Deconnexion">Se Déconnecter</a>' }</p>
+                </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
     
 <div class="l">
     <div class="col-3 col-md-3 col-sm-10  mx-auto text-center">
@@ -52,7 +72,7 @@
 
 <div class="m">
 
-    <a href="moProfil.html">Pas encore de compte, cliquez ici</a>
+    <a href="SInscrire">Pas encore de compte, cliquez ici</a>
 </div>
 
 
