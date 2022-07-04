@@ -230,7 +230,7 @@ public class ServletAccueil extends HttpServlet {
 				}
 			}
 
-			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil.jsp").forward(request, response);
 		}
 	
 	
