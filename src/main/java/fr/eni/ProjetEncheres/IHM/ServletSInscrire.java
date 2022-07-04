@@ -112,6 +112,7 @@ public class ServletSInscrire extends HttpServlet{
 			u.setVille(ville);
 			//test
 			System.out.println(u);
+			System.out.println("test");
 			//fin test
 			if (!listeErreurs.isEmpty()) {
 				request.setAttribute("listeDesErreurs", listeErreurs);
