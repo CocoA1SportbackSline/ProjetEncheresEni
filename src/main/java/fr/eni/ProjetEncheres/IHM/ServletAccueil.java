@@ -52,20 +52,21 @@ public class ServletAccueil extends HttpServlet {
 			List<ArticleEnVente> listeArticle = new ArrayList<>();
 			List<Categorie> listeCategorie = new ArrayList<>();
 			String keyword = null;
-			int no_categorie = 0;
+			int noCategorie = 0;
 			
 			Utilisateur myUser = (Utilisateur) request.getSession().getAttribute("myUser");
 			
 			String sachatsVentes = null;
-			
-			//Recuperer les parametres de recherche avancÃ© 
+
+			//Recuperer les parametres de recherche avancée 
+
 			if(request.getParameter("sachatsVentes") != null && !request.getParameter("sachatsVentes").isEmpty()) {
 				sachatsVentes = request.getParameter("sachatsVentes");
 			}
 			
 			if(request.getParameter("scategorie") != null && !request.getParameter("scategorie").isEmpty()) {
-			no_categorie = Integer.parseInt(request.getParameter("scategorie"));
-			request.setAttribute("no_categorie", no_categorie);
+			noCategorie = Integer.parseInt(request.getParameter("scategorie"));
+			request.setAttribute("noCategorie", noCategorie);
 			}
 
 			if(request.getParameter("skeyword") != null && !request.getParameter("skeyword").isEmpty()) {
@@ -82,16 +83,16 @@ public class ServletAccueil extends HttpServlet {
 			}
 			
 			//affichage article sans recherche achats/mesventes
-			if(sachatsVentes == null || sachatsVentes.equals("enchereouverte")) {
+			if(sachatsVentes == null || sachatsVentes.equals("enchereOuverte")) {
 				try {
-					if(keyword == null && no_categorie == 0) {
+					if(keyword == null && noCategorie == 0) {
 						listeArticleVendu = articleVenduManager.selectAllArticle();
-					}else if(keyword == null && no_categorie != 0){
-						listeArticleVendu = articleVenduManager.selectByCategorie(no_categorie);
-					}else if(keyword != null && no_categorie ==0) {
+					}else if(keyword == null && noCategorie != 0){
+						listeArticleVendu = articleVenduManager.selectByCategorie(noCategorie);
+					}else if(keyword != null && noCategorie ==0) {
 						listeArticleVendu = articleVenduManager.selectByArticle(keyword);
-					}else if(keyword !=null && no_categorie !=0) {
-						listeArticleVendu = articleVenduManager.selectByArticleAndCategorie(keyword, no_categorie);
+					}else if(keyword !=null && noCategorie !=0) {
+						listeArticleVendu = articleVenduManager.selectByArticleAndCategorie(keyword, noCategorie);
 					}
 					
 					if(!listeArticleVendu.isEmpty()) {
@@ -112,7 +113,7 @@ public class ServletAccueil extends HttpServlet {
 				}catch (BLLException e) {
 					e.printStackTrace();
 				}
-			} else if (sachatsVentes.equals("ventenondebutees")) {
+			} else if (sachatsVentes.equals("ventesNonDebutees")) {
 			//affichage de mes ventes non debutÃ©es
 				try {
 					listeArticleVendu = articleVenduManager.selectAllArticleVenteNonDebutee(myUser.getNoUtilisateur());
@@ -136,7 +137,7 @@ public class ServletAccueil extends HttpServlet {
 				}catch (BLLException e) {
 					e.printStackTrace();
 				}
-			} else if (sachatsVentes.equals("mesventeencours")) {
+			} else if (sachatsVentes.equals("mesVentesEnCours")) {
 			//affichage de mes ventes en cours
 				try {
 					listeArticleVendu = articleVenduManager.selectAllArticleVenteEnCours(myUser.getNoUtilisateur());
@@ -159,7 +160,7 @@ public class ServletAccueil extends HttpServlet {
 				}catch (BLLException e) {
 					e.printStackTrace();
 				}
-			} else if (sachatsVentes.equals("ventesterminees")) {
+			} else if (sachatsVentes.equals("ventesTerminees")) {
 			//affichage de mes ventes terminées
 				try {
 					listeArticleVendu = articleVenduManager.selectAllArticleVenteFini(myUser.getNoUtilisateur());
@@ -182,7 +183,7 @@ public class ServletAccueil extends HttpServlet {
 				}catch (BLLException e) {
 					e.printStackTrace();
 				}
-			} else if (sachatsVentes.equals("mesenchere")) {
+			} else if (sachatsVentes.equals("mesEncheres")) {
 			//affichage de mes Encheres
 				try {
 					listeArticleVendu = articleVenduManager.selectAllArticleAvecMesEncheres(myUser.getNoUtilisateur());
@@ -205,8 +206,8 @@ public class ServletAccueil extends HttpServlet {
 				}catch (BLLException e) {
 					e.printStackTrace();
 				}
-			}else if (sachatsVentes.equals("mesencheresremportees")) {
-			//affichage de mes Encheres Remportée
+			}else if (sachatsVentes.equals("mesEncheresRemportees")) {
+			//affichage de mes Encheres Remportées
 				try {
 					listeArticleVendu = articleVenduManager.selectAllArticleEnchereRemporte(myUser.getNoUtilisateur());
 
