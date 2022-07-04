@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,8 @@ import fr.eni.ProjetEncheres.BO.Categorie;
 import fr.eni.ProjetEncheres.BO.Retrait;
 import fr.eni.ProjetEncheres.BO.Utilisateur;
 
+
+@WebServlet("/VendreUnArticle")
 public class ServletVendreUnArticle extends HttpServlet{
 		
 		
@@ -121,12 +124,12 @@ public class ServletVendreUnArticle extends HttpServlet{
 					part.write(uploadFilePath + File.separator + fileName);		
 				}*/
 			
-			if(!request.getParameter("sarticle").isEmpty() && !request.getParameter("sdecscription").isEmpty() && 
-					!request.getParameter("scategorie").isEmpty() && !request.getParameter("sprix").isEmpty() && 
-					!request.getParameter("srue").isEmpty() && !request.getParameter("scode_postal").isEmpty() &&
-					!request.getParameter("sville").isEmpty() && !request.getParameter("sdate_debut").isEmpty() &&
-					!request.getParameter("sheure_debut").isEmpty() && !request.getParameter("sdate_fin").isEmpty() &&
-					!request.getParameter("sheure_fin").isEmpty()
+			if((request.getParameter("sarticle")!=null)&&!request.getParameter("sarticle").isEmpty() && (request.getParameter("sdecscription")!=null)&&!request.getParameter("sdecscription").isEmpty() && 
+					(request.getParameter("scategorie")!=null)&&!request.getParameter("scategorie").isEmpty() && (request.getParameter("sprix")!=null)&&!request.getParameter("sprix").isEmpty() && 
+					(request.getParameter("srue")!=null)&&!request.getParameter("srue").isEmpty() && (request.getParameter("scode_postal")!=null)&& !request.getParameter("scode_postal").isEmpty() &&
+					(request.getParameter("sville")!=null)&&!request.getParameter("sville").isEmpty() && (request.getParameter("sdate_debut")!=null)&&!request.getParameter("sdate_debut").isEmpty() &&
+					(request.getParameter("sheure_debut")!=null)&&!request.getParameter("sheure_debut").isEmpty() &&(request.getParameter("sdate_fin")!=null)&& !request.getParameter("sdate_fin").isEmpty() &&
+					(request.getParameter("sheure_fin")!=null)&&!request.getParameter("sheure_fin").isEmpty()
 			) {
 				
 				// verifier format date envoyer et en fonction envoyer une erreur si 9:00 au lieu de 09:00
@@ -197,15 +200,15 @@ public class ServletVendreUnArticle extends HttpServlet{
 		 */
 		protected void getParameterAndSetAttribute(HttpServletRequest request, HttpServletResponse response, List<String> listError) {
 			
-			if(!request.getParameter("sarticle").isEmpty()) {
+			if((request.getParameter("sarticle")!=null) && !request.getParameter("sarticle").isEmpty()) {
 				sarticle = request.getParameter("sarticle");
 				request.setAttribute("sarticle", sarticle);
 			}
-			if(!request.getParameter("sdecscription").isEmpty()) {
+			if((request.getParameter("sdecscription")!=null)&&!request.getParameter("sdecscription").isEmpty()) {
 				sdecscription = request.getParameter("sdecscription");
 				request.setAttribute("sdecscription", sdecscription);
 			}
-			if(!request.getParameter("scategorie").isEmpty()) {
+			if((request.getParameter("scategorie")!=null)&&!request.getParameter("scategorie").isEmpty()) {
 				scategorie = request.getParameter("scategorie");
 				try {
 				intscategorie = Integer.parseInt(scategorie);
@@ -214,7 +217,7 @@ public class ServletVendreUnArticle extends HttpServlet{
 			}
 				request.setAttribute("scategorie", scategorie);
 			}
-			if(!request.getParameter("sprix").isEmpty()) {
+			if((request.getParameter("sprix")!=null)&&!request.getParameter("sprix").isEmpty()) {
 				sprix = request.getParameter("sprix");
 				try {
 					intsprix = Integer.parseInt(sprix);
@@ -223,11 +226,11 @@ public class ServletVendreUnArticle extends HttpServlet{
 				}
 				request.setAttribute("sprix", sprix);
 			}
-			if(!request.getParameter("srue").isEmpty()) {
+			if((request.getParameter("srue")!=null)&&!request.getParameter("srue").isEmpty()) {
 				srue = request.getParameter("srue");
 				request.setAttribute("srue", srue);
 			}
-			if(!request.getParameter("scode_postal").isEmpty()) {
+			if((request.getParameter("scode_postal")!=null)&&!request.getParameter("scode_postal").isEmpty()) {
 				scode_postal = request.getParameter("scode_postal");
 				try {
 					intscode_postal = Integer.parseInt(scode_postal);
@@ -236,23 +239,23 @@ public class ServletVendreUnArticle extends HttpServlet{
 				}
 				request.setAttribute("scode_postal", scode_postal);
 			}
-			if(!request.getParameter("sville").isEmpty()) {
+			if((request.getParameter("sville")!=null)&&!request.getParameter("sville").isEmpty()) {
 				sville = request.getParameter("sville");
 				request.setAttribute("sville", sville);
 			}
-			if(!request.getParameter("sdate_debut").isEmpty()) {
+			if((request.getParameter("sdate_debut")!=null)&&!request.getParameter("sdate_debut").isEmpty()) {
 				sdate_debut = request.getParameter("sdate_debut");
 				request.setAttribute("sdate_debut", sdate_debut);
 			}
-			if(!request.getParameter("sheure_debut").isEmpty()) {
+			if((request.getParameter("sheure_debut")!=null)&&!request.getParameter("sheure_debut").isEmpty()) {
 				sheure_debut = request.getParameter("sheure_debut");
 				request.setAttribute("sheure_debut", sheure_debut);
 			}
-			if(!request.getParameter("sdate_fin").isEmpty()) {
+			if((request.getParameter("sdate_fin")!=null)&&!request.getParameter("sdate_fin").isEmpty()) {
 				sdate_fin = request.getParameter("sdate_fin");
 				request.setAttribute("sdate_fin", sdate_fin);
 			}
-			if(!request.getParameter("sheure_fin").isEmpty()) {
+			if((request.getParameter("sheure_fin")!=null)&&!request.getParameter("sheure_fin").isEmpty()) {
 				sheure_fin = request.getParameter("sheure_fin");
 				request.setAttribute("sheure_fin", sheure_fin);
 			}

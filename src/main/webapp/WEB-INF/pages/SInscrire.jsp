@@ -27,7 +27,7 @@
 <div class="container-fluid">
     <div class="container">
         
-
+<!--  
 <form action="SInscrire" method="post">
   <div class="col-12">
     <div class="row">
@@ -129,7 +129,7 @@
    </div> 
   
 </form>
-<!--
+-->
 <div class="container-fluid" id="bg">
             <div class="row">
                 <div class="col-md-2"></div>
@@ -201,7 +201,7 @@
                 <div class="col-md-2"></div>
             </div>
         </div>
-  -->
+  
 
 
 </body>
