@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,7 +68,7 @@
 								<label for="idcodepostal">Code Postal : </label>
 							</div>
 							<div class="col-4">
-								<input class="form-control" type="text" id="idcodepostal" name="scodePostal" value="${ myUser.code_postal }">
+								<input class="form-control" type="text" id="idcodepostal" name="scodePostal" value="${ myUser.codePostal }">
 							</div>
 							<div class="col-2">
 								<label for="idville">Ville : </label>

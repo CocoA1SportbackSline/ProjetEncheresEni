@@ -37,10 +37,11 @@ public class ServletAfficherMonProfil extends HttpServlet {
 		Utilisateur user = (Utilisateur) request.getSession().getAttribute("myUser");
 		
 		if(user != null && !user.getPseudo().isEmpty()) {
-			this.getServletContext().getRequestDispatcher("/WEB-INF/Monprofil.jsp").forward(request, response);
-		} 
+			this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Monprofil.jsp").forward(request, response);
+		} else {
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil.jsp").forward(request, response);
+		}
 	}
 
 	/**
@@ -125,6 +126,6 @@ public class ServletAfficherMonProfil extends HttpServlet {
 		if(request.getParameter("sdelete") != null && request.getParameter("sdelete").equals("ok")) {
 			this.getServletContext().getRequestDispatcher("/").forward(request, response);
 		}
-		
+		doGet(request, response);
 	}
 }
