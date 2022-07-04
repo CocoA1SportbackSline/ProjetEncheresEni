@@ -43,22 +43,22 @@
                                     <div class="col-6 mt-3">
                                         <p>Achats</p>
                                         <div class="ms-3">
-                                            <input class="form-check-input" type="radio" name="sachatsVentes" value="enchereouverte" id="checkAchat1">
+                                            <input class="form-check-input" type="radio" name="sachatsVentes" value="enchereOuverte" id="checkAchat1">
                                             <label for="checkAchat1">Enchères ouvertes</label> <br>
-                                            <input class="form-check-input" type="radio" name="sachatsVentes" value="mesenchere" id="checkAchat2">
+                                            <input class="form-check-input" type="radio" name="sachatsVentes" value="mesEncheres" id="checkAchat2">
                                             <label for="checkAchat2">Mes enchères</label> <br>
-                                            <input class="form-check-input" type="radio" name="sachatsVentes" value="mesencheresremportees" id="checkAchat3">
+                                            <input class="form-check-input" type="radio" name="sachatsVentes" value="mesEncheresRemportees" id="checkAchat3">
                                             <label for="checkAchat3">Mes enchères remportées</label> <br>
                                         </div>
                                     </div>
                                     <div class="col-6 mt-3">
                                         <p>Mes Ventes</p>
                                         <div class="ms-3">
-                                            <input class="form-check-input borderCheckBox" type="radio" name="sachatsVentes" value="mesventeencours" id="checkVente1">
+                                            <input class="form-check-input borderCheckBox" type="radio" name="sachatsVentes" value="mesVenteEnCours" id="checkVente1">
                                             <label for="checkVente1">Mes ventes en cours</label> <br>
-                                            <input class="form-check-input borderCheckBox" type="radio" name="sachatsVentes" value="ventenondebutees" id="checkVente2">
+                                            <input class="form-check-input borderCheckBox" type="radio" name="sachatsVentes" value="ventesNonDebutees" id="checkVente2">
                                             <label for="checkVente2">Ventes non débutées</label> <br>
-                                            <input class="form-check-input borderCheckBox" type="radio" name="sachatsVentes" value="ventesterminees" id="checkVente3">
+                                            <input class="form-check-input borderCheckBox" type="radio" name="sachatsVentes" value="ventesTerminees" id="checkVente3">
                                             <label for="checkVente3">Ventes terminées</label> <br>
                                         </div>
                                     </div>
@@ -77,7 +77,7 @@
                     <div class="row" style="justify-content: center">
                         <c:forEach var="art" items="${listeArticle}">
                             <form class="m-3 box-vente" action="${empty sessionScope.myUser ? '' : './DetailEnchere' }" method="post">
-                                <button class="btn btn-outline-success btn-vente" style="border: none" type="submit" name="sno_article" value="${ art.article.no_article}">
+                                <button class="btn btn-outline-success btn-vente" style="border: none" type="submit" name="snoarticle" value="${ art.article.noArticle}">
                                     <div class="row m-3">
                                         <div class="col-md-6">
                                             <img width="300" height="300" src="
@@ -86,9 +86,9 @@
                                         </div>
                                         <div class="col-md-6" style="font-size:20px">
                                             <p style="font-weight: bold;text-decoration: underline">
-                                            ${art.article.nom_article}</p>
-                                            <p>Prix : ${empty art.meilleurEnchere ? art.article.prix_initial : art.meilleurEnchere.montant_enchere} points</p>
-                                            <p>Fin de l'enchère :  ${art.date_fin}</p>
+                                            ${art.article.nomArticle}</p>
+                                            <p>Prix : ${empty art.meilleurEnchere ? art.article.prixInitial : art.meilleurEnchere.montantEnchere} points</p>
+                                            <p>Fin de l'enchère :  ${art.dateFin}</p>
                                             <p>Vendeur : ${art.user.pseudo}</p>
                                         </div>
                                     </div>
