@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="Css/bootstrap.min.css" />
 <title>Insert title here</title>
 </head>
 <body>

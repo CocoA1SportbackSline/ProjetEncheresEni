@@ -1,47 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Connexion</title>
-<link rel="stylesheet" href="Css/bootstrap.min.css" />
-<link rel="stylesheet" href="Css/Connexion.css" />
-</head>
-<body>
-
-	<form action="Connexion" method="post">
-
-		<header class="container-fluid">
-			<div class="row" id="menu">
-				<div class="col-md-1"></div>
-				<div class="col-md-3">
-					<a href="./Accueil"> <img alt="" src="Img/logo2 (3).png">
-					</a>
-				</div>
-				<div class="col-md-8 pe-5">
-					<div class="row m-3 text-white">
-						<div class="col-md-3 pseudo">
-							<p>Bienvenue ${ myUser.pseudo } !</p>
-						</div>
-						<div class="col-md-3 btn-mobile">
-							<p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./VendreUnArticle">Vendre un article</a>' }</p>
-						</div>
-						<div class="col-md-3 btn-mobile">
-							<p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./AfficherProfil">Mon profil</a>' }</p>
-						</div>
-						<div class="col-md-3 btn-mobile">
-							<p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./Connexion">Se Connecter</a>' }
-							</p>
-						</div>
-						<div class="col-md-3 btn-mobile">
-							<p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./Deconnexion">Se Déconnecter</a>' }</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+<%@ include file="/WEB-INF/fragment/header.jsp" %>
 
 		<div class="l">
 			<div class="col-3 col-md-3 col-sm-10  mx-auto text-center">
@@ -66,7 +23,7 @@
 					moi</label>
 			</div>
 			<div class="m">
-				<a href="url a mettre">Mot de passe oublié</a>
+				<a href="url a mettre">Mot de passe oubli�</a>
 			</div>
 			<div class="m">
 				<input type="submit" value="Connexion" name="connexion">
