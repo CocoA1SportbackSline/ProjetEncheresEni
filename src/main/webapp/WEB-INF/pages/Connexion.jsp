@@ -1,4 +1,4 @@
- <link rel="stylesheet" href="Css/bootstrap.min.css" />
+<link rel="stylesheet" href="Css/bootstrap.min.css" />
 <link rel="stylesheet" href="Css/Connexion.css" />
 
 <%@ include file="/WEB-INF/fragment/header.jsp"%>
@@ -7,6 +7,10 @@
 
 	<div class="container-fluid" style="height: auto;">	
 		<div class="l">
+
+
+	<div class="l">
+
 			<div class="col-3 col-md-3 col-sm-10  mx-auto text-center">
 				<div class="mb-3">
 					<label for="pseudoform" class="form-label">Pseudo</label> 

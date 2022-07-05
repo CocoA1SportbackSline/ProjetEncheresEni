@@ -110,7 +110,10 @@ public class ServletVendreUnArticle extends HttpServlet{
 
 				// --> Telecharger photo dans dossier imageArticle
 				// construit le chemin du répertoire pour enregistrer le fichier téléchargé
-				/*String uploadFilePath = request.getServletContext().getRealPath("") + "public" + File.separator + UPLOAD_DIR;
+
+	
+			/*	String uploadFilePath = request.getServletContext().getRealPath("") + "public" + File.separator + UPLOAD_DIR;
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 				
 				// crée le répertoire de sauvegarde s'il n'existe pas
 		        File fileSaveDir = new File(uploadFilePath);
@@ -185,7 +188,7 @@ public class ServletVendreUnArticle extends HttpServlet{
 				listError.addAll(articleVenduManager.getListError());
 				
 				if(listError.isEmpty()) {
-					this.getServletContext().getRequestDispatcher("WEB-INF/pages/Accueil").forward(request, response);
+					this.getServletContext().getRequestDispatcher("WEB-INF/pages/Accueil.jsp").forward(request, response);
 				}
 				
 			}
@@ -322,7 +325,9 @@ public class ServletVendreUnArticle extends HttpServlet{
 		 * source : journaldev.com - servlet 3 file - upload - multipartconfig-part 
 	     * MÃ©thode utilitaire pour obtenir le nom de fichier Ã  partir de la disposition du contenu de l'en-tÃªte HTTP
 	     */
-	   /* private String getFileName(Part part) {
+
+	  /*  private String getFileName(Part part) {
+>>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
 	        String contentDisp = part.getHeader("content-disposition");
 //	      System.out.println("content-disposition header= "+contentDisp);
 	        String[] tokens = contentDisp.split(";");

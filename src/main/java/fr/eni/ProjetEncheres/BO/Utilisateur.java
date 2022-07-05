@@ -121,8 +121,8 @@ public class Utilisateur {
 		return codePostal;
 	}
 
-	public void setCodePostal(int code_Postal) {
-		this.codePostal = code_Postal;
+	public void setCodePostal(int codePostal) {
+		this.codePostal = codePostal;
 	}
 
 	public String getVille() {
