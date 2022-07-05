@@ -36,7 +36,7 @@ public class EnchereManager {
 		return instance;
 	}
 	
-	public List<String> getListError(){
+	public static List<String> getListError(){
 		return listError;
 	}
 

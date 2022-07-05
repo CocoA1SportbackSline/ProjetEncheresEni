@@ -1,51 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-    <link rel="stylesheet" href="Css/bootstrap.min.css" />
-    <link rel="stylesheet" href="Css/Accueil.css" />
-</head>
-<body>
-<header class="container-fluid">
-            <div class="row" id="menu">
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-3">
-                    <a href="./Accueil">
-                        <img alt="" src='<c:url value=""></c:url>'>
-                    </a>
-                </div>
-                <div class="col-md-8 pe-5">
-                    <div class="row m-3 text-white">
-                        <div class="col-md-3 pseudo">
-                            <p>Bienvenue ${ myUser.pseudo } !</p>
-                        </div>
-                        <div class="col-md-3 btn-mobile">
-                            <p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./VendreUnArticle">Vendre un article</a>' }</p>
-                        </div>
-                        <div class="col-md-3 btn-mobile">
-                            <p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./MonProfil">Mon profil</a>' }</p>
-                        </div>
-                        <div class="col-md-3 btn-mobile">
-                            <p>${ empty sessionScope.myUser ? '<a class="nav-link active" href="./Connexion">S\'inscrire -<br> Se Connecter</a>' : '<a class="nav-link active"  href="./Deconnexion">Se DÃ©connecter</a>' }</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-</header>
 
+<%@ include file="/WEB-INF/fragment/header.jsp" %>
 <main id="bg">
         <div class="container pt-4" id="form">
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10 p-4">
-                    <h1>Liste des EnchÃ¨res</h1>
+                    <h1>Liste des Enchères</h1>
                     <form action="Accueil" method="post">
                         <div class="row mt-5">
                             <p>Filtres :</p>
@@ -57,7 +17,7 @@
                                     <input class="form-control" type="text" name="skeyword" placeholder="Le nom de l'article contient">
                                 </div>
                                 <div class=" mb-3">
-                                    <label>CatÃ©gorie : </label>
+                                    <label>Catégorie : </label>
                                     <select class="selectpicker" name="scategorie">
                                         <option value="0">Toutes</option>
                                         
@@ -71,11 +31,11 @@
                                         <p>Achats</p>
                                         <div class="ms-3">
                                             <input class="form-check-input" type="radio" name="sachatsVentes" value="enchereOuverte" id="checkAchat1">
-                                            <label for="checkAchat1">EnchÃ¨res ouvertes</label> <br>
+                                            <label for="checkAchat1">Enchères ouvertes</label> <br>
                                             <input class="form-check-input" type="radio" name="sachatsVentes" value="mesEncheres" id="checkAchat2">
-                                            <label for="checkAchat2">Mes enchÃ¨res</label> <br>
+                                            <label for="checkAchat2">Mes enchères</label> <br>
                                             <input class="form-check-input" type="radio" name="sachatsVentes" value="mesEncheresRemportees" id="checkAchat3">
-                                            <label for="checkAchat3">Mes enchÃ¨res remportÃ©es</label> <br>
+                                            <label for="checkAchat3">Mes enchères remportées</label> <br>
                                         </div>
                                     </div>
                                     <div class="col-6 mt-3">
@@ -84,9 +44,9 @@
                                             <input class="form-check-input borderCheckBox" type="radio" name="sachatsVentes" value="mesVenteEnCours" id="checkVente1">
                                             <label for="checkVente1">Mes ventes en cours</label> <br>
                                             <input class="form-check-input borderCheckBox" type="radio" name="sachatsVentes" value="ventesNonDebutees" id="checkVente2">
-                                            <label for="checkVente2">Ventes non dÃ©butÃ©es</label> <br>
+                                            <label for="checkVente2">Ventes non débutées</label> <br>
                                             <input class="form-check-input borderCheckBox" type="radio" name="sachatsVentes" value="ventesTerminees" id="checkVente3">
-                                            <label for="checkVente3">Ventes terminÃ©es</label> <br>
+                                            <label for="checkVente3">Ventes terminées</label> <br>
                                         </div>
                                     </div>
                                 </c:if>
@@ -115,7 +75,7 @@
                                             <p style="font-weight: bold;text-decoration: underline">
                                             ${art.article.nomArticle}</p>
                                             <p>Prix : ${empty art.meilleurEnchere ? art.article.prixInitial : art.meilleurEnchere.montantEnchere} points</p>
-                                            <p>Fin de l'enchÃ¨re :  ${art.dateFin}</p>
+                                            <p>Fin de l'enchère :  ${art.dateFin}</p>
                                             <p>Vendeur : ${art.user.pseudo}</p>
                                         </div>
                                     </div>

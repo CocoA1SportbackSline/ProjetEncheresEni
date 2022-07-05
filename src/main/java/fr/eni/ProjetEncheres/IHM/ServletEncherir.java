@@ -1,0 +1,74 @@
+package fr.eni.ProjetEncheres.IHM;
+
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import fr.eni.ProjetEncheres.BLL.BLLException;
+import fr.eni.ProjetEncheres.BLL.EnchereManager;
+import fr.eni.ProjetEncheres.BO.Enchere;
+import fr.eni.ProjetEncheres.BO.Utilisateur;
+
+public class ServletEncherir extends HttpServlet {
+private static final long serialVersionUID = 1L;
+	
+	private EnchereManager enchereManager;  
+
+	public void init() throws ServletException {
+		enchereManager = EnchereManager.getInstance();
+    	super.init();
+    }
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/detailsEnchere.jsp").forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		Utilisateur user = (Utilisateur) request.getSession().getAttribute("myUser");
+		int idNo_article = 0;
+		int montant_enchere = 0;
+		Enchere enchere = null;
+
+		List<String> listeDesErreurs = new ArrayList<>();
+		
+		if (!request.getParameter("idNo_article").isEmpty()) {
+			idNo_article = Integer.parseInt(request.getParameter("idNo_article"));
+		} 
+		request.setAttribute("idNo_article", idNo_article);
+		request.setAttribute("sno_article", idNo_article);
+		
+		if (!request.getParameter("smonEnchere").isEmpty()) {
+			montant_enchere = Integer.parseInt(request.getParameter("smonEnchere"));
+		}
+		if (montant_enchere == 0) {
+			request.getRequestDispatcher("/DetailEnchere").forward(request, response);
+		} 
+
+		enchere = new Enchere(LocalDateTime.now(), montant_enchere, idNo_article, user.getNoUtilisateur());
+		try {
+			enchereManager.ajoutEnchere(enchere, user);
+		} catch (BLLException e) {
+			e.printStackTrace();
+		}
+		
+		listeDesErreurs.addAll(EnchereManager.getListError());
+
+		if (!listeDesErreurs.isEmpty()) {
+			request.setAttribute("listeDesErreurs", listeDesErreurs);
+			request.getRequestDispatcher("/DetailEnchere").forward(request, response);
+		}
+
+		request.getRequestDispatcher("/Accueil").forward(request, response);
+		
+	}
+
+
+}
