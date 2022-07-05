@@ -1,7 +1,10 @@
+
 <%@ include file="/WEB-INF/fragment/header.jsp" %>
+
 <main>
 	<div class="container-fluid" id="bg">
 		<div class="row">
+
 			<div class="col-md-2"></div>
 				<div class="col-md-8 p-4 mb-4" id="form">
 					<div class="row text-center">
@@ -38,7 +41,7 @@
 							</div>
 							<div class="col-md-3 p-1 mb-1">
 								<div class="input-group mb-3">
-									<label for="idcategorie">Catégorie </label>
+									<label for="idcategorie">Catï¿½gorie </label>
 								</div>
 							</div>
 							<div class="col-md-7 p-1 mb-1">
@@ -63,7 +66,7 @@
 							</div>
 							<div class="col-md-3 p-1 mb-1">
 								<div class="input-group mb-3">
-									<label for="idprix">Mise à prix </label>
+									<label for="idprix">Mise ï¿½ prix </label>
 								</div>
 							</div>
 							<div class="col-md-7 p-1 mb-1">
@@ -74,7 +77,7 @@
 							</div>
 							<div class="col-md-3 p-1 mb-1">
 								<div class="input-group mb-3">
-									<label for="iddebutenchere">Début de l'enchere </label>
+									<label for="iddebutenchere">Dï¿½but de l'enchere </label>
 								</div>
 							</div>
 							<div class="col-md-7 p-1 mb-1">
@@ -157,7 +160,7 @@
 							</div>
 							<div class="row p-4 mb-2 justify-content-center">
 								<div class="col-md-2 text-center">	
-									<input class="btn btn-success me-2" type="submit" value="Créer">
+									<input class="btn btn-success me-2" type="submit" value="Crï¿½er">
 								</div>
 								<div class="col-md-2 text-center">	
 									<a href="<%=request.getContextPath()%>">
@@ -170,4 +173,94 @@
 				</div>
 			</div>
 		</div>
+
 	</main>
+
+</body>
+</html>
+
+<!-- <form action="VendreUnArticle" method="post">
+  <div class="col-12">
+        <div class="row">
+        
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4  ">
+                <div class="mb-3">
+                     <label for="Pseudo" class="form-label">image de l'objet</object></label>
+                 
+                </div>
+            </div>
+            
+            
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ">
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Article :</label>
+                        <input type="form-control" class="form-control" id="nom" required>
+                    </div>
+                    <div>
+                        <label for="description">Description :</label><br />
+                        <textarea name="description" id="description"></textarea>
+                    </div>
+                    <div class="cat" id="a">
+                        <label for="Categorie" >Catï¿½gorie :</label>
+                    <select class="form-select" aria-label="Default select example">
+                            <option selected>Toutes</option>
+                            <option value="1">Informatique</option>
+                            <option value="2">Ameublement</option>
+                            <option value="3">Vï¿½tement</option>
+                            <option value="4">Sport&Loisirs</option>
+                    </select>
+                     
+                
+                    <div>
+
+                        <label for="uploadImg" class="form-label">Photo de l'article :</label>
+                             <input type="file" />
+                    </div>
+                    <div id="a">
+
+                        Mise ï¿½ prix :  <input type="number" step="0" value="0" min="0" >
+                    </div>
+                    <div id="a">
+                        <label>
+                            Dï¿½but de l'enchï¿½re:
+                            <input type="date" name="debutEnchere">
+                        </label>
+                    </div>
+                    <div id="a">
+                        <label>
+                            Fin de l'enchï¿½re : 
+                            <input type="date" name="debutEnchere">
+                        </label>
+                    </div>
+                    <fieldset>
+                        <legend>Retrait</legend>
+                        <label for="rue" class="form-label">Rue :</label>
+                        <input type="form-control" class="form-control" id="rue" >
+                        <label for="rue" class="form-label">Code postal :</label>
+                        <input type="form-control" class="form-control" id="cp" >
+                        <label for="rue" class="form-label">Ville :</label>
+                        <input type="form-control" class="form-control" id="ville" >
+                      </fieldset>
+                      
+                    <div>
+                        
+                        <button type="submit" class="btn btn-primary" id="btn1">Enregistrer</button>
+                        <button type="submit" class="btn btn-primary" id="btn1">Annuler</button>
+                        <button type="submit" class="btn btn-primary" id="btn2">Annuler la vente</button>
+
+                    </div>
+                
+                </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ">
+                    <div class="mb-3">
+                        
+                    </div>
+                </div>
+            
+
+
+        </Div>
+    </Div>
+</form>
+-->
