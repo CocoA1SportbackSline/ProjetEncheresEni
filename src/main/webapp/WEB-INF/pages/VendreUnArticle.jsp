@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/fragment/header.jsp" %>
+
 <main>
 	<div class="container-fluid" id="bg">
 		<div class="row">
