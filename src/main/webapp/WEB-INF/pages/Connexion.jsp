@@ -1,9 +1,9 @@
 <%@ include file="/WEB-INF/fragment/header.jsp" %>
 
+
 <form action="Connexion" method="post">
 
-
-		<div class="l">
+	<div class="l">
 			<div class="col-3 col-md-3 col-sm-10  mx-auto text-center">
 				<div class="mb-3">
 					<label for="pseudoform" class="form-label">Pseudo</label> <input
