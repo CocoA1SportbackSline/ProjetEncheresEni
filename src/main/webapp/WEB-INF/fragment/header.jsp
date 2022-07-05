@@ -14,8 +14,8 @@
 				</div>
 				<div class="col-md-3">
 					<a href="./Accueil">
-						<!--<img alt="logo" src='<c:url value="public/images/logo-EniEncheres-long.png"></c:url>'>
-					</a>  -->
+						<!--<img alt="logo" src='<c:url value="public/images/logo-EniEncheres-long.png"></c:url>'>-->
+					</a>  
 				</div>
 				<div class="col-md-8 pe-5">
 					<div class="row m-3 text-white">
@@ -23,7 +23,7 @@
 							<p>Bienvenue ${ myUser.pseudo } !</p>
 						</div>
 						<div class="col-md-3 btn-mobile">
-							<p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./VendreArticle">Vendre un article</a>' }</p>
+							<p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./VendreUnArticle">Vendre un article</a>' }</p>
 						</div>
 						<div class="col-md-3 btn-mobile">
 							<p>${ empty sessionScope.myUser ? '' : '<a class="nav-link active" href="./MonProfil">Mon profil</a>' }</p>

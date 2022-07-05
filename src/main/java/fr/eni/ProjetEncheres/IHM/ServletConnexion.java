@@ -14,8 +14,7 @@ import javax.servlet.http.HttpSession;
 import fr.eni.ProjetEncheres.BLL.BLLException;
 import fr.eni.ProjetEncheres.BLL.UtilisateurManager;
 import fr.eni.ProjetEncheres.BO.Utilisateur;
-import fr.eni.ProjetEncheres.DAL.DALException;
-import fr.eni.ProjetEncheres.DAL.DAOFactory;
+
 
 
 /**
