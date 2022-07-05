@@ -185,7 +185,7 @@ public class ServletVendreUnArticle extends HttpServlet{
 				listError.addAll(articleVenduManager.getListError());
 				
 				if(listError.isEmpty()) {
-					this.getServletContext().getRequestDispatcher("WEB-INF/pages/Accueil").forward(request, response);
+					this.getServletContext().getRequestDispatcher("WEB-INF/pages/Accueil.jsp").forward(request, response);
 				}
 				
 			}
