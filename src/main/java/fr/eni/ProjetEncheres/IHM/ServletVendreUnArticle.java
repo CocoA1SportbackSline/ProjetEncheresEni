@@ -110,7 +110,7 @@ public class ServletVendreUnArticle extends HttpServlet{
 
 				// --> Telecharger photo dans dossier imageArticle
 				// construit le chemin du répertoire pour enregistrer le fichier téléchargé
-				String uploadFilePath = request.getServletContext().getRealPath("") + "public" + File.separator + UPLOAD_DIR;
+				/*String uploadFilePath = request.getServletContext().getRealPath("") + "public" + File.separator + UPLOAD_DIR;
 				
 				// crée le répertoire de sauvegarde s'il n'existe pas
 		        File fileSaveDir = new File(uploadFilePath);
@@ -124,7 +124,7 @@ public class ServletVendreUnArticle extends HttpServlet{
 				
 				if(fileName != null && !fileName.isEmpty()) {
 					part.write(uploadFilePath + File.separator + fileName);		
-				}
+				}*/
 			
 			if((request.getParameter("sarticle")!=null)&&!request.getParameter("sarticle").isEmpty() && (request.getParameter("sdecscription")!=null)&&!request.getParameter("sdecscription").isEmpty() && 
 					(request.getParameter("scategorie")!=null)&&!request.getParameter("scategorie").isEmpty() && (request.getParameter("sprix")!=null)&&!request.getParameter("sprix").isEmpty() && 
@@ -322,7 +322,7 @@ public class ServletVendreUnArticle extends HttpServlet{
 		 * source : journaldev.com - servlet 3 file - upload - multipartconfig-part 
 	     * MÃ©thode utilitaire pour obtenir le nom de fichier Ã  partir de la disposition du contenu de l'en-tÃªte HTTP
 	     */
-	    private String getFileName(Part part) {
+	   /* private String getFileName(Part part) {
 	        String contentDisp = part.getHeader("content-disposition");
 //	      System.out.println("content-disposition header= "+contentDisp);
 	        String[] tokens = contentDisp.split(";");
@@ -332,6 +332,6 @@ public class ServletVendreUnArticle extends HttpServlet{
 	            }
 	        }
 	        return "";
-	    }
+	    }*/
 	}
 

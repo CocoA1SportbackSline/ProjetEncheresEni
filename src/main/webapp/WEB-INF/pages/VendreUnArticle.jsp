@@ -1,14 +1,4 @@
-<<<<<<< HEAD
 <%@ include file="/WEB-INF/fragment/header.jsp" %>
-=======
-
-<%@ include file="/WEB-INF/fragment/header.jsp" %>
-
->>>>>>> branch 'master' of https://github.com/CocoA1SportbackSline/ProjetEncheresEni.git
-<main>
-<<<<<<< HEAD
-    <div class="container-fluid" id="bg">
-=======
 	<div class="container-fluid" id="bg">
 		<div class="row">
 
