@@ -16,6 +16,7 @@ public class ArticleVendu {
 		private String image;
 		private int noUtilisateur;
 		private int noCategorie;
+		private int noRetrait;
 	
 		
 	
@@ -39,6 +40,7 @@ public class ArticleVendu {
 		this.image = image;
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
+		this.noRetrait = noRetrait;
 	
 	}
 	
@@ -56,6 +58,7 @@ public class ArticleVendu {
 		this.prixInitial = prixInitial;
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
+		this.noRetrait = noRetrait;
 	
 	}
 
@@ -76,7 +79,7 @@ public class ArticleVendu {
 		this.image = image;
 		this.noUtilisateur = noUtilisateur;
 		this.noCategorie = noCategorie;
-		
+		this.noRetrait = noRetrait;
 	}
 
 	public int getNoArticle() {
@@ -152,6 +155,14 @@ public class ArticleVendu {
 	}
 
 
+	public int getNoRetrait() {
+		return noRetrait;
+	}
+
+	public void setNoRetrait(int noRetrait) {
+		this.noRetrait = noRetrait;
+	}
+
 	public String getImage() {
 		return image;
 	}
@@ -162,13 +173,13 @@ public class ArticleVendu {
 
 	@Override
 	public String toString() {
-		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description="
-				+ description + ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres="
-				+ dateFinEncheres + ", prixInitial=" + prixInitial + ", prixVente=" + prixVente
-				+ ", noUtilisateur=" + noUtilisateur + ", noCategorie=" + noCategorie + 
-				"]";
+		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
+				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", prixInitial="
+				+ prixInitial + ", prixVente=" + prixVente + ", image=" + image + ", noUtilisateur=" + noUtilisateur
+				+ ", noCategorie=" + noCategorie + ", noRetrait=" + noRetrait + "]";
 	}
-	
+
+
 
 
 
