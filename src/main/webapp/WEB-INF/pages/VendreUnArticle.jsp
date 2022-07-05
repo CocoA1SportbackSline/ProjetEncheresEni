@@ -55,7 +55,7 @@
 								<div class="input-group mb-3">
 									<select class="selectpicker" id="idcategorie" name="scategorie">
 										<c:forEach var="item" items="${categories}">
-											<option value="${item.no_categorie}">${item.libelle}</option>
+											<option value="${item.noCategorie}">${item.libelle}</option>
 										</c:forEach>
 									</select>
 								</div>
@@ -137,7 +137,7 @@
 										<div class="input-group mb-3">
 											<c:if test="${empty scode_postal}">
 												<input type="number" class="form-control" id="idcodepostal"
-												name="scode_postal" value="${sessionScope.myUser.code_postal}">
+												name="scode_postal" value="${sessionScope.myUser.codePostal}">
 											</c:if>
 											<c:if test="${!empty scode_postal}">
 												<input type="number" class="form-control" id="idcodepostal"
