@@ -1,5 +1,6 @@
 package fr.eni.ProjetEncheres.IHM;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import fr.eni.ProjetEncheres.BLL.ArticleVenduManager;
 import fr.eni.ProjetEncheres.BLL.BLLException;
@@ -94,9 +96,10 @@ public class ServletVendreUnArticle extends HttpServlet {
 					response);
 		}
 
-		this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil.jsp").forward(request, response);
+	
+		
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -118,22 +121,25 @@ public class ServletVendreUnArticle extends HttpServlet {
 		getParameterAndSetAttribute(request, response, listError);
 
 		// TODO If listError not empty --> dispatch à la jsp
-		/*
-		 * // --> Telecharger photo dans dossier imageArticle // construit le chemin du
-		 * répertoire pour enregistrer le fichier téléchargé String uploadFilePath =
-		 * request.getServletContext().getRealPath("") + "public" + File.separator +
-		 * UPLOAD_DIR;
-		 * 
-		 * // crée le répertoire de sauvegarde s'il n'existe pas File fileSaveDir = new
-		 * File(uploadFilePath); if (!fileSaveDir.exists()) { fileSaveDir.mkdirs(); }
-		 * 
-		 * /* // Récupère toutes les parties de la requête et les écrit dans le fichier
-		 * sur le serveur Part part = request.getPart("sphoto"); fileName =
-		 * getFileName(part);
-		 * 
-		 * if(fileName != null && !fileName.isEmpty()) { part.write(uploadFilePath +
-		 * File.separator + fileName); }
-		 */
+        // --> Telecharger photo dans dossier imageArticle
+        // construit le chemin du répertoire pour enregistrer le fichier téléchargé
+       
+		String uploadFilePath = request.getServletContext().getRealPath("") + "public" + File.separator + UPLOAD_DIR;
+      
+		// crée le répertoire de sauvegarde s'il n'existe pas
+       
+		File fileSaveDir = new File(uploadFilePath);
+        if (!fileSaveDir.exists()) {
+            fileSaveDir.mkdirs();
+        }
+    // Récupère toutes les parties de la requête et les écrit dans le fichier sur le serveur
+      
+        Part part = request.getPart("sphoto");
+        fileName = getFileName(part);
+        if(fileName != null && !fileName.isEmpty()) {
+            part.write(uploadFilePath + File.separator + fileName);     
+        }
+		 
 
 		if ((request.getParameter("sarticle") != null) && !request.getParameter("sarticle").isEmpty()
 				&& (request.getParameter("sdecscription") != null) && !request.getParameter("sdecscription").isEmpty()
@@ -200,7 +206,7 @@ public class ServletVendreUnArticle extends HttpServlet {
 			listError.addAll(articleVenduManager.getListError());
 
 			if (listError.isEmpty()) {
-				this.getServletContext().getRequestDispatcher("WEB-INF/pages/Accueil").forward(request, response);
+				this.getServletContext().getRequestDispatcher("WEB-INF/pages/Accueil.jsp").forward(request, response);
 			}
 
 		}
@@ -327,4 +333,20 @@ public class ServletVendreUnArticle extends HttpServlet {
 
 		return date;
 	}
+	
+    /**
+     * source : journaldev.com - servlet 3 file - upload - multipartconfig-part
+     * MÃ©thode utilitaire pour obtenir le nom de fichier Ã  partir de la disposition du contenu de l'en-tÃªte HTTP
+     */
+    private String getFileName(Part part) {
+        String contentDisp = part.getHeader("content-disposition");
+//      System.out.println("content-disposition header= "+contentDisp);
+        String[] tokens = contentDisp.split(";");
+        for (String token : tokens) {
+            if (token.trim().startsWith("filename")) {
+                return token.substring(token.indexOf("=") + 2, token.length()-1);
+            }
+        }
+        return "";
+    }
 }
