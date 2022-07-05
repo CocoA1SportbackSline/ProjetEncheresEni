@@ -26,9 +26,7 @@ import fr.eni.ProjetEncheres.BO.Utilisateur;
 
 @WebServlet("/Accueil")
 public class ServletAccueil extends HttpServlet {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	
 		private ArticleVenduManager articleVenduManager;

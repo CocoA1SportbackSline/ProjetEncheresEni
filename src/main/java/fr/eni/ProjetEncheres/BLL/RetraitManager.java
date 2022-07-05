@@ -36,6 +36,20 @@ public class RetraitManager {
 		return listeRetrait;
 	}
 	
+	public Retrait selectById(int id) throws BLLException {
+		Retrait r = new Retrait();
+		
+		try {
+
+			r = retraitDao.selectById(id);
+
+		} catch (DALException e) {
+			throw new BLLException("Echec selectById");
+		}
+		return r;
+	}
+
+	
 	
 	
 	
@@ -69,7 +83,7 @@ public class RetraitManager {
 			if(t.getVille().equals(retrait.getVille()) && t.getCodePostal() == retrait.getCodePostal() && t.getRue().equals(retrait.getRue())) {
 				//Vérifier si les parametre de t (test le retrait passé en parametre de la methode) sont egaux aux parametre de retrait ( retrait est un element retrait de la liste complete des retrait)
 				//si le retrait existe recuperer le retrait dans une variable
-				t.setNoArticle(retrait.getNoArticle());
+				t.setNoRetrait(retrait.getNoRetrait());
 				verifRetraitExist = true;
 				break;
 			}
@@ -83,8 +97,6 @@ public class RetraitManager {
 				throw new BLLException("Echec method insertRetrait()");
 			}
 		}
-
-
-	}	
+}	
 	
 }

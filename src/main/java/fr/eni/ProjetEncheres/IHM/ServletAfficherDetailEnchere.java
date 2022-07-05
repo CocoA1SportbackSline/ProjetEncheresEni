@@ -84,7 +84,7 @@ private static final long serialVersionUID = 1L;
 			
 			request.setAttribute("categorie", libelleCategorie);
 			
-			retrait = retraitManager.selectById(articleVendu.getNo_retrait());
+			retrait = retraitManager.selectById(articleVendu.getNoArticle());
 			
 			request.setAttribute("retrait", retrait);
 			

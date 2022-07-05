@@ -8,9 +8,9 @@ import fr.eni.ProjetEncheres.BO.Retrait;
 public interface RetraitDAO {
 
 	void insert (Retrait r1) throws DALException;
-	void delete (Integer noArticle)throws DALException;
+	void delete (int id)throws DALException;
 	void update (Retrait r1) throws DALException;
 	List <Retrait> selectAll () throws DALException;
-	Retrait selectByNoArt (Integer noArticle) throws DALException;
+	Retrait selectById (int noRetrait) throws DALException;
 	
 }
