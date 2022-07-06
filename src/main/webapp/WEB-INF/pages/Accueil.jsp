@@ -87,9 +87,6 @@
                     </div>
                 </c:if>
             </div>
-            <div>
-				<a href="/WEB-INF/pages/VendreUnArticle.jsp">Redirection</a>            
-            </div>
-        </main>
+         </main>
 </body>
 </html>

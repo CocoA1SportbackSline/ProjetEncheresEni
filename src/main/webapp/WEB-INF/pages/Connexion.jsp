@@ -1,8 +1,6 @@
+<%@ include file="/WEB-INF/fragment/header.jsp"%>
 <link rel="stylesheet" href="Css/bootstrap.min.css" />
 <link rel="stylesheet" href="Css/Connexion.css" />
-
-<%@ include file="/WEB-INF/fragment/header.jsp"%>
-
 <form action="Connexion" method="post">
 
 	<div class="container-fluid" style="height: auto;">	
