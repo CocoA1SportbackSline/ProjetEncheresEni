@@ -1,0 +1,131 @@
+@charset "UTF-8";
+@media only screen and (min-width : 1330px) {
+    body {
+        font-family: 'Roboto', sans-serif;
+        height : 100%;
+    }
+    header, footer {
+        background-color:#254d3e
+    }
+    #bg {
+        background-image: url("../images/laptop.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top;
+        padding: 3% 12%;
+    }
+    h1 {
+        font-weight: bold;
+        margin-bottom: 2%;
+    }
+    h2, h3 {
+        margin-bottom: 2%;
+    }
+    #menu {
+        margin: auto;
+        justify-content: center;
+        color: #fff;
+    }
+    /* #menu p, a {
+        font-size: 18px;
+    } */
+    #menu a {
+        color: #fff;
+        text-decoration: none;
+    }
+    #menu a:hover {
+        text-decoration: underline;
+    }
+    .nav-link {
+        padding: 0;
+    }
+    .box-vente {
+        width: 60%;
+        height: 18%;
+    }
+    .btn-vente {
+        width: 100%;
+        height: 100%;
+    }
+    .pseudo, .btn-mobile {
+        margin: 4% 0;
+    }
+    #box-form {
+        width: 100%;
+        margin: 0;
+    }
+    #form {
+        background-color: #254d3e;
+        opacity: 0.96;
+        color: white;
+        border-radius: 1%;
+    }
+    #form-sinscrire {
+        justify-content: center;
+    }
+    #form a {
+        color: #fff;
+        text-decoration: none;
+    }
+    #form a:hover {
+        text-decoration: underline;
+    }
+    .label-connexion {
+        margin-bottom: 3%;
+    }
+    .form-control {
+       color: #163a2d;
+    }
+    #formbox {
+        margin-bottom: 20px;
+        padding: 1% 2% 0 7%;
+    }
+    #formbox2 {
+        margin-bottom: 20px;
+        padding: 1% 7% 0 2%;
+    }
+    #connexion-comp {
+        margin: 2% 0 2% 10%;
+    }
+    .btn {
+        border-color: #f6f6f6;
+        background-color: #254c3d;
+        color: #FFF;
+    }
+    #btn-vert:hover { 
+        border-color: #3f8664;
+        background-color: #3f8664;
+        color: #fff; 
+    }
+    #btn-rouge:hover {
+        border-color: #ad2e2e;
+        background-color: #ad2e2e;
+        color: #fff; 
+    }
+      #footer {
+       	position : fixed;
+       	bottom : 0;
+       /* display: flex;*/
+        color: #fff;
+    }
+    #footer img {
+        height: 40px;
+    }
+    #footer p {
+        margin: auto 0 auto 15px;
+        font-size: 75%;
+    }
+    
+       main {
+   		min-height:100%;
+   		position:relative;
+   		padding-bottom:100px;
+    }
+    
+    html, body {
+  		margin:0;
+  		padding:0;
+   		height:100%;
+    }
+}
