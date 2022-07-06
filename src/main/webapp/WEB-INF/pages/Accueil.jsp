@@ -1,7 +1,7 @@
+<%@ include file="/WEB-INF/fragment/header.jsp" %>
 <link rel="stylesheet" href="Css/bootstrap.min.css" />
 <link rel="stylesheet" href="Css/Accueil.css" />
 
-<%@ include file="/WEB-INF/fragment/header.jsp" %>
 <main id="bg">
         <div class="container pt-4" id="form">
             <div class="row">
