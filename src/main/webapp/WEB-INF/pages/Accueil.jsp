@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="Css/bootstrap.min.css" />
+<link rel="stylesheet" href="Css/Accueil.css" />
 
 <%@ include file="/WEB-INF/fragment/header.jsp" %>
 <main id="bg">
@@ -89,6 +91,5 @@
 				<a href="/WEB-INF/pages/VendreUnArticle.jsp">Redirection</a>            
             </div>
         </main>
-	
 </body>
 </html>

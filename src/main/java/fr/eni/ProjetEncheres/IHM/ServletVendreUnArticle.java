@@ -84,7 +84,7 @@ public class ServletVendreUnArticle extends HttpServlet{
 				this.getServletContext().getRequestDispatcher("/WEB-INF/pages/VendreUnArticle.jsp").forward(request, response);
 			}
 				
-			this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil").forward(request, response);	
+			this.getServletContext().getRequestDispatcher("/WEB-INF/pages/Accueil.jsp").forward(request, response);	
 		}
 
 		/**
