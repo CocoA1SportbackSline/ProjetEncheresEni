@@ -1,26 +1,40 @@
 @charset "UTF-8";
 
-header{
+/*header{
     
     background-color: rgb(8, 8, 185);
     
-}
+}*/
 
 .l{
-    
-    margin-top: 2%;
+    left: 50%;
+    position : absolute;
+    top : 45%;
+    transform: translate(-580%, -55%);
     text-align: center;
-                
+ }                 
     
-}
+ .l button {
+ 	border: 1px solid;
+ 	background: gray;
+ 	border-radius: 0;
+ 	color:#fff;
+ }   
+ 
+ .description button:hover {
+ 	border: 1px solid #fff;
+ 	background:#fff;
+ 	color:#000;                                                          
+ }
 
+/*
 .m{
     margin: 1%;
-}
+}*/
 
 
-p{
+/*p{
 	margin-left: 25%;
 	
 	background-color: red ;
-}
+}*/
