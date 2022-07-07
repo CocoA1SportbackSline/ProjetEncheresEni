@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/fragment/header.jsp"%>
 <main>
-	<h1>Création de votre profil</h1>
+	
 	<!--  <div class="container-fluid">
     <div class="container">
 <form action="SInscrire" method="post">
@@ -184,7 +184,7 @@
 						<div class="text-center">
 							<div>
 								<input class="btn btn-success me-2" type="submit" value="Creer">
-								<a href="<%=request.getContextPath()%>"> <input
+								<a href="<%=request.getContextPath()%>/Accueil"> <input
 									class="btn btn-danger ms-2" type="button" value="Annuler">
 								</a>
 							</div>

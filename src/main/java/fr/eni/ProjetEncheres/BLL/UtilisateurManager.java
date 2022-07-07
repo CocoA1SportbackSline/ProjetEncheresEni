@@ -112,7 +112,7 @@ public class UtilisateurManager {
 		checkPassword(u.getMotDePasse(), listError);
 		
 		if(!listError.isEmpty()) {
-			throw new BLLException("Echec updateUser : vÃ©rification des attributs");
+			throw new BLLException("Echec updateUser : vérification des attributs");
 		}
 		
 		try {
@@ -124,7 +124,7 @@ public class UtilisateurManager {
 	}
 
 	
-	// permet la suppression d un utilisateur en fonction de son no_uti attribuÃ© a la creation du compte
+	// permet la suppression d un utilisateur en fonction de son no_uti attribué a la creation du compte
 	public void deleteUser(Utilisateur u) throws BLLException {
 		
 		try {
@@ -164,7 +164,7 @@ public class UtilisateurManager {
 		if(nom.length()>30) {
 			listError.add("nom est trop grand");
 		}
-		if(nom.matches("[a-AZ]*")) {
+		if(nom.matches("[a-zA-Z]*")) {
 			listError.add("le pseudo ne peut comprendre que des lettres et des chiffres");
 		}
 	}
@@ -174,7 +174,7 @@ public class UtilisateurManager {
 			listError.add("le prenom est trop grand ");
 		}
 	
-		if(prenom.matches("[a-AZ]*")) {
+		if(prenom.matches("[a-zA-Z]*")) {
 			listError.add("le prenom ne peut contenir que des lettre");
 		}
 	}

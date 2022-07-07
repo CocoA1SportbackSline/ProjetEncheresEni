@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/fragment/header.jsp"%>
 
 
-<main id="bg">
+<main id="bg" >
 	<div class="container pt-4" id="form">
 		<div class="row">
 			<div class="col-md-1"></div>

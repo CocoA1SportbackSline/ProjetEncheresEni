@@ -23,7 +23,7 @@
 	rel="stylesheet">
 <title>Insert title here</title>
 </head>
-<body>
+<body classe="image" style="background-image: url('Img/laptop.jpg'); height: 100%">
 	<header class="container-fluid">
 		<div class="row" id="menu">
 			<div class="col-md-1"></div>

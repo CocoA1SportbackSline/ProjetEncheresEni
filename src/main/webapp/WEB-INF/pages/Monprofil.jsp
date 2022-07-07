@@ -1,6 +1,8 @@
 <%@ include file="/WEB-INF/fragment/header.jsp"%>
-<main>
-	<h1>Mon Profil</h1>
+<main id="bg">
+
+<div id="form">
+	<h1 align="center">Mon Profil</h1>
 
 	<div class="text-danger row text-center">
 		<c:forEach var="item" items="${ listError }">
@@ -138,6 +140,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 	</form>
 </main>
 <%@ include file="/WEB-INF/fragment/footer.jsp"%>

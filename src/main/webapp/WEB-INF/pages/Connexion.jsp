@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/fragment/header.jsp"%>
-<main>
+<main id="bg">
 	<form action="Connexion" method="post">
-
+		<div id="form">
 		<div class="container-fluid" style="height: auto;">
 			<div class="l">
 				<div class="col-3 col-md-3 col-sm-10  mx-auto text-center">
@@ -35,6 +35,7 @@
 				<p style="color: red">${listError}</p>
 			</div>
 			</div>
+		</div>
 		</div>
 	</form>
 </main>

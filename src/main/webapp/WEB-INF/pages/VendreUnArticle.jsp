@@ -1,4 +1,7 @@
 <%@ include file="/WEB-INF/fragment/header.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <main>
 	<div class="container-fluid" id="bg">
 
@@ -40,7 +43,7 @@
 						</div>
 						<div class="col-md-3 p-1 mb-1">
 							<div class="input-group mb-3">
-								<label for="idcategorie">Categorie </label>
+								<label for="idcategorie">Catégorie </label>
 							</div>
 						</div>
 						<div class="col-md-7 p-1 mb-1">
@@ -163,10 +166,10 @@
 						</div>
 						<div class="row p-4 mb-2 justify-content-center">
 							<div class="col-md-2 text-center">
-								<input class="btn btn-success me-2" type="submit" value="Cr�er">
+								<input class="btn btn-success me-2" type="submit" value="Créer">
 							</div>
 							<div class="col-md-2 text-center">
-								<a href="<%=request.getContextPath()%>"> <input
+								<a href="<%=request.getContextPath()%>/Accueil"> <input
 									class="btn btn-danger ms-2" type="button" value="Annuler">
 								</a>
 							</div>

@@ -3,12 +3,13 @@
     body {
         font-family: 'Roboto', sans-serif;
         height : 100%;
+        background-image: url('Img/laptop.jpg');
     }
     header, footer {
         background-color:#254d3e
     }
     #bg {
-        background-image: url("../images/laptop.jpg");
+        background-image: url(Img/laptop.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
