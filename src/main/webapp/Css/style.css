@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@media only screen and (min-width : 1330px) {
+/*@media only screen and (min-width : 1330px) {*/
     body {
         font-family: 'Roboto', sans-serif;
         height : 100%;
@@ -128,4 +128,4 @@
   		padding:0;
    		height:100%;
     }
-}
+/*}*/

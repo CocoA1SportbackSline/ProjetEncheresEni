@@ -15,9 +15,7 @@
 					</c:forEach>
 				</div>
 				<div class="row mb-4 ps-5 justify-content-center">
-					<form class="row"
-						action="<%=request.getContextPath()%>/VendreUnArticle"
-						method="post" enctype="multipart/form-data">
+					<form class="row" action="<%= request.getContextPath() %>/VendreUnArticle" method="post" enctype="application/x-www-form-urlencoded" >
 						<div class="col-md-3 p-1 mb-1">
 							<div class="input-group mb-3">
 								<label for="idarticle">Article </label>
@@ -42,7 +40,7 @@
 						</div>
 						<div class="col-md-3 p-1 mb-1">
 							<div class="input-group mb-3">
-								<label for="idcategorie">Cat�gorie </label>
+								<label for="idcategorie">Categorie </label>
 							</div>
 						</div>
 						<div class="col-md-7 p-1 mb-1">
@@ -54,7 +52,7 @@
 								</select>
 							</div>
 						</div>
-						<div class="col-md-3 p-1 mb-1">
+					<!-- <div class="col-md-3 p-1 mb-1">
 							<div class="input-group mb-3">
 								<label for="idphoto">Photo de l'article </label>
 							</div>
@@ -65,10 +63,10 @@
 									placeholder="a-tranformer-en-boutton-upload" name="sphoto"
 									accept="image/png, image/jpeg">
 							</div>
-						</div>
+						</div> -->	
 						<div class="col-md-3 p-1 mb-1">
 							<div class="input-group mb-3">
-								<label for="idprix">Mise � prix </label>
+								<label for="idprix">Mise à prix </label>
 							</div>
 						</div>
 						<div class="col-md-7 p-1 mb-1">
@@ -79,7 +77,7 @@
 						</div>
 						<div class="col-md-3 p-1 mb-1">
 							<div class="input-group mb-3">
-								<label for="iddebutenchere">D�but de l'enchere </label>
+								<label for="iddebutenchere">Début de l'enchere </label>
 							</div>
 						</div>
 						<div class="col-md-7 p-1 mb-1">

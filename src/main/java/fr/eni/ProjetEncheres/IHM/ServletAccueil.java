@@ -75,10 +75,11 @@ public class ServletAccueil extends HttpServlet {
 			try {
 				
 				listeCategorie = categorieManager.selectall();
-				request.setAttribute("listeCategorie", listeCategorie);
+				//request.setAttribute("listeCategorie", listeCategorie);
 			}catch (BLLException e) {
 				e.printStackTrace();
 			}
+			request.setAttribute("listeCategorie", listeCategorie);
 			
 			//affichage article sans recherche achats/mesventes
 			if(sachatsVentes == null || sachatsVentes.equals("enchereOuverte")) {

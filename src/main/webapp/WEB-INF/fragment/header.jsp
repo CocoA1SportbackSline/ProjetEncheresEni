@@ -29,7 +29,7 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-3">
 				<a href="Accueil"> <img alt="logo"
-					src='<c:url value="images/logo-EniEncheres-long.png"></c:url>'>
+					src='<c:url value="Img/eni2.png"></c:url>'>
 				</a>
 			</div>
 			<div class="col-md-8 pe-5">

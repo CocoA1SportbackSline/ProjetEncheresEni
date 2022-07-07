@@ -15,7 +15,9 @@
 						<input type="password" class="form-control" id="passwordform"
 							placeholder="Votre mot de passe" name="passwordform" required>
 					</div>
-				</div>
+				
+				
+				
 				<div class="form-check">
 					<input class="form-check-input" type="checkbox" value=""
 						id="flexCheckDefault"> <label class="form-check-label"
@@ -31,6 +33,7 @@
 					<a href="SInscrire">Pas encore de compte, cliquez ici</a>
 				</div>
 				<p style="color: red">${listError}</p>
+			</div>
 			</div>
 		</div>
 	</form>
